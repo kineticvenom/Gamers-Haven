@@ -1,12 +1,13 @@
+
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
-
+  padding: 0;
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #ed2525;
+  background-color: #e12828;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -15,19 +16,25 @@
   -webkit-text-size-adjust: 100%;
 }
 
+/* Background of index.html */
+body{
+  background-color: 	#BFCCDC;
+}
+
+/* Auto generated Styling below */
 a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #d35c20;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
+ 
+  place-items: baseline;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -68,3 +75,4 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+/* Auto generated Styling above */
