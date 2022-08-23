@@ -1,27 +1,23 @@
-import { useState } from 'react'
-import AppNav from "./components/AppNav"
-import { HashRouter as Router, Routes, Route } from 'react-router-dom'
-import HomePage from './Pages/HomePage'
-import AnimePages from './Pages/AnimePages'
-import GamePages from './Pages/GamePages'
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { Layout } from "./components/Layout";
+import HomePage from "./Pages/HomePage";
+import AnimePages from "./Pages/AnimePages";
+import GamePages from "./Pages/GamePages";
 
-import './App.css'
+import "./App.css";
 
 function App() {
-
-
   return (
-    <div className="">
-      <AppNav />
-      <Router>
+    <Router>
+      <Layout>
         <Routes>
-          <Route path='/' element={<HomePage />} />
-          <Route path='/animes' element={< AnimePages /> }></Route>
-          <Route path='/games' element={< GamePages />}></Route>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/animes" element={<AnimePages />}></Route>
+          <Route path="/games" element={<GamePages />}></Route>
         </Routes>
-      </Router>
-    </div>
-  )
+      </Layout>
+    </Router>
+  );
 }
 
-export default App
+export default App;
