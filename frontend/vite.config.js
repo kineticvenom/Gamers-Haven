@@ -1,16 +1,11 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
 export default defineConfig({
-
-
-  base: '/static/',
+  base: "/static/",
   build: {
- 
-    outDir: '../backend/static',
-
+    outDir: "../backend/static",
     emptyOutDir: true,
   },
-  plugins: [react()]
-})
+  plugins: [react()],
+});
