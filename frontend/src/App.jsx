@@ -1,3 +1,4 @@
+
 import { useState,useEffect} from 'react'
 import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 import axios from 'axios'
@@ -9,10 +10,12 @@ import AnimePages from './Pages/AnimePages'
 import GamePages from './Pages/GamePages'
 import GameDetailPages from './Pages/GameDetailPages'
 
-import './App.css'
+
+import "./App.css";
 
 
 function App() {
+
 
   const [games, setGames] = useState([])
   
@@ -29,19 +32,21 @@ function App() {
 
   useEffect(GrabGame, [])
 
+
   return (
-    <div className="">
-      <AppNav />
-      <Router>
+    <Router>
+      <Layout>
         <Routes>
+
           <Route path='/' element={<HomePage />} />
           <Route path='/animes' element={< AnimePages /> }></Route>
           <Route path='/games' element={< GamePages games={games} />}></Route>
           <Route path='/games/:title' element={<GameDetailPages />} />
+
         </Routes>
-      </Router>
-    </div>
-  )
+      </Layout>
+    </Router>
+  );
 }
 
-export default App
+export default App;

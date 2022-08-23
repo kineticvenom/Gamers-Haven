@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 import { Col } from "react-bootstrap"
 import { Link } from 'react-router-dom'
 import star from '../assets/star.png'
 import emptyStar from '../assets/blackstar.png'
+=======
+import { Col } from "react-bootstrap";
 
+import star from "../assets/star.png";
+import emptyStar from "../assets/blackstar.png";
 
 function GameTeaser(props){
     
@@ -19,8 +24,9 @@ function GameTeaser(props){
 
         
         
+
     </Col>
-    )
+  );
 }
 
-export default GameTeaser
+export default GameTeaser;

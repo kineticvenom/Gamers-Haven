@@ -1,6 +1,5 @@
-import {Container, Row, Col} from "react-bootstrap/"
-import GameTeaser from "./GameTeaser"
- 
+import { Container, Row, Col } from "react-bootstrap/";
+import GameTeaser from "./GameTeaser";
 
 function GameList(props){
     const {games} = props
@@ -14,6 +13,7 @@ function GameList(props){
            
         </Row>
     )
+
 }
 
-export default GameList
+export default GameList;
