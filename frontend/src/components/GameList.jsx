@@ -2,12 +2,12 @@ import { Container, Row, Col } from "react-bootstrap/";
 import GameTeaser from "./GameTeaser";
 
 function GameList(props){
-    const {games} = props
+    const {games, setCurrentGame} = props
 
     return (
         <Row>
             {games.map((game) => (
-                <GameTeaser {...game}/>
+                <GameTeaser {...game} setCurrentGame={setCurrentGame}/>
                 ))
             }
            

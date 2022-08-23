@@ -18,6 +18,7 @@ function App() {
 
 
   const [games, setGames] = useState([])
+  const [currentGame, setCurrentGame] = useState(null)
   
 
 
@@ -34,18 +35,17 @@ function App() {
 
 
   return (
-    <Router>
-      <Layout>
-        <Routes>
-
-          <Route path='/' element={<HomePage />} />
-          <Route path='/animes' element={< AnimePages /> }></Route>
-          <Route path='/games' element={< GamePages games={games} />}></Route>
-          <Route path='/games/:title' element={<GameDetailPages />} />
-
-        </Routes>
-      </Layout>
-    </Router>
+    <div>
+    < AppNav />
+      <Router>
+          <Routes>
+            <Route path='/' element={<HomePage />} />
+            <Route path='/animes' element={< AnimePages /> }></Route>
+            <Route path='/games' element={< GamePages games={games} setCurrentGame={setCurrentGame}/>}></Route>
+            <Route path='/games/:title' element={<GameDetailPages currentGame={currentGame}/>} />
+          </Routes>
+      </Router>
+    </div>
   );
 }
 
