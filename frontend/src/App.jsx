@@ -41,7 +41,7 @@ function App() {
           <Routes>
             <Route path='/' element={<HomePage />} />
             <Route path='/animes' element={< AnimePages /> }></Route>
-            <Route path='/games' element={< GamePages games={games} setCurrentGame={setCurrentGames}/>}></Route>
+            <Route path='/games' element={< GamePages games={games} setCurrentGame={setCurrentGame}/>}></Route>
             <Route path='/games/:title' element={<GameDetailPages currentGame={currentGame}/>} />
           </Routes>
       </Router>

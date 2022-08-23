@@ -6,6 +6,7 @@ export default defineConfig({
   build: {
     outDir: "../backend/static",
     emptyOutDir: true,
+    sourcemap: true,
   },
   plugins: [react()],
 });
