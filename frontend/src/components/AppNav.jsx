@@ -8,20 +8,22 @@ function AppNav() {
 
     return (
         
+      
       <div className='NavBarContainer'>
       
-        <Navbar expand="xxl" className='m-auto'> 
+        <Navbar expand="xxl" className='m-auto'>
+        <Navbar.Brand href="#home">Gamer's Haven</Navbar.Brand>
         <Navbar.Toggle className='m-auto' aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="m-auto NavEle" >
-            <Nav.Link href="">NAV 1</Nav.Link>
-              <Nav.Link href="">NAV 2</Nav.Link>
-              <Nav.Link href="">NAV 3</Nav.Link>
-              <Nav.Link href="">NAV 4</Nav.Link>
+          <Nav className="ml-auto NavEle" >
+            <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="/#/games">Games</Nav.Link>
+              <Nav.Link href="/#/animes">Anime</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
       </div>
+      
     
     )
 }
