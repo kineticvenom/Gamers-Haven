@@ -3,11 +3,15 @@ import GameTeaser from "./GameTeaser"
  
 
 function GameList(props){
-    const {game} = props
+    const {games} = props
 
     return (
         <Row>
-           {game ? <GameTeaser game={game}/> : <h1>Loading..</h1>} 
+            {games.map((game) => (
+                <GameTeaser {...game}/>
+                ))
+            }
+           
         </Row>
     )
 }
