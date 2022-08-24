@@ -1,6 +1,8 @@
 from statistics import mode
 from django.db import models
 from django.contrib.auth.models import (AbstractUser)
+from django.utils import timezone
+
 
 
 
@@ -15,3 +17,12 @@ class AppUser(AbstractUser):
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
+
+class Posts(models.Model):
+    
+    title = models.CharField(max_length=80)
+    content = models.TextField()
+    date = models.DateTimeField(default=timezone.now)
+    api_id = models.CharField(max_length=80)
+    category = models.TextField()
+    user = models.ForeignKey(AppUser,on_delete=models.CASCADE)

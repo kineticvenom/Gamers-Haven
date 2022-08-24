@@ -15,5 +15,7 @@ urlpatterns = [
     path('signup', views.sign_up),
     path('logout', views.log_out),
     path('whoami', views.who_am_i),
+    path('post/create', views.post_create),
+    path('post/get', views.post_get),
 
 ]

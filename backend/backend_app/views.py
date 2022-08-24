@@ -7,6 +7,7 @@ import pprint
 from django.core import serializers
 from django.contrib.auth import authenticate, login, logout
 from .models import AppUser as User
+from .models import Posts
 
 
 
@@ -142,5 +143,30 @@ def anime_search(request):
     response = HTTP_Client.get(url)
     jsonResponse = response.json()
     return JsonResponse(jsonResponse)
+
+@api_view(['POST'])
+def post_create(request):
+    
+    user = request.user
+    title = request.data['title']
+    content = request.data['content']
+    category = request.data['category']
+    id = request.data['id']
+    try:
+        new_post=Posts(title=title, content=content, user=user, category=category,api_id=id)
+        new_post.save()
+        return JsonResponse({'Success': True})
+    except:
+        return JsonResponse({'Success': False})
+
+@api_view(['POST'])
+def post_get(request):
+    current_id = request.data['id']
+    
+    user_posts = list(Posts.objects.filter(category='game', api_id = current_id).order_by('-date').values())
+    print(user_posts[0])
+    return JsonResponse( {'posts': user_posts})
+
+
 
     

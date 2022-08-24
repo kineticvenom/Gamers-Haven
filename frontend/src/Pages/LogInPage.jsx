@@ -14,7 +14,13 @@ function LogIn(){
 
         axios.post('/login', {email: email.value, password: password.value}).then((response)=>{
           console.log('response from server: ', response)
-          window.location.href = '/'
+          
+          if (response.data.Success == false) {
+            alert('Failed Login')
+            console.log('failed login')
+        } else {
+            window.location.href = '/'
+        }
         })
       }
 
