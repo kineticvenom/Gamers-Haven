@@ -1,3 +1,4 @@
+import json
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from rest_framework.decorators import api_view
@@ -39,4 +40,36 @@ def game_search(request):
     jsonResponse = response.json()
     return JsonResponse(jsonResponse)
 
+@api_view(['GET'])
+def anime(request):
+    url = f'https://kitsu.io/api/edge/anime?page[limit]=20&page[offset]=0'
+    API_response = HTTP_Client.get(url)
+    jsonResponse = API_response.json()
+    return JsonResponse(jsonResponse)
 
+@api_view(['POST'])
+def anime_detail(request):
+    
+    id = request.data['id']
+    
+    url = f'https://kitsu.io/api/edge/anime/{id}'
+    
+    response = HTTP_Client.get(url)
+    jsonResponse = response.json()
+    title = jsonResponse['data']['attributes']['canonicalTitle']
+    try:
+        image = jsonResponse['data']['attributes']['coverImage']['original']
+    except:
+        image = f'https://wallpapers-clan.com/wp-content/uploads/2021/04/Anime-App-Icons-Settings.png'
+    description = jsonResponse['data']['attributes']['description']
+    return JsonResponse({'image': image, 'title': title, 'description': description})
+
+@api_view(['POST'])
+def anime_search(request):
+    query = request.data['query']
+    url = f'https://kitsu.io/api/edge//anime?filter[text]={query}&page[limit]=20'
+    response = HTTP_Client.get(url)
+    jsonResponse = response.json()
+    return JsonResponse(jsonResponse)
+
+    

@@ -7,6 +7,7 @@ import AppNav from "./components/AppNav"
 
 import HomePage from './Pages/HomePage'
 import AnimePages from './Pages/AnimePages'
+import AnimeDetailPages from './Pages/AnimeDetailPages'
 import GamePages from './Pages/GamePages'
 import GameDetailPages from './Pages/GameDetailPages'
 
@@ -19,7 +20,8 @@ function App() {
 
   const [games, setGames] = useState([])
   const [currentGame, setCurrentGame] = useState(null)
-  
+  const [anime, setAnime] = useState([])
+  const [currentAnime, setCurrentAnime] = useState(null)
 
 
   function GrabGame(){
@@ -33,6 +35,17 @@ function App() {
 
   useEffect(GrabGame, [])
 
+  function GrabAnime(){
+    axios.get('/api/anime')
+    .then((response) => {
+        console.log(response.data)
+        console.log(response.data.data)
+        setAnime(response.data.data)
+    })
+}
+
+useEffect(GrabAnime, [])
+
 
   return (
     <div>
@@ -40,7 +53,8 @@ function App() {
       <Router>
           <Routes>
             <Route path='/' element={<HomePage />} />
-            <Route path='/animes' element={< AnimePages /> }></Route>
+            <Route path='/animes' element={< AnimePages anime={anime} setCurrentAnime={setCurrentAnime}/> }></Route>
+            <Route path='/animes/:title' element={<AnimeDetailPages currentAnime={currentAnime}/>} />
             <Route path='/games' element={< GamePages games={games} setCurrentGame={setCurrentGame}/>}></Route>
             <Route path='/games/:title' element={<GameDetailPages currentGame={currentGame}/>} />
           </Routes>

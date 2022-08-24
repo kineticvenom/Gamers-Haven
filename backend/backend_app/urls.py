@@ -8,5 +8,8 @@ urlpatterns = [
     path('api/games', views.games),
     path('api/game/details', views.game_detail),
     path('api/game/search', views.game_search),
+    path('api/anime', views.anime),
+    path('api/anime/details', views.anime_detail),
+    path('api/anime/search', views.anime_search),
 
 ]
