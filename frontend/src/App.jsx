@@ -13,6 +13,27 @@ import GameDetailPages from './Pages/GameDetailPages'
 
 
 import "./App.css";
+import SignUpPage from './Pages/SignUpPage'
+import LogInPage from './Pages/LogInPage'
+
+
+const getCSRFToken = ()=>{
+  let csrfToken
+
+  // the browser's cookies for this page are all in one string, separated by semi-colons
+  const cookies = document.cookie.split(';')
+  for ( let cookie of cookies ) {
+      // individual cookies have their key and value separated by an equal sign
+      const crumbs = cookie.split('=')
+      if ( crumbs[0].trim() === 'csrftoken') {
+          csrfToken = crumbs[1]
+      }
+  }
+  return csrfToken
+}
+
+axios.defaults.headers.common['X-CSRFToken'] = getCSRFToken()
+
 
 
 function App() {
@@ -22,6 +43,21 @@ function App() {
   const [currentGame, setCurrentGame] = useState(null)
   const [anime, setAnime] = useState([])
   const [currentAnime, setCurrentAnime] = useState(null)
+  const [user, setUser] = useState(null)
+
+
+  const whoAmI = async () => {
+    const response = await axios.get('/whoami')
+    const user = response.data && response.data[0] && response.data[0].fields
+    console.log('hello', user)
+    // console.log('user from whoami? ', user)
+    // console.log('-------THIS IS THE RESPOSNE-----', response)
+    setUser(user)
+  }
+
+  useEffect(()=>{
+    whoAmI()
+  }, [])
 
 
   function GrabGame(){
@@ -47,9 +83,10 @@ function App() {
 useEffect(GrabAnime, [])
 
 
+
   return (
     <div>
-    < AppNav />
+    < AppNav user={user}/>
       <Router>
           <Routes>
             <Route path='/' element={<HomePage />} />
@@ -57,6 +94,8 @@ useEffect(GrabAnime, [])
             <Route path='/animes/:title' element={<AnimeDetailPages currentAnime={currentAnime}/>} />
             <Route path='/games' element={< GamePages games={games} setCurrentGame={setCurrentGame}/>}></Route>
             <Route path='/games/:title' element={<GameDetailPages currentGame={currentGame}/>} />
+            <Route path='/signup' element={<SignUpPage />}></Route>
+            <Route path='/login' element={<LogInPage />}></Route>
           </Routes>
       </Router>
     </div>
