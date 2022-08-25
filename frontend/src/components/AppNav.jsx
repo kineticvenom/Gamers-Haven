@@ -21,7 +21,7 @@ function AppNav(props) {
   return (
     <div className="NavBarContainer">
       <Navbar expand="xxl" className="m-auto">
-        <Navbar.Brand href="#home"><img width='80px' height='80px' className="logo" src={logo}></img>Gamer's Haven</Navbar.Brand>
+        <Navbar.Brand href="/"><img width='80px' height='80px' className="logo" src={logo}></img>Gamer's Haven</Navbar.Brand>
         <Navbar.Toggle className="m-auto" aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto NavEle">
