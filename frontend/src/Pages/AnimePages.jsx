@@ -27,7 +27,7 @@ function AnimePages(props) {
                     
                         anime.length > 0 ? <div>
                             <hr /> <h1>Juicy Anime</h1> <br></br>
-                            <AnimeList anime={anime} setCurrentAnime={setCurrentAnime} /> </div> : <h1>loading..</h1>
+                            <AnimeList anime={anime} setCurrentAnime={setCurrentAnime} /> </div> : <h1>Loading..</h1>
                     }
             </Container>
         </div>
