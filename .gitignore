@@ -1,1 +1,4 @@
-venv
+.venv/
+venv/
+backend/static
+backend/backend/__pycache__/

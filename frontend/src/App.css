@@ -1,41 +1,36 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* Centers everything in Index.html */
+.container-fluid{
+  
+  padding-left: 0px;
+  padding-right: 0px;
+  margin:   0 auto;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
+/* font color change to nav bar links */
+a.nav-link{
+  color: aliceblue;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+/* Styling for big contianer holding all Nav Bar */
+.NavBarContainer{
+  margin:  0 auto;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  box-shadow: 4px 20px 50px 4px rgba(0,0,0,.2);
+  background-color: #3a506b;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Font size of Nav Bar Links */
+.NavEle{
+  font-size: 3.2rem;
+  
 }
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+/* Spacing between navbar links */
+.nav-link{
+  --bs-navbar-nav-link-padding-x: 1rem;
+  --bs-navbar-padding-y: 2rem;
 }

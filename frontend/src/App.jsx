@@ -1,34 +1,105 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+import { useState,useEffect} from 'react'
+import { HashRouter as Router, Routes, Route } from 'react-router-dom'
+import axios from 'axios'
 
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+import AppNav from "./components/AppNav"
+
+import HomePage from './Pages/HomePage'
+import AnimePages from './Pages/AnimePages'
+import AnimeDetailPages from './Pages/AnimeDetailPages'
+import GamePages from './Pages/GamePages'
+import GameDetailPages from './Pages/GameDetailPages'
+
+
+import "./App.css";
+import SignUpPage from './Pages/SignUpPage'
+import LogInPage from './Pages/LogInPage'
+
+
+const getCSRFToken = ()=>{
+  let csrfToken
+
+  // the browser's cookies for this page are all in one string, separated by semi-colons
+  const cookies = document.cookie.split(';')
+  for ( let cookie of cookies ) {
+      // individual cookies have their key and value separated by an equal sign
+      const crumbs = cookie.split('=')
+      if ( crumbs[0].trim() === 'csrftoken') {
+          csrfToken = crumbs[1]
+      }
+  }
+  return csrfToken
 }
 
-export default App
+axios.defaults.headers.common['X-CSRFToken'] = getCSRFToken()
+
+
+
+function App() {
+
+
+  const [games, setGames] = useState([])
+  const [currentGame, setCurrentGame] = useState(null)
+  const [anime, setAnime] = useState([])
+  const [currentAnime, setCurrentAnime] = useState(null)
+  const [user, setUser] = useState(null)
+
+
+  const whoAmI = async () => {
+    const response = await axios.get('/whoami')
+    const user = response.data && response.data[0] && response.data[0].fields
+    console.log('hello', user)
+    // console.log('user from whoami? ', user)
+    // console.log('-------THIS IS THE RESPOSNE-----', response)
+    setUser(user)
+  }
+
+  useEffect(()=>{
+    whoAmI()
+  }, [])
+
+
+  function GrabGame(){
+      axios.get('/api/games')
+      .then((response) => {
+          // console.log(response.data)
+          // console.log(response.data.results)
+          setGames(response.data.results)
+      })
+  }
+
+  useEffect(GrabGame, [])
+
+  function GrabAnime(){
+    axios.get('/api/anime')
+    .then((response) => {
+        // console.log(response.data)
+        // console.log(response.data.data)
+        setAnime(response.data.data)
+    })
+}
+
+useEffect(GrabAnime, [])
+
+
+
+  return (
+    <div>
+    < AppNav user={user}/>
+      <Router>
+          <Routes>
+            <Route path='/' element={<HomePage />} />
+            <Route path='/animes' element={< AnimePages anime={anime} setCurrentAnime={setCurrentAnime}/> }></Route>
+            <Route path='/animes/:title' element={<AnimeDetailPages currentAnime={currentAnime} setCurrentAnime={setCurrentAnime}/>} />
+            <Route path='/games' element={< GamePages games={games} setCurrentGame={setCurrentGame}/>}></Route>
+            <Route path='/games/:game_ID' element={<GameDetailPages currentGame={currentGame} setCurrentGame={setCurrentGame}/>} />
+            <Route path='/signup' element={<SignUpPage />}></Route>
+            <Route path='/login' element={<LogInPage />}></Route>
+          </Routes>
+      </Router>
+    </div>
+  );
+}
+
+export default App;
