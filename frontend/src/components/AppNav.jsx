@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import axios from 'axios'
+import logo from '../assets/logo.png'
 
 function AppNav(props) {
 
@@ -20,7 +21,7 @@ function AppNav(props) {
   return (
     <div className="NavBarContainer">
       <Navbar expand="xxl" className="m-auto">
-        <Navbar.Brand href="#home">Gamer's Haven</Navbar.Brand>
+        <Navbar.Brand href="#home"><img width='80px' height='80px' className="logo" src={logo}></img>Gamer's Haven</Navbar.Brand>
         <Navbar.Toggle className="m-auto" aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto NavEle">
@@ -29,11 +30,11 @@ function AppNav(props) {
             <Nav.Link href="/#/animes">Anime</Nav.Link>
           </Nav>
           {user ? 
-          <div className="ms-auto">
+          <div className="user-image">
             <span>{user.username}</span> <img src={user.profile_image} height='100px' width='100px'></img> 
-            <button onClick={sendLogout}>Log out</button>
+            <Nav.Link className='logout' onClick={sendLogout}>Log out</Nav.Link>
           </div>
-          : <Nav.Link className="ms-auto" href='/#/login'>Sign in</Nav.Link> }
+          : <Nav.Link className="sign-in" href='/#/login'>Sign in</Nav.Link> }
         </Navbar.Collapse>
       </Navbar>
     </div>

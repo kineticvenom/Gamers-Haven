@@ -1,6 +1,41 @@
 /* Background of index.html */
 body{
-  background-color: 	#BFCCDC;
+  background-color: #252422;
+  color: #fffcf2;
+}
+
+.NavBarContainer {
+  background-color: #c65224;
+}
+
+.navbar-nav {
+  position: relative;
+  right: 225px;
+}
+
+.navbar-brand {
+  color: #ccc5b9;
+  position: relative;
+  bottom: 70px;
+}
+
+.user-image {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  left: 500px;
+}
+
+.logout, .logout:hover{
+  font-size: 25px;
+  color: rgba(0, 0, 0, .7);
+}
+
+.sign-in, .sign-in:hover {
+  position: relative;
+  left: 500px;
+  font-size: 40px;
+  color: rgba(0, 0, 0, .7);
 }
 
 .game-rating {
