@@ -34,3 +34,25 @@ a.nav-link{
   --bs-navbar-nav-link-padding-x: 1rem;
   --bs-navbar-padding-y: 2rem;
 }
+.post_box{
+  color: aliceblue;
+  border: solid black;
+  margin: auto;
+  max-width: 1000px;
+  text-align: left;
+background-color: gray;
+padding: 20px;
+}
+.teaser a , .teaser h1{
+  color:aliceblue;
+  text-decoration: none !important;
+}
+.comment_box{
+  color: aliceblue;
+  border: solid black;
+  margin: auto;
+  max-width: 700px;
+  text-align: left;
+background-color: rgb(184, 181, 181);
+padding: 20px;
+}

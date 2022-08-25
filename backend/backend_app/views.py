@@ -1,4 +1,5 @@
 import json
+import re
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from rest_framework.decorators import api_view
@@ -7,7 +8,7 @@ import pprint
 from django.core import serializers
 from django.contrib.auth import authenticate, login, logout
 from .models import AppUser as User
-from .models import Posts
+from .models import Posts, Comments
 import random
 
 
@@ -156,8 +157,9 @@ def post_create(request):
     content = request.data['content']
     category = request.data['category']
     id = request.data['id']
+    user_image = user.profile_image
     try:
-        new_post=Posts(title=title, content=content, user=user, category=category,api_id=id, user_image = user.profile_image)
+        new_post=Posts(title=title, content=content, user=user, category=category,api_id=id, user_image = user_image)
         new_post.save()
         return JsonResponse({'Success': True})
     except:
@@ -172,5 +174,43 @@ def post_get(request):
     return JsonResponse( {'posts': user_posts})
 
 
+@api_view(['POST'])
+def comment_create(request):
+    print('request:',request.data)
+    user = request.user
+    content = request.data['content']
+    post=Posts.objects.get(id = request.data['post_id'])
+    api_id = request.data['api_id']
+    user_image = user.profile_image
+
+    try:
+        
+        new_comment=Comments(content=content, user=user, post = post, api_id=api_id, user_image = user_image)
+        new_comment.save()
+        return JsonResponse({'Success': True})
+    except:
+        return JsonResponse({'Success': False})
+
+@api_view(['POST'])
+def comment_get(request):
+   
+    
+    post=Posts.objects.get(id = request.data['post_id'])
+    
+    user_comments = list(Comments.objects.filter(post = post).order_by('-date').values())
+   
+    return JsonResponse( {'comments': user_comments})
+
+@api_view(['POST'])
+def favorite_create(request):
+
+    user = request.user
+    api_id = request.data['api_id']
+    category = request.data['category']
+    try:
+        
+        return JsonResponse({'Success': True})
+    except:
+        return JsonResponse({'Success': False})
 
     

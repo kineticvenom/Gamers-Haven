@@ -1,14 +1,32 @@
-import { Container, Row, Col } from "react-bootstrap/";
-import GameTeaser from "./GameTeaser";
+import { Row , Col } from "react-bootstrap/";
+import axios from "axios"
+
+import { useEffect, useState } from "react"
+import GameComment from "./GameComment";
+import CommentCard from "./CommentCard";
 
 function GamePost(props){
-    const {games, setCurrentGame} = props
-    console.log(props)
+    const [comments, setComments] = useState([])
+    const [showForm,setShowForm] =useState(false)
+
+    function grabComments() {
+        axios.post('/comment/get', {
+
+            'post_id': props.id
+
+        }    
+        ).then((response) => {
+            setComments(response.data.comments)
+        })
+    }
+
+    useEffect(()=>{
+        grabComments()
+      }, [])
+
     return (
         <div>
-            <div className="post_box"> 
-                
-                    
+            <div className="post_box">   
                 <h2>{props.title}</h2> 
                 <hr />
                 <Row>
@@ -21,9 +39,14 @@ function GamePost(props){
                         <p>Posted On : {props.date}</p>
 
                     </Col>
+                    <button onClick={() => { setShowForm(!showForm) }}>Reply</button>
                 </Row>
-        </div>
-        <div className="py-2"></div>
+            </div>
+            {showForm ? <GameComment id ={props.id} api_id = {props.api_id} />: ''}
+            {
+            comments.map((comment) => (
+            <CommentCard {...comment} /> 
+        ))}<div className="py-2"></div>
        </div>
     )
 

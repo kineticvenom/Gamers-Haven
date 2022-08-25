@@ -30,7 +30,7 @@ function GameTeaser(props){
 
 
     return (
-    <Col xs lg="4" xl='3'>
+    <Col xs lg="4" xl='3' className="teaser">
         <img width='200px' height='200px' src={props.background_image} alt="" />
         <Link to={`/games/${props.name}`} onClick={grabCurrentGame}><h1>{props.name}</h1></Link>
         <br />

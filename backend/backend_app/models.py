@@ -25,7 +25,24 @@ class Posts(models.Model):
     date = models.DateTimeField(default=timezone.now)
     api_id = models.CharField(max_length=80)
     category = models.TextField()
-    user = models.ForeignKey(AppUser,to_field="username" ,on_delete=models.CASCADE,related_name='user')
+    user = models.ForeignKey(AppUser,to_field="username" ,on_delete=models.CASCADE,related_name='user_post')
     user_image = models.TextField(null=True)
     
+class Comments(models.Model):
+    
+    user = models.ForeignKey(AppUser,to_field="username" ,on_delete=models.CASCADE,related_name='user_comment')
+    post = models.ForeignKey(Posts,on_delete=models.CASCADE)
+    content = models.TextField()
+    date = models.DateTimeField(default=timezone.now)
+    api_id = models.CharField(max_length=80)
+    user_image = models.TextField(null=True)
+    
+class Favorites(models.Model):
+    
+    user = models.ForeignKey(AppUser,on_delete=models.CASCADE)
+    api_id = models.CharField(max_length=80)
+    category = models.TextField()
+
+    class Meta:
+        unique_together = (("user", "api_id"))
     
