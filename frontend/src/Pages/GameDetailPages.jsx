@@ -2,19 +2,33 @@ import {useState, useEffect} from 'react'
 import axios from 'axios'
 import { Form, Button } from 'react-bootstrap'
 import { useParams } from 'react-router'
+import GamePost from '../components/GamePost'
+import GamePostList from '../components/GamePostList'
+
 
 function GameDetailPages(props) {
-    let { game_ID } = useParams()
 
-    const {currentGame} = props
+    const {currentGame, setCurrentGame} = props
     
     const category = 'game'
     const [posts, setPosts] = useState([])
+
+
+    useEffect(() => {
+        setCurrentGame(JSON.parse(window.sessionStorage.getItem("currentGame")));
+      }, []);
+    
+      useEffect(() => {
+        window.sessionStorage.setItem("currentGame", JSON.stringify(currentGame));
+      }, [currentGame]);
+
+
+
     
 
     function grabPosts() {
         axios.post('/post/get', {
-            'id': game_ID
+            'id': currentGame.id
         }    
         ).then((response) => {
             
@@ -24,10 +38,6 @@ function GameDetailPages(props) {
         })
     }
     
-    useEffect(()=>{
-            grabPosts()
-          }, [])
-
     
     
         
@@ -43,13 +53,13 @@ function GameDetailPages(props) {
             .then((response) => {
                 
                 console.log('response from server: ', response)
+                window.location.reload()
                
             })
         
     } 
 
     return (
-        <div>
             <div>
                 {
                 currentGame ?
@@ -57,20 +67,13 @@ function GameDetailPages(props) {
                     <h1>{currentGame.name}</h1>
                     <img width='300px' height='300px' src={currentGame.background_image} alt='reload'></img>
                     <h5>{currentGame.description_raw}</h5>
-                </div> : <h1>Loading..</h1>
-                }
-            </div>
-            <div>
-                <div>
+                    <div className="py-3"></div>
                     <div>
                         <h1>Discussions:</h1>
-
-                    </div> 
-                
-                    
-                    <br/><br/><br/>
-                </div>
-                <div>
+                        {currentGame ? <GamePostList posts={posts} grabPosts={grabPosts}/> : <h4>Loading posts..</h4>
+                        }
+                    </div>   
+                    <div className="py-2"></div>
                     <Form onSubmit={submitPost}>
                         <Form.Group className="mb-3" controlId="formTitle" >
                         <Form.Label>Title</Form.Label>
@@ -85,12 +88,11 @@ function GameDetailPages(props) {
                         Submit
                         </Button>
                     </Form>
-                </div>
-
+                </div> : <h1>Loading..</h1>
+                }
             </div>
-
-         </div>
     )
+
 }
 
 export default GameDetailPages

@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 venv
 =======
 .venv/
@@ -9,3 +10,10 @@ venv/
 .venv/
 venv/
 >>>>>>> d3bc9fe95d0a220e5a9b9707593db05bbd17a9f9
+=======
+.venv/
+venv/
+backend/static
+backend/backend/__pycache__/
+backend/backend_app/__pycache__/
+>>>>>>> 7aa5f4755b7ffce5359c90a00959cd1ecb097fed

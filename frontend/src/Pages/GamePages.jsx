@@ -26,7 +26,7 @@ function GamePages(props) {
                     
                         games.length > 0 ? <div>
                             <hr /> <h1>Hot Games</h1> <br></br>
-                            <GameList games={games} setCurrentGame={setCurrentGame} /> </div> : <h1>loading..</h1>
+                            <GameList games={games} setCurrentGame={setCurrentGame} /> </div> : <h1>Loading..</h1>
                     }
             </Container>
         </div>

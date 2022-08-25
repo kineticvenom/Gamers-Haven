@@ -63,8 +63,8 @@ function App() {
   function GrabGame(){
       axios.get('/api/games')
       .then((response) => {
-          console.log(response.data)
-          console.log(response.data.results)
+          // console.log(response.data)
+          // console.log(response.data.results)
           setGames(response.data.results)
       })
   }
@@ -74,8 +74,8 @@ function App() {
   function GrabAnime(){
     axios.get('/api/anime')
     .then((response) => {
-        console.log(response.data)
-        console.log(response.data.data)
+        // console.log(response.data)
+        // console.log(response.data.data)
         setAnime(response.data.data)
     })
 }
@@ -91,9 +91,9 @@ useEffect(GrabAnime, [])
           <Routes>
             <Route path='/' element={<HomePage />} />
             <Route path='/animes' element={< AnimePages anime={anime} setCurrentAnime={setCurrentAnime}/> }></Route>
-            <Route path='/animes/:title' element={<AnimeDetailPages currentAnime={currentAnime}/>} />
+            <Route path='/animes/:title' element={<AnimeDetailPages currentAnime={currentAnime} setCurrentAnime={setCurrentAnime}/>} />
             <Route path='/games' element={< GamePages games={games} setCurrentGame={setCurrentGame}/>}></Route>
-            <Route path='/games/:game_ID' element={<GameDetailPages currentGame={currentGame}/>} />
+            <Route path='/games/:game_ID' element={<GameDetailPages currentGame={currentGame} setCurrentGame={setCurrentGame}/>} />
             <Route path='/signup' element={<SignUpPage />}></Route>
             <Route path='/login' element={<LogInPage />}></Route>
           </Routes>

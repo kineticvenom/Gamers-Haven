@@ -9,7 +9,7 @@ import axios from "axios"
 function GameTeaser(props){
     const {setCurrentGame, games} = props
     
-    console.log('GameTeaser:',props)
+    // console.log('GameTeaser:',props)
 
     function grabCurrentGame(){
 
@@ -24,6 +24,7 @@ function GameTeaser(props){
 
     useEffect(() => {
         setCurrentGame(null)
+        sessionStorage.clear()
     }, [])
 
 
@@ -31,7 +32,7 @@ function GameTeaser(props){
     return (
     <Col xs lg="4" xl='3'>
         <img width='200px' height='200px' src={props.background_image} alt="" />
-        <Link to={`/games/${props.id}`} onClick={grabCurrentGame}><h1>{props.name}</h1></Link>
+        <Link to={`/games/${props.name}`} onClick={grabCurrentGame}><h1>{props.name}</h1></Link>
         <br />
         {[...Array(props.rating_top)].map(() => <img width='60px' height='60px' className="game-rating" src={star}></img>)}
         {props.rating_top != 5 && [...Array(5 - props.rating_top)].map(() => <img width='60px' height='60px' className="game-rating" src={emptyStar}></img>)}
