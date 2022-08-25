@@ -8,6 +8,7 @@ from django.core import serializers
 from django.contrib.auth import authenticate, login, logout
 from .models import AppUser as User
 from .models import Posts
+import random
 
 
 
@@ -87,7 +88,10 @@ def who_am_i(request):
 
 @api_view(['GET'])
 def games(request):
-    url = f'https://api.rawg.io/api/games?key=81bb02dd6d494004bcd7db53fd029ae8&metacritic=90%2C100'
+    
+    random_page = random.randrange(1,10)
+
+    url = f'https://api.rawg.io/api/games?key=81bb02dd6d494004bcd7db53fd029ae8&metacritic=75%2C100&page={random_page}'
     API_response = HTTP_Client.get(url)
     jsonResponse = API_response.json()
     return JsonResponse(jsonResponse)
@@ -153,7 +157,7 @@ def post_create(request):
     category = request.data['category']
     id = request.data['id']
     try:
-        new_post=Posts(title=title, content=content, user=user, category=category,api_id=id)
+        new_post=Posts(title=title, content=content, user=user, category=category,api_id=id, user_image = user.profile_image)
         new_post.save()
         return JsonResponse({'Success': True})
     except:
@@ -164,7 +168,7 @@ def post_get(request):
     current_id = request.data['id']
     
     user_posts = list(Posts.objects.filter(category='game', api_id = current_id).order_by('-date').values())
-    print(user_posts[0])
+   
     return JsonResponse( {'posts': user_posts})
 
 

@@ -25,4 +25,7 @@ class Posts(models.Model):
     date = models.DateTimeField(default=timezone.now)
     api_id = models.CharField(max_length=80)
     category = models.TextField()
-    user = models.ForeignKey(AppUser,on_delete=models.CASCADE)
+    user = models.ForeignKey(AppUser,to_field="username" ,on_delete=models.CASCADE,related_name='user')
+    user_image = models.TextField(null=True)
+    
+    

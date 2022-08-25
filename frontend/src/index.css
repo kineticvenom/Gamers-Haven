@@ -41,3 +41,13 @@ body{
 .game-rating {
   padding-top: 10px;
 }
+
+.post_box{
+  color: aliceblue;
+  border: solid black;
+  margin: auto;
+  max-width: 1000px;
+  text-align: left;
+background-color: gray;
+padding: 20px;
+}
