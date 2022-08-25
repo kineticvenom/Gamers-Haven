@@ -8,6 +8,7 @@ from django.core import serializers
 from django.contrib.auth import authenticate, login, logout
 from .models import AppUser as User
 from .models import Posts
+import random
 
 
 
@@ -87,7 +88,10 @@ def who_am_i(request):
 
 @api_view(['GET'])
 def games(request):
-    url = f'https://api.rawg.io/api/games?key=81bb02dd6d494004bcd7db53fd029ae8&metacritic=90%2C100'
+    
+    random_page = random.randrange(1,10)
+
+    url = f'https://api.rawg.io/api/games?key=81bb02dd6d494004bcd7db53fd029ae8&metacritic=75%2C100&page={random_page}'
     API_response = HTTP_Client.get(url)
     jsonResponse = API_response.json()
     return JsonResponse(jsonResponse)
