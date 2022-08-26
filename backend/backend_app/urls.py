@@ -17,8 +17,10 @@ urlpatterns = [
     path('whoami', views.who_am_i),
     path('post/create', views.post_create),
     path('post/get', views.post_get),
+    path('post/delete', views.post_delete),
     path('comment/create', views.comment_create),
     path('comment/get', views.comment_get),
+    path('comment/delete', views.comment_delete),
     path('favorite/create', views.favorite_create),
     path('favorite/get', views.favorite_get),
 

@@ -231,6 +231,36 @@ def favorite_get(request) :
         'comments': comments })
     return HttpResponse('User not found')
 
+@api_view(['POST'])
+def post_delete(request):
+    if request.user.is_authenticated:
+        post=Posts.objects.get(id = request.data['post_id'],  user_id= request.data['user'])
+        if request.user.username == request.data['user']:
+
+            try:
+                post.delete()
+                return HttpResponse('post deleted')
+            except:
+                return JsonResponse({'Success': False})
+        return HttpResponse('No Permission')
+
+    return HttpResponse('User not found')
+
+@api_view(['POST'])
+def comment_delete(request):
+    if request.user.is_authenticated:
+        comment = Comments.objects.get(id = request.data['comment_id'],  user_id= request.data['user'])
+        if request.user.username == request.data['user']:
+
+            try:
+                comment.delete()
+                return HttpResponse('comment deleted')
+            except:
+                return JsonResponse({'Success': False})
+        return HttpResponse('No Permission')
+
+    return HttpResponse('User not found')
+    
 
 
     
