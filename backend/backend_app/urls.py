@@ -20,6 +20,7 @@ urlpatterns = [
     path('comment/create', views.comment_create),
     path('comment/get', views.comment_get),
     path('favorite/create', views.favorite_create),
+    path('favorite/get', views.favorite_get),
 
 
 ]

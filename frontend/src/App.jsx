@@ -44,6 +44,7 @@ function App() {
   const [anime, setAnime] = useState([])
   const [currentAnime, setCurrentAnime] = useState(null)
   const [user, setUser] = useState(null)
+  const [saveData, setSaveData] = useState(null)
 
 
   const whoAmI = async () => {
@@ -89,13 +90,14 @@ useEffect(GrabAnime, [])
     < AppNav user={user}/>
       <Router>
           <Routes>
-            <Route path='/' element={<HomePage />} />
+            <Route path='/' element={<HomePage user={user} saveData={saveData} setSaveData={setSaveData}/>} />
             <Route path='/animes' element={< AnimePages anime={anime} setCurrentAnime={setCurrentAnime}/> }></Route>
             <Route path='/animes/:title' element={<AnimeDetailPages currentAnime={currentAnime} setCurrentAnime={setCurrentAnime}/>} />
             <Route path='/games' element={< GamePages games={games} setCurrentGame={setCurrentGame}/>}></Route>
             <Route path='/games/:game_ID' element={<GameDetailPages currentGame={currentGame} setCurrentGame={setCurrentGame}/>} />
             <Route path='/signup' element={<SignUpPage />}></Route>
             <Route path='/login' element={<LogInPage />}></Route>
+          
           </Routes>
       </Router>
     </div>

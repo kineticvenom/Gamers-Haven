@@ -8,7 +8,7 @@ import pprint
 from django.core import serializers
 from django.contrib.auth import authenticate, login, logout
 from .models import AppUser as User
-from .models import Posts, Comments
+from .models import Posts, Comments,Favorites
 import random
 
 
@@ -207,10 +207,29 @@ def favorite_create(request):
     user = request.user
     api_id = request.data['api_id']
     category = request.data['category']
+    title = request.data['title']
+    image = request.data['image']
     try:
+        new_favorite=Favorites(user=user, api_id=api_id, category=category, title=title, image=image)
+        new_favorite.save()
         
         return JsonResponse({'Success': True})
     except:
         return JsonResponse({'Success': False})
+
+@api_view(['GET'])
+def favorite_get(request) :
+    if request.user.is_authenticated:
+        user = request.user
+        favorite = list(Favorites.objects.filter(user=user).values())
+        posts = list(Posts.objects.filter(user=user).values())
+        comments = list(Comments.objects.filter(user=user).values())
+        
+        return JsonResponse({'favorites':favorite,
+        'posts':posts,
+        'comments': comments })
+    return HttpResponse('User not found')
+
+
 
     

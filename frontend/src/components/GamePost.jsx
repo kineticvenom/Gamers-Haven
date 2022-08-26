@@ -8,6 +8,7 @@ import CommentCard from "./CommentCard";
 function GamePost(props){
     const [comments, setComments] = useState([])
     const [showForm,setShowForm] =useState(false)
+    const [showComments,setShowComments] =useState(false)
 
     function grabComments() {
         axios.post('/comment/get', {
@@ -40,13 +41,16 @@ function GamePost(props){
 
                     </Col>
                     <button onClick={() => { setShowForm(!showForm) }}>Reply</button>
+                    {comments.length>0 &&
+                        <button onClick={() => { setShowComments(!showComments) }}>View Replies</button>
+                    }
                 </Row>
             </div>
             {showForm ? <GameComment id ={props.id} api_id = {props.api_id} />: ''}
-            {
+            {showComments ?
             comments.map((comment) => (
             <CommentCard {...comment} /> 
-        ))}<div className="py-2"></div>
+        )):<></>}<div className="py-2"></div>
        </div>
     )
 

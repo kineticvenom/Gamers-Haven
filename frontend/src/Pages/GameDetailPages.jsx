@@ -41,6 +41,20 @@ function GameDetailPages(props) {
         })
     }
 
+    function addFavorite() {
+        axios.post('favorite/create', {
+            'api_id': currentGame.id,
+            'category' : category,
+            'title' : currentGame.name,
+            'image' : currentGame.background_image          
+        }
+        ).then((response)=>{
+            console.log('response:',response)
+            if(response.data.Success){
+                window.alert('This game is now a Favorite!')
+            }
+        }) 
+    }
     
     
     
@@ -51,7 +65,7 @@ function GameDetailPages(props) {
                 {
                 currentGame ?
                     <div>
-                        <button>Add Favorite</button>
+                        <button onClick={addFavorite}>Add Favorite</button>
                         <div className="py-3"></div>
                     <h1>{currentGame.name}</h1>
                     <img width='300px' height='300px' src={currentGame.background_image} alt='reload'></img>

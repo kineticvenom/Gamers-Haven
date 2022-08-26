@@ -42,6 +42,8 @@ class Favorites(models.Model):
     user = models.ForeignKey(AppUser,on_delete=models.CASCADE)
     api_id = models.CharField(max_length=80)
     category = models.TextField()
+    title = models.CharField(max_length=100)
+    image = models.TextField(null=True)
 
     class Meta:
         unique_together = (("user", "api_id"))
