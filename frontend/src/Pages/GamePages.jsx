@@ -16,7 +16,7 @@ function GamePages(props) {
     }
     
     return (
-        <div>
+        <div className='gamePageBack'>
             <Container>
                 <br/>
                 <GameSearch setCurrentGame={setCurrentGame} setResults={setResults} results={results} searchTitle={searchTitle } setSearchTitle={setSearchTitle} />

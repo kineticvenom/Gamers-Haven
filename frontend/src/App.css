@@ -56,3 +56,30 @@ padding: 20px;
 background-color: rgb(184, 181, 181);
 padding: 20px;
 }
+
+.delete_button_post{
+  background-color: #8b0000;
+  color: #fff;
+  float: right;
+  position: relative;
+  top: -60px;
+  right: -10px;
+}
+.delete_button_post, .delete_button_comment  {
+  transition-duration: 0.4s;
+}
+
+.delete_button_post:hover, .delete_button_comment:hover {
+  background-color: #4a1010;
+}
+
+
+.delete_button_comment{
+  background-color: #8b0000;
+  color: #fff;
+  float: right;
+  position: relative;
+  top: -10px;
+  right: -10px;
+}
+

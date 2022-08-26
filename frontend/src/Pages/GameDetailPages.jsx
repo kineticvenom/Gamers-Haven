@@ -60,7 +60,7 @@ function GameDetailPages(props) {
     
     
     return (
-        <div>
+        <div >
             
                 {
                 currentGame ?

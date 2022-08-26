@@ -2,8 +2,22 @@ import { useEffect } from "react"
 import { Form, Button } from 'react-bootstrap'
 import axios from "axios"
 
-function GameComment(props) {
-    const {id, api_id} = props
+function GameCommentForm(props) {
+    const { id, api_id } = props
+    
+    function deletePost() { 
+        axios.post('/comment/delete', {
+
+            'post_id': props.id,
+            'user': props.user_id
+
+
+        }    
+        ).then((response) => {
+            console.log(response)
+            window.location.reload()
+        })
+    }
     
     function submitComment(event){
         event.preventDefault();
@@ -42,7 +56,7 @@ function GameComment(props) {
 
 }
 
-export default GameComment
+export default GameCommentForm
 
 
 

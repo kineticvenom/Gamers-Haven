@@ -2,13 +2,41 @@ import { Row , Col } from "react-bootstrap/";
 import axios from "axios"
 
 import { useEffect, useState } from "react"
-import GameComment from "./GameComment";
+import GameCommentForm from "./GameCommentForm";
 import CommentCard from "./CommentCard";
 
 function GamePost(props){
     const [comments, setComments] = useState([])
     const [showForm,setShowForm] =useState(false)
-    const [showComments,setShowComments] =useState(false)
+    const [showComments, setShowComments] = useState(false)
+    const [user, setUser] = useState(null)
+
+    const whoAmI = async () => {
+    const response = await axios.get('/whoami')
+    const user = response.data && response.data[0] && response.data[0].fields
+    console.log('hello', user)
+    setUser(user)
+    }
+
+    useEffect(()=>{
+    whoAmI()
+    }, [])
+
+    
+    function deletePost() { 
+        axios.post('/post/delete', {
+
+            'post_id': props.id,
+            'user': props.user_id
+
+
+        }    
+        ).then((response) => {
+            console.log(response)
+            window.location.reload()
+        })
+    }
+     
 
     function grabComments() {
         axios.post('/comment/get', {
@@ -29,6 +57,10 @@ function GamePost(props){
         <div>
             <div className="post_box">   
                 <h2>{props.title}</h2> 
+            
+                        {user && user.username == props.user_id  && 
+                        <button className="delete_button_post" onClick={() => { deletePost() }}>X</button>  
+                    }
                 <hr />
                 <Row>
                     <Col sm='2'>
@@ -44,12 +76,14 @@ function GamePost(props){
                     {comments.length>0 &&
                         <button onClick={() => { setShowComments(!showComments) }}>View Replies</button>
                     }
+                    
+                    
                 </Row>
             </div>
-            {showForm ? <GameComment id ={props.id} api_id = {props.api_id} />: ''}
+            {showForm ? <GameCommentForm id={props.id} api_id={props.api_id}  />: ''}
             {showComments ?
             comments.map((comment) => (
-            <CommentCard {...comment} /> 
+            <CommentCard {...comment} user={user}/> 
         )):<></>}<div className="py-2"></div>
        </div>
     )

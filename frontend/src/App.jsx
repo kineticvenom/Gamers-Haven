@@ -43,9 +43,9 @@ function App() {
   const [currentGame, setCurrentGame] = useState(null)
   const [anime, setAnime] = useState([])
   const [currentAnime, setCurrentAnime] = useState(null)
-  const [user, setUser] = useState(null)
   const [saveData, setSaveData] = useState(null)
-
+  
+  const [user, setUser] = useState(null)
 
   const whoAmI = async () => {
     const response = await axios.get('/whoami')
