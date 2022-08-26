@@ -119,7 +119,8 @@ def game_search(request):
 
 @api_view(['GET'])
 def anime(request):
-    url = f'https://kitsu.io/api/edge/anime?page[limit]=20&page[offset]=0'
+    random_page = random.randrange(1,100)
+    url = f'https://kitsu.io/api/edge/anime?page[limit]=20&page[offset]={random_page}'
     API_response = HTTP_Client.get(url)
     jsonResponse = API_response.json()
     return JsonResponse(jsonResponse)
