@@ -21,7 +21,10 @@ function HomePage(props) {
   console.log(saveData)
   return ( 
     <div>
+      {user ? 
+      <h1>Welcome back, {user.username}!</h1> :
       <h1>Welcome to the home page!</h1>
+    }
       <hr/>
       {user && saveData ? 
         <div>

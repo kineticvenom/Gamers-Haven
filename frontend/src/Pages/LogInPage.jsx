@@ -26,7 +26,8 @@ function LogIn(){
 
 
     return (
-             <form>
+          <div className='signup'>
+             <form className='register'>
                     <label for='email'>Please enter your email:</label><br></br>
                     <input type="text" id="email" placeholder='enter email'/><br></br>
                     <label for="password">Please enter a password:</label><br></br>
@@ -34,7 +35,8 @@ function LogIn(){
                     <div className="py-3"></div>
                     <button onClick={LogIn}>Log In</button>
                     <h4>Or click <a href='/#/signup'>here</a> if you don't have an account</h4>
-                </form>
+            </form>
+          </div>
     )
 }
 

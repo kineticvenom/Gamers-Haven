@@ -31,7 +31,7 @@ function AppNav(props) {
           </Nav>
           {user ? 
           <div className="user-image">
-            <span>{user.username}</span> <img src={user.profile_image} height='100px' width='100px'></img> 
+            <span>{user.username}</span> <img className='circle' src={user.profile_image} height='100px' width='100px'></img> 
             <Nav.Link className='logout' onClick={sendLogout}>Log out</Nav.Link>
           </div>
           : <Nav.Link className="sign-in" href='/#/login'>Sign in</Nav.Link> }

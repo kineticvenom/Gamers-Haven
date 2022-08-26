@@ -27,9 +27,9 @@ function AnimeTeaser(props){
     return (
     <Col xs lg="4" xl='3' className="teaser">
         <img width='200px' height='200px' src={props.attributes.posterImage.original} alt="" />
-        <Link to={`/animes/${props.attributes.canonicalTitle}`} onClick={grabCurrentAnime}><h1>{props.attributes.canonicalTitle}</h1></Link>
-        {[...Array(Math.round(props.attributes.averageRating / 100 * 5))].map(() => <img width='60px' height='60px' className="game-rating" src={star}></img>)}
-        {Math.round(props.attributes.averageRating / 100 * 5) != 5 && [...Array(5 - Math.round(props.attributes.averageRating / 100 * 5))].map(() => <img width='60px' height='60px' className="game-rating" src={emptyStar}></img>)}
+        <Link to={`/animes/${props.attributes.canonicalTitle}`} onClick={grabCurrentAnime}><h4>{props.attributes.canonicalTitle}</h4></Link>
+        {[...Array(Math.round(props.attributes.averageRating / 100 * 5))].map(() => <img width='50px' height='50px' className="game-rating" src={star}></img>)}
+        {Math.round(props.attributes.averageRating / 100 * 5) != 5 && [...Array(5 - Math.round(props.attributes.averageRating / 100 * 5))].map(() => <img width='50px' height='50px' className="game-rating" src={emptyStar}></img>)}
     </Col>
   );
 }

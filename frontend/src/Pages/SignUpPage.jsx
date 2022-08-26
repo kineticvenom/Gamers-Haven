@@ -24,7 +24,8 @@ function SignUpPage(){
   }
 
     return (
-                <form>
+        <div className='signup'>
+                <form className='register'>
                     <label for='email'>Please enter your email:</label><br></br>
                     <input type="text" id="email" placeholder='enter email'/><br></br>
                     <label for='username'>Please enter a username:</label><br></br>
@@ -34,6 +35,7 @@ function SignUpPage(){
                     <div className="py-3"></div>
                     <button onClick={SignUp}>Sign Up</button>
                 </form>
+        </div>
     )
 
 }

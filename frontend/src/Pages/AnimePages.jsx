@@ -10,7 +10,10 @@ function AnimePages(props) {
     const [searchAnime, setSearchAnime] = useState(null)
     const [results, setResults] = useState([])
 
-    console.log(results)
+    function refresh(){
+        window.location.reload()
+    }
+
     return (
         <div>
             <Container>
@@ -26,7 +29,7 @@ function AnimePages(props) {
                     </div> :
                     
                         anime.length > 0 ? <div>
-                            <hr /> <h1>Juicy Anime</h1> <br></br>
+                            <hr /> <h1><a type='button' onClick={refresh}>Hot Anime</a></h1> <br></br>
                             <AnimeList anime={anime} setCurrentAnime={setCurrentAnime} /> </div> : <h1>Loading..</h1>
                     }
             </Container>

@@ -10,6 +10,11 @@ function GamePages(props) {
 
     const [searchTitle, setSearchTitle] = useState(null)
     const [results, setResults] = useState([])
+
+    function refresh(){
+        window.location.reload()
+    }
+    
     return (
         <div>
             <Container>
@@ -25,7 +30,7 @@ function GamePages(props) {
                     </div> :
                     
                         games.length > 0 ? <div>
-                            <hr /> <h1>Hot Games</h1> <br></br>
+                            <hr /> <h1><a type='button' onClick={refresh}>Hot Games</a></h1> <br></br>
                             <GameList games={games} setCurrentGame={setCurrentGame} /> </div> : <h1>Loading..</h1>
                     }
             </Container>

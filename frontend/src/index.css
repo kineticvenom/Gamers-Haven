@@ -4,6 +4,7 @@ body{
   color: #fffcf2;
 }
 
+
 .NavBarContainer {
   background-color: #c65224;
 }
@@ -19,11 +20,35 @@ body{
   bottom: 70px;
 }
 
+.signup {
+  display: flex;
+  justify-content: center;
+}
+
+.register {
+  width: 100%;
+  max-width: 420px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  color: white;
+  background-color: rgba(0,0,0,0.4);
+}
+
 .user-image {
   display: flex;
   flex-direction: column;
   position: relative;
   left: 500px;
+}
+
+.circle {
+  border-radius: 50%;
+  box-shadow: 0 0 0 2pt rgb(0, 0, 0);
+  background-color: #403d39;
 }
 
 .logout, .logout:hover{
@@ -38,8 +63,51 @@ body{
   color: rgba(0, 0, 0, .7);
 }
 
+.btn-primary {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #c62488;
+  --bs-btn-border-color: #c62488;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #d92795;
+  --bs-btn-hover-border-color: #d92795;
+}
 .game-rating {
   padding-top: 10px;
 }
 
+.details-image {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
 
+.details-info {
+  width: 100%;
+  max-width: 420px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 1rem;
+  color: white;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.teaser {
+  width: 100%;
+  max-width: 320px;
+  min-height: 300px;
+  border-radius: 4px;
+  box-shadow: 0 0 0 2pt rgb(0, 0, 0);
+  background-color: #403d39;
+  /* background-color: #8a817c; <-- alternate card color*/ 
+  padding: 15px;
+  margin: 5px;
+}
+
+.teaser a , .teaser h4{
+  color:aliceblue;
+  text-decoration: none !important;
+}
