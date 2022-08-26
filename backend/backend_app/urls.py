@@ -17,5 +17,9 @@ urlpatterns = [
     path('whoami', views.who_am_i),
     path('post/create', views.post_create),
     path('post/get', views.post_get),
+    path('comment/create', views.comment_create),
+    path('comment/get', views.comment_get),
+    path('favorite/create', views.favorite_create),
+
 
 ]

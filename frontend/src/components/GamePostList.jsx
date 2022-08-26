@@ -14,7 +14,7 @@ function GamePostList(props){
 
     return (
         posts.map((post) => (
-            <GamePost {...post} /> 
+            <GamePost {...post}   /> 
         ))
     )
 

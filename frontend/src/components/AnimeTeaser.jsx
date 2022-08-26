@@ -25,7 +25,7 @@ function AnimeTeaser(props){
     }, [])
 
     return (
-    <Col xs lg="4" xl='3'>
+    <Col xs lg="4" xl='3' className="teaser">
         <img width='200px' height='200px' src={props.attributes.posterImage.original} alt="" />
         <Link to={`/animes/${props.attributes.canonicalTitle}`} onClick={grabCurrentAnime}><h1>{props.attributes.canonicalTitle}</h1></Link>
         {[...Array(Math.round(props.attributes.averageRating / 100 * 5))].map(() => <img width='60px' height='60px' className="game-rating" src={star}></img>)}
