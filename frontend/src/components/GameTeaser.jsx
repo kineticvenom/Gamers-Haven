@@ -30,7 +30,7 @@ function GameTeaser(props){
 
 
     return (
-    <Col xs lg="4" xl='3' className="teaser">
+    <Col xs lg="4" xl='3' className="teaser-game">
         <img width='200px' height='200px' src={props.background_image} alt="" />
         <Link to={`/games/${props.name}`} onClick={grabCurrentGame}><h4>{props.name}</h4></Link>
         {[...Array(props.rating_top)].map(() => <img width='50px' height='50px' className="game-rating" src={star}></img>)}

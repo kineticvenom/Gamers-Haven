@@ -14,9 +14,9 @@ function GamePages(props) {
     function refresh(){
         window.location.reload()
     }
-    
+
     return (
-        <div>
+        <div className='game-page'>
             <Container>
                 <br/>
                 <GameSearch setCurrentGame={setCurrentGame} setResults={setResults} results={results} searchTitle={searchTitle } setSearchTitle={setSearchTitle} />

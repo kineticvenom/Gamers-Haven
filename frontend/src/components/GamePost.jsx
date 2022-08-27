@@ -36,7 +36,7 @@ function GamePost(props){
                     </Col>
                     <Col>
                         <h5>{props.content}</h5>
-                        <p>Posted By :<span style={{ fontSize:'1.5rem'}}>{props.user_id}</span> </p>
+                        <p>Posted By :<span style={{ fontSize:'1.2rem'}}> {props.user_id}</span> </p>
                         <p>Posted On : {props.date}</p>
 
                     </Col>
