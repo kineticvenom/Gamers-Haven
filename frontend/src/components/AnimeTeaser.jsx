@@ -9,6 +9,8 @@ import axios from "axios"
 function AnimeTeaser(props){
     const {setCurrentAnime, anime} = props
 
+    console.log('AnimeTeaser:',props)
+
     function grabCurrentAnime(){
 
         axios.post('/api/anime/details', {
@@ -28,6 +30,7 @@ function AnimeTeaser(props){
     <Col xs lg="4" xl='3' className="teaser-anime">
         <img width='200px' height='200px' src={props.attributes.posterImage.original} alt="" />
         <Link to={`/animes/${props.attributes.canonicalTitle}`} onClick={grabCurrentAnime}><h4>{props.attributes.canonicalTitle}</h4></Link>
+        <h6>Episodes: {props.attributes.episodeCount}</h6>
         {[...Array(Math.round(props.attributes.averageRating / 100 * 5))].map(() => <img width='50px' height='50px' className="game-rating" src={star}></img>)}
         {Math.round(props.attributes.averageRating / 100 * 5) != 5 && [...Array(5 - Math.round(props.attributes.averageRating / 100 * 5))].map(() => <img width='50px' height='50px' className="game-rating" src={emptyStar}></img>)}
     </Col>

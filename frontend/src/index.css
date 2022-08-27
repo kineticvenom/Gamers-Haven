@@ -137,12 +137,12 @@ body{
   margin: 5px;
 }
 
-.teaser-game a , .teaser-game h4{
+.teaser-game a , .teaser-game h4, .teaser-game h6{
   color:aliceblue;
   text-decoration: none !important;
 }
 
-.teaser-anime a , .teaser-anime h4{
+.teaser-anime a , .teaser-anime h4, .teaser-anime h6{
   color:aliceblue;
   text-decoration: none !important;
 }
