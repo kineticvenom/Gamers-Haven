@@ -56,6 +56,11 @@ class Polls(models.Model):
     votes2 = models.IntegerField(default=0)
     option1 = models.CharField(max_length=40)
     option2 = models.CharField(max_length=40)
+    # option3 = models.CharField(max_length=40,null=True)
+    # option4 = models.CharField(max_length=40,null=True)
+    # option5 = models.CharField(max_length=40,null=True)
+
     favorites = models.IntegerField(default=0)
+    # date = models.DateTimeField(default=timezone.now)
 
     
