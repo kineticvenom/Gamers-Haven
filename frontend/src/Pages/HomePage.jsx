@@ -5,15 +5,15 @@ import {Row,Col} from 'react-bootstrap/'
 
 function HomePage(props) {
   const { user, saveData, setSaveData } = props
-  const getFavorites = () =>{
-    axios.get('favorite/get').then((response) =>{
-      // console.log(response.data)
+  const getFeedData = () =>{
+    axios.get('feed/get').then((response) =>{
+     
       setSaveData(response.data)
     })
   }
 
   useEffect(()=>{
-    getFavorites()
+    getFeedData()
   },[])
 
 

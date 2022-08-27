@@ -1,10 +1,10 @@
 import { Form, Button } from 'react-bootstrap'
 import axios from "axios"
 
-function GameCommentForm(props) {
+function AnimeCommentForm(props) {
     const { id, api_id } = props
     
-   
+ 
     function submitComment(event){
         event.preventDefault();
         console.log('new comment: ' + event.target[0].value);
@@ -42,7 +42,7 @@ function GameCommentForm(props) {
 
 }
 
-export default GameCommentForm
+export default AnimeCommentForm
 
 
 

@@ -27,7 +27,7 @@ class Posts(models.Model):
     category = models.TextField()
     user = models.ForeignKey(AppUser,to_field="username" ,on_delete=models.CASCADE,related_name='user_post')
     user_image = models.TextField(null=True)
-    
+
 class Comments(models.Model):
     
     user = models.ForeignKey(AppUser,to_field="username" ,on_delete=models.CASCADE,related_name='user_comment')

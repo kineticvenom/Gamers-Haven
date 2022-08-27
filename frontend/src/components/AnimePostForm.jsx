@@ -1,18 +1,18 @@
 import { Form, Button } from 'react-bootstrap'
 import axios from "axios"
 
-function GamePostForm(props) {
-    const category = 'game'
-    const {currentGame} = props
-    
+function AnimePostForm(props) {
+    const category = 'anime'
+    const {currentAnime} = props
+    console.log(currentAnime)
     function submitPost(event){
         event.preventDefault();
-        console.log('new game post: ' + event.target[0].value, event.target[1].value);
+        console.log('new anime post: ' + event.target[0].value, event.target[1].value);
         axios.post('/post/create', {
             'title': event.target[0].value,
             'content': event.target[1].value,
             'category': category,
-            'id': currentGame.id
+            'id': currentAnime.id
         })
             .then((response) => {
                 
@@ -47,5 +47,5 @@ function GamePostForm(props) {
 
 }
 
-export default GamePostForm
+export default  AnimePostForm
 

@@ -8,8 +8,6 @@ import axios from "axios"
 
 function GameTeaser(props){
     const {setCurrentGame, games} = props
-    
-    // console.log('GameTeaser:',props)
 
     function grabCurrentGame(){
 

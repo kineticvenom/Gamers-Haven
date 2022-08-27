@@ -38,17 +38,11 @@ def sign_up(request):
 
 @api_view(['POST'])
 def log_in(request):
-    # print(dir(request))
-    # print(dir(request._request))
-
-    # DRF assumes that the body is JSON, and automatically parses it into a dictionary at request.data
+    
     email = request.data['email']
     password = request.data['password']
-    # user = authenticate(username=email, password=password, email=email)
     user = authenticate(username=email, password=password)
-    # print('user?')
-    # print(user.email)
-    # print(user.password)
+
     if user is not None:
         if user.is_active:
             try:
@@ -78,8 +72,7 @@ def log_out(request):
 
 @api_view(['GET'])
 def who_am_i(request):
-    # Make sure that you don't send sensitive information to the client, such as password hashes
-    # raise Exception('oops')
+    
     if request.user.is_authenticated:
         data = serializers.serialize("json", [request.user], fields=['email', 'username', 'profile_image'])
 
@@ -140,7 +133,7 @@ def anime_detail(request):
     except:
         image = f'https://wallpapers-clan.com/wp-content/uploads/2021/04/Anime-App-Icons-Settings.png'
     description = jsonResponse['data']['attributes']['description']
-    return JsonResponse({'image': image, 'title': title, 'description': description})
+    return JsonResponse({'id':id, 'image': image, 'title': title, 'description': description})
 
 @api_view(['POST'])
 def anime_search(request):
@@ -169,8 +162,9 @@ def post_create(request):
 @api_view(['POST'])
 def post_get(request):
     current_id = request.data['id']
+    current_category = request.data['category']
     
-    user_posts = list(Posts.objects.filter(category='game', api_id = current_id).order_by('-date').values())
+    user_posts = list(Posts.objects.filter(category=current_category, api_id = current_id).order_by('-date').values())
    
     return JsonResponse( {'posts': user_posts})
 
@@ -219,12 +213,12 @@ def favorite_create(request):
         return JsonResponse({'Success': False})
 
 @api_view(['GET'])
-def favorite_get(request) :
+def feed_get(request) :
     if request.user.is_authenticated:
         user = request.user
         favorite = list(Favorites.objects.filter(user=user).values())
-        posts = list(Posts.objects.filter(user=user).values())
-        comments = list(Comments.objects.filter(user=user).values())
+        posts = list(Posts.objects.filter(user=user).order_by('-date').values())
+        comments = list(Comments.objects.filter(user=user).order_by('-date').values())
         
         return JsonResponse({'favorites':favorite,
         'posts':posts,

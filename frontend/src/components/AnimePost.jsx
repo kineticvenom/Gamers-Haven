@@ -2,10 +2,10 @@ import { Row , Col } from "react-bootstrap/";
 import axios from "axios"
 
 import { useEffect, useState } from "react"
-import GameCommentForm from "./GameCommentForm";
+import AnimeCommentForm from "./AnimeCommentForm";
 import CommentCard from "./CommentCard";
 
-function GamePost(props){
+function AnimePost(props){
     const [comments, setComments] = useState([])
     const [showForm,setShowForm] =useState(false)
     const [showComments, setShowComments] = useState(false)
@@ -79,7 +79,7 @@ function GamePost(props){
                     
                 </Row>
             </div>
-            {showForm ? <GameCommentForm id={props.id} api_id={props.api_id}  />: ''}
+            {showForm ? <AnimeCommentForm id={props.id} api_id={props.api_id}  />: ''}
             {showComments ?
             comments.map((comment) => (
             <CommentCard {...comment} user={user}/> 
@@ -89,4 +89,4 @@ function GamePost(props){
 
 }
 
-export default GamePost;
+export default AnimePost;

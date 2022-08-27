@@ -1,4 +1,4 @@
-import { Container, Row, Col } from "react-bootstrap/";
+import {Row} from "react-bootstrap/";
 import AnimeTeaser from "./AnimeTeaser";
 
 function AnimeList(props){

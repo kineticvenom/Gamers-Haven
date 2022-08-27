@@ -22,6 +22,7 @@ function AnimeTeaser(props){
 
     useEffect(() => {
         setCurrentAnime(null)
+        sessionStorage.clear()
     }, [])
 
     return (

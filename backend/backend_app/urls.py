@@ -22,7 +22,7 @@ urlpatterns = [
     path('comment/get', views.comment_get),
     path('comment/delete', views.comment_delete),
     path('favorite/create', views.favorite_create),
-    path('favorite/get', views.favorite_get),
+    path('feed/get', views.feed_get),
 
 
 ]
