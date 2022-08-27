@@ -6,6 +6,7 @@ body{
 
 
 .NavBarContainer {
+  background-image: url('../src/assets/banner3.png');
   background-color: #c65224;
 }
 
@@ -18,6 +19,14 @@ body{
   color: #ccc5b9;
   position: relative;
   bottom: 70px;
+}
+
+.anime-page {
+  background-color: #011627;
+  /* background-color: #192a51; */
+  /* background-color: #0e1c36; */
+  /* background-color: #293241; */
+  
 }
 
 .signup {
@@ -48,7 +57,8 @@ body{
 .circle {
   border-radius: 50%;
   box-shadow: 0 0 0 2pt rgb(0, 0, 0);
-  background-color: #403d39;
+  /* background-color: #403d39; <-- alternate icon color */
+  background-color: #bc3908;
 }
 
 .logout, .logout:hover{
@@ -75,39 +85,63 @@ body{
   padding-top: 10px;
 }
 
-.details-image {
+.game-details {
+  display: flex;
+  flex-direction: row;
+}
+
+.details-card-game {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
   flex-wrap: wrap;
-  align-content: flex-start;
+  align-items: center;
+  align-content: space-around;
+  width: 25%;
+  border-radius: 4px;
+  box-shadow: 0 0 0 2pt #000;
+  background-color: #403d39;
+  padding: 15px;
+  margin: 5px;
 }
 
 .details-info {
-  width: 100%;
-  max-width: 420px;
-  min-height: 400px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  width: 50%;
+  text-align: start;
   padding: 1rem;
-  color: white;
-  background-color: rgba(0,0,0,0.4);
 }
 
-.teaser {
+.details-info h5{
+  color: #e9c46a;
+}
+
+.teaser-game {
   width: 100%;
   max-width: 320px;
   min-height: 300px;
   border-radius: 4px;
   box-shadow: 0 0 0 2pt rgb(0, 0, 0);
-  /* background-color: #403d39; */
-  background-color: #8a817c;
+  background-color: #403d39;
   padding: 15px;
   margin: 5px;
 }
 
-.teaser a , .teaser h4{
+.teaser-anime {
+  width: 100%;
+  max-width: 320px;
+  min-height: 300px;
+  border-radius: 4px;
+  box-shadow: 0 0 0 2pt rgb(0, 0, 0);
+  background-color: #293241;
+  padding: 15px;
+  margin: 5px;
+}
+
+.teaser-game a , .teaser-game h4, .teaser-game h6{
+  color:aliceblue;
+  text-decoration: none !important;
+}
+
+.teaser-anime a , .teaser-anime h4, .teaser-anime h6{
   color:aliceblue;
   text-decoration: none !important;
 }

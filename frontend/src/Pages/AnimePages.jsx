@@ -15,7 +15,9 @@ function AnimePages(props) {
     }
 
     return (
-        <div className='animePageBack'>
+
+        <div className='anime-page'>
+
             <Container>
                 <br/>
                 <AnimeSearch setCurrentAnime={setCurrentAnime} setResults={setResults} results={results} searchAnime={searchAnime} setSearchAnime={setSearchAnime} />

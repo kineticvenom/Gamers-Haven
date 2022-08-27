@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react'
 import axios from 'axios'
 import GamePostList from '../components/GamePostList'
 import GamePostForm from '../components/GamePostForm'
+import { Button } from 'react-bootstrap'
 
 
 function GameDetailPages(props) {
@@ -55,30 +56,38 @@ function GameDetailPages(props) {
     }
     
     
-    
+    console.log('details: ', currentGame)
     
     return (
         <div >
                 {
                 currentGame ?
-                    <div>
-                        <button onClick={addFavorite}>Add Favorite</button>
-                        <div className="py-3"></div>
-                        <h1>{currentGame.name}</h1>
-                        <img width='300px' height='300px' src={currentGame.background_image} alt='reload'></img>
-                        <h5>{currentGame.description_raw}</h5>
-                        <div className="py-3"></div>
-                        <div>
-                            <h1 >Discussions:</h1>
-                            <button onClick={() => { setShowForm(!showForm) }}>New Post</button>
-                            {showForm ? <GamePostForm currentGame={currentGame} />: ''}
-                            {currentGame ? <GamePostList posts={posts} grabPosts={grabPosts} /> : <h4>Loading posts..</h4>
+
+                <div>
+                    <div className='game-details'>
+                        <div className='details-card-game'>
+                            <h1>{currentGame.name}</h1>
+                            <img width='300px' height='300px' src={currentGame.background_image} alt='reload'></img>
+                            <h3>Genre: {currentGame.genres[0].name}</h3>
+                            <Button onClick={addFavorite}>Add Favorite</Button> 
+                        </div>
+                            { currentGame.esrb_rating != null ?
+                                <p className='details-info'>{currentGame.description_raw} <h5>Rated: {currentGame.esrb_rating.name}</h5> <h5>Developed By: {currentGame.developers[0].name}</h5> <h5>Released: {currentGame.released}</h5> <h5>Review Score: {currentGame.metacritic}</h5></p>
+                                :
+                                <p className='details-info'>{currentGame.description_raw} <h5>Not Rated</h5> <h5>Developed By: {currentGame.developers[0].name}</h5> <h5>Released: {currentGame.released}</h5> <h5>Review Score: {currentGame.metacritic}</h5></p>
                             }
-                        </div>   
-                    <div className="py-2"></div>
+                    </div>
+                    <div>
+                        <h1 >Discussions:</h1>
+                        <Button onClick={() => { setShowForm(!showForm) }}>New Post</Button>
+                        {showForm ? <GamePostForm currentGame={currentGame} />: ''}
+                        {currentGame ? <GamePostList posts={posts} grabPosts={grabPosts} /> : <h4>Loading posts..</h4>
+                        }
+                    </div>   
+
                 </div> : <h1>Loading..</h1>
                 } 
-            </div>
+        </div>
     )
 
 }
