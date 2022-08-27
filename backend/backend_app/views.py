@@ -8,7 +8,7 @@ import pprint
 from django.core import serializers
 from django.contrib.auth import authenticate, login, logout
 from .models import AppUser as User
-from .models import Posts, Comments,Favorites
+from .models import Posts, Comments,Favorites, Polls
 import random
 
 
@@ -255,6 +255,17 @@ def comment_delete(request):
 
     return HttpResponse('User not found')
     
-
-
+@api_view(['POST'])
+def polls_create(request):
+    user = request.user
+    title = request.data['title']
+    option1 = request.data['option1']
+    option2 = request.data['option2']
     
+    try:
+        new_poll=Polls(title=title, option1=option1, option2=option2,user=user )
+        new_poll.save()
+        
+        return JsonResponse({'Success': True})
+    except:
+        return JsonResponse({'Success': False})

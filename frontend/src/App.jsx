@@ -15,6 +15,7 @@ import GameDetailPages from './Pages/GameDetailPages'
 import "./App.css";
 import SignUpPage from './Pages/SignUpPage'
 import LogInPage from './Pages/LogInPage'
+import PollsPages from './Pages/PollsPages'
 
 
 const getCSRFToken = ()=>{
@@ -93,7 +94,8 @@ useEffect(GrabAnime, [])
             <Route path='/games' element={< GamePages games={games} setCurrentGame={setCurrentGame}/>}></Route>
             <Route path='/games/:game_ID' element={<GameDetailPages currentGame={currentGame} setCurrentGame={setCurrentGame}/>} />
             <Route path='/signup' element={<SignUpPage />}></Route>
-            <Route path='/login' element={<LogInPage />}></Route>
+          <Route path='/login' element={<LogInPage />}></Route>
+          <Route path='/polls' element={< PollsPages /> }></Route>
           
           </Routes>
       </Router>

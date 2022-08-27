@@ -47,4 +47,15 @@ class Favorites(models.Model):
 
     class Meta:
         unique_together = (("user", "api_id"))
+
+class Polls(models.Model):
+    
+    user = models.ForeignKey(AppUser,on_delete=models.CASCADE)
+    title = models.CharField(max_length=80)
+    votes1 = models.IntegerField(default=0)
+    votes2 = models.IntegerField(default=0)
+    option1 = models.CharField(max_length=40)
+    option2 = models.CharField(max_length=40)
+    favorites = models.IntegerField(default=0)
+
     
