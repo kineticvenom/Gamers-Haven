@@ -10,6 +10,7 @@ from django.contrib.auth import authenticate, login, logout
 from .models import AppUser as User
 from .models import Posts, Comments,Favorites, Polls
 import random
+from django.db.models import F
 
 
 
@@ -261,11 +262,41 @@ def polls_create(request):
     title = request.data['title']
     option1 = request.data['option1']
     option2 = request.data['option2']
+    option3 = request.data['option3']
+    option4 = request.data['option4']
+    option5 = request.data['option5']
+    
     
     try:
-        new_poll=Polls(title=title, option1=option1, option2=option2,user=user )
+        new_poll=Polls(title=title,user=user, option1=option1, option2=option2, option3=option3, option4=option4,option5=option5  )
         new_poll.save()
         
         return JsonResponse({'Success': True})
     except:
         return JsonResponse({'Success': False})
+
+@api_view(['GET'])
+def polls_get(request):
+    all_polls = list(Polls.objects.all().order_by('-date').values())
+    return JsonResponse( {'polls': all_polls})
+
+@api_view(['PUT'])
+def polls_update(request):
+    
+    poll_id= request.data['poll_id']
+    choice= request.data['option']
+    
+    try:
+        
+        poll =Polls.objects.get(id=poll_id)
+        value = getattr(poll, choice)
+        setattr(poll, choice, value+1)
+        poll.save()
+        data = list(Polls.objects.filter(id=poll_id).values())
+        
+        return JsonResponse({'Success': True,'data':data,'choice':choice})
+    except Exception as e:
+        print('except')
+        print(str(e))
+        return JsonResponse({'Success': False})
+    

@@ -54,13 +54,15 @@ class Polls(models.Model):
     title = models.CharField(max_length=80)
     votes1 = models.IntegerField(default=0)
     votes2 = models.IntegerField(default=0)
+    votes3 = models.IntegerField(default=0)
+    votes4 = models.IntegerField(default=0)
+    votes5 = models.IntegerField(default=0)
     option1 = models.CharField(max_length=40)
     option2 = models.CharField(max_length=40)
-    # option3 = models.CharField(max_length=40,null=True)
-    # option4 = models.CharField(max_length=40,null=True)
-    # option5 = models.CharField(max_length=40,null=True)
-
+    option3 = models.CharField(max_length=40,null=True)
+    option4 = models.CharField(max_length=40,null=True)
+    option5 = models.CharField(max_length=40,null=True)
     favorites = models.IntegerField(default=0)
-    # date = models.DateTimeField(default=timezone.now)
+    date = models.DateTimeField(default=timezone.now)
 
     

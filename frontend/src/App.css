@@ -82,4 +82,47 @@ padding: 20px;
   top: -10px;
   right: -10px;
 }
+.pollcard{
 
+  height: fit-content;
+  border: solid #C4B07C 4px;
+  border-radius: 50px;
+  background-color: #281828;
+  margin: 40px 40px 90px;
+  padding: 70px;
+  color: #C4B07C;
+}
+
+.pollcard button{
+    border-radius: 7px;
+    color: #fff;
+    background-color: #4F4B48;
+    width: 320px;
+    height: 48px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    transition-duration: .4s;
+
+}
+.pollcard button:hover{
+  background-color: #45423a;
+}
+.pollButtonBox{
+  padding-top: 35px;
+}
+.PollBox{
+margin-top: 80px;
+margin-bottom: 80px;
+}
+.PollRow{
+  margin: auto;
+  max-width: 1500px;
+}
+.row{
+  justify-content: center;
+  align-items: center;
+}
+
+.buttonResults{
+  background-color: #3a506b !important;
+}

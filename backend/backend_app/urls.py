@@ -24,6 +24,8 @@ urlpatterns = [
     path('favorite/create', views.favorite_create),
     path('feed/get', views.feed_get),
     path('poll/create', views.polls_create),
+    path('poll/get', views.polls_get),
+    path('poll/update', views.polls_update),
 
 
 ]

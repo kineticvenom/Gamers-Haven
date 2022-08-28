@@ -28,7 +28,7 @@ function AnimeTeaser(props){
     }, [])
 
     return (
-    <Col xs lg="4" xl='3' className="teaser-anime">
+    <Col lg="4"  className="teaser-anime">
         <img width='200px' height='200px' src={props.attributes.posterImage.original} alt="" />
         <Link to={`/animes/${props.attributes.canonicalTitle}`} onClick={grabCurrentAnime}><h4>{props.attributes.canonicalTitle}</h4></Link>
         <h6>Episodes: {props.attributes.episodeCount}</h6>
