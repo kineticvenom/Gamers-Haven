@@ -127,13 +127,18 @@ def anime_detail(request):
     
     response = HTTP_Client.get(url)
     jsonResponse = response.json()
-    title = jsonResponse['data']['attributes']['canonicalTitle']
+    
     try:
         image = jsonResponse['data']['attributes']['coverImage']['original']
     except:
         image = f'https://wallpapers-clan.com/wp-content/uploads/2021/04/Anime-App-Icons-Settings.png'
+    title = jsonResponse['data']['attributes']['canonicalTitle']
     description = jsonResponse['data']['attributes']['description']
-    return JsonResponse({'id':id, 'image': image, 'title': title, 'description': description})
+    age = jsonResponse['data']['attributes']['ageRating']
+    rating = jsonResponse['data']['attributes']['averageRating']
+    episodes = jsonResponse['data']['attributes']['episodeCount']
+    release = jsonResponse['data']['attributes']['startDate']
+    return JsonResponse({'id':id, 'image': image, 'title': title, 'description': description, 'age': age, 'rating': rating, 'episodes': episodes, 'release': release})
 
 @api_view(['POST'])
 def anime_search(request):

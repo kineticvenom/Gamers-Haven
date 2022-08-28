@@ -28,7 +28,7 @@ function GamePostForm(props) {
 
 
     return (
-        <Form onSubmit={submitPost} style={{width:'1000px', margin:'auto'}}>
+        <Form className='post-border-game' onSubmit={submitPost} style={{width:'1000px', margin:'auto'}}>
         <Form.Group className="mb-3" controlId="formTitle" >
         <Form.Label>Title</Form.Label>
         <Form.Control type="text" placeholder="Title" />

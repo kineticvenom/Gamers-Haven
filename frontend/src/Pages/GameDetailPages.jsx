@@ -64,7 +64,7 @@ function GameDetailPages(props) {
                 currentGame ?
 
                 <div>
-                    <div className='game-details'>
+                    <div className='details'>
                         <div className='details-card-game'>
                             <h1>{currentGame.name}</h1>
                             <img width='300px' height='300px' src={currentGame.background_image} alt='reload'></img>
@@ -78,11 +78,10 @@ function GameDetailPages(props) {
                             }
                     </div>
                     <div>
-                        <h1 >Discussions:</h1>
+                        <h1 >Discussions</h1>
                         <Button onClick={() => { setShowForm(!showForm) }}>New Post</Button>
                         {showForm ? <GamePostForm currentGame={currentGame} />: ''}
-                        {currentGame ? <GamePostList posts={posts} grabPosts={grabPosts} /> : <h4>Loading posts..</h4>
-                        }
+                        {currentGame ? <GamePostList posts={posts} grabPosts={grabPosts} /> : <h4>Loading posts..</h4>}
                     </div>   
 
                 </div> : <h1>Loading..</h1>

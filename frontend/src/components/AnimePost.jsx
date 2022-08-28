@@ -1,5 +1,6 @@
 import { Row , Col } from "react-bootstrap/";
 import axios from "axios"
+import { Form, Button } from 'react-bootstrap'
 
 import { useEffect, useState } from "react"
 import AnimeCommentForm from "./AnimeCommentForm";
@@ -54,7 +55,7 @@ function AnimePost(props){
 
     return (
         <div>
-            <div className="post_box">   
+            <div className="post_box_anime">   
                 <h2>{props.title}</h2> 
             
                         {user && user.username == props.user_id  && 
@@ -71,9 +72,10 @@ function AnimePost(props){
                         <p>Posted On : {props.date}</p>
 
                     </Col>
-                    <button onClick={() => { setShowForm(!showForm) }}>Reply</button>
+                    <Button onClick={() => { setShowForm(!showForm) }}>Reply</Button>
+                    <hr />
                     {comments.length>0 &&
-                        <button onClick={() => { setShowComments(!showComments) }}>View Replies</button>
+                        <Button onClick={() => { setShowComments(!showComments) }}>View Replies</Button>
                     }
                     
                     

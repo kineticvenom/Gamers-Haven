@@ -1,4 +1,5 @@
 import { Row , Col } from "react-bootstrap/";
+import { Form, Button } from 'react-bootstrap'
 import axios from "axios"
 
 import { useEffect, useState } from "react"
@@ -71,9 +72,10 @@ function GamePost(props){
                         <p>Posted On : {props.date}</p>
 
                     </Col>
-                    <button onClick={() => { setShowForm(!showForm) }}>Reply</button>
+                    <Button onClick={() => { setShowForm(!showForm) }}>Reply</Button>
+                    <hr />
                     {comments.length>0 &&
-                        <button onClick={() => { setShowComments(!showComments) }}>View Replies</button>
+                        <Button onClick={() => { setShowComments(!showComments) }}>View Replies</Button>
                     }
                     
                     
