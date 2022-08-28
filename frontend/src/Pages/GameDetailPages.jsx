@@ -72,9 +72,9 @@ function GameDetailPages(props) {
                             <Button onClick={addFavorite}>Add Favorite</Button> 
                         </div>
                             { currentGame.esrb_rating != null ?
-                                <p className='details-info'>{currentGame.description_raw} <h5>Rated: {currentGame.esrb_rating.name}</h5> <h5>Developed By: {currentGame.developers[0].name}</h5> <h5>Released: {currentGame.released}</h5> <h5>Review Score: {currentGame.metacritic}</h5></p>
+                                <p className='details-info'>{currentGame.description_raw} <br /><br /> <h5>Rated: {currentGame.esrb_rating.name}</h5> <h5>Developed By: {currentGame.developers[0].name}</h5> <h5>Released: {currentGame.released}</h5> <h5>Review Score: {currentGame.metacritic}</h5></p>
                                 :
-                                <p className='details-info'>{currentGame.description_raw} <h5>Not Rated</h5> <h5>Developed By: {currentGame.developers[0].name}</h5> <h5>Released: {currentGame.released}</h5> <h5>Review Score: {currentGame.metacritic}</h5></p>
+                                <p className='details-info'>{currentGame.description_raw} <br /><br /> <h5>Not Rated</h5> <h5>Developed By: {currentGame.developers[0].name}</h5> <h5>Released: {currentGame.released}</h5> <h5>Review Score: {currentGame.metacritic}</h5></p>
                             }
                     </div>
                     <div>

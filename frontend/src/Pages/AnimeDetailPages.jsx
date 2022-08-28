@@ -64,7 +64,7 @@ function AnimeDetailPages(props) {
                             <img width='300px' height='300px' src={currentAnime.image} alt='reload'></img>
                             <Button onClick={addFavorite}>Add Favorite</Button>
                         </div>
-                        <p className='details-info'>{currentAnime.description} <h5>Rated: {currentAnime.age}</h5> <h5>Episodes: {currentAnime.episodes}</h5> <h5>User Rating: {currentAnime.rating}</h5> <h5>Released: {currentAnime.release}</h5></p>
+                        <p className='details-info'>{currentAnime.description} <br /><br /> <h5>Rated: {currentAnime.age}</h5> <h5>Episodes: {currentAnime.episodes}</h5> <h5>User Rating: {currentAnime.rating}</h5> <h5>Released: {currentAnime.release}</h5></p>
                     </div>
                     <div>
                         <h1 >Discussions</h1>
