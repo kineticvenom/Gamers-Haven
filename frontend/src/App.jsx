@@ -93,7 +93,7 @@ useEffect(GrabAnime, [])
             <Route path='/animes' element={< AnimePages anime={anime} setCurrentAnime={setCurrentAnime}/> }></Route>
             <Route path='/animes/:title' element={<AnimeDetailPages currentAnime={currentAnime} setCurrentAnime={setCurrentAnime}/>} />
             <Route path='/games' element={< GamePages games={games} setCurrentGame={setCurrentGame}/>}></Route>
-            <Route path='/games/:game_ID' element={<GameDetailPages currentGame={currentGame} setCurrentGame={setCurrentGame}/>} />
+            <Route path='/games/:game_ID' element={<GameDetailPages currentGame={currentGame} setCurrentGame={setCurrentGame} user={user}/>} />
             <Route path='/signup' element={<SignUpPage />}></Route>
           <Route path='/login' element={<LogInPage />}></Route>
           <Route path='/polls' element={< PollsPages />}></Route>

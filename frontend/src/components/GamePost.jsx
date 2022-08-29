@@ -7,26 +7,27 @@ import GameCommentForm from "./GameCommentForm";
 import CommentCard from "./CommentCard";
 
 function GamePost(props){
+    const {user} = props
     const [comments, setComments] = useState([])
     const [showForm,setShowForm] =useState(false)
     const [showComments, setShowComments] = useState(false)
-    const [user, setUser] = useState(null)
+    
 
-    const whoAmI = async () => {
-    const response = await axios.get('/whoami')
-    const user = response.data && response.data[0] && response.data[0].fields
-    setUser(user)
-    }
+    // const whoAmI = async () => {
+    // const response = await axios.get('/whoami')
+    // const user = response.data && response.data[0] && response.data[0].fields
+    // setUser(user)
+    // }
 
-    useEffect(()=>{
-    whoAmI()
-    }, [])
+    // useEffect(()=>{
+    // whoAmI()
+    // }, [])
 
     
     function deletePost() { 
         axios.delete('/post/delete', { data: { 
             post_id: props.id,
-            user: props.user_id 
+            user: props.user.username 
         } }    
         ).then((response) => {
             console.log(response)
@@ -49,9 +50,9 @@ function GamePost(props){
     return (
         <div>
             <div className="post_box">   
-                <h2>{props.title}</h2> 
+                <h2><strong>{props.game_title}</strong> <span style={{display: 'flex', justifyContent: 'center'}}>{props.title}</span></h2> 
             
-                        {user && user.username == props.user_id  && 
+                        {user && user.username == props.user.username  && 
                         <button className="delete_button_post" onClick={() => { deletePost() }}>X</button>  
                     }
                 <hr />
@@ -61,7 +62,7 @@ function GamePost(props){
                     </Col>
                     <Col>
                         <h5>{props.content}</h5>
-                        <p>Posted By :<span style={{ fontSize:'1.2rem'}}> {props.user_id}</span> </p>
+                        <p>Posted By :<span style={{ fontSize:'1.2rem'}}> {props.user.username}</span> </p>
                         <p>Posted On : {props.date_posted}</p>
 
                     </Col>

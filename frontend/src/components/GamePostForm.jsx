@@ -9,6 +9,7 @@ function GamePostForm(props) {
         event.preventDefault();
         axios.post('/post/create', {
             'title': event.target[0].value,
+            'game_title': currentGame.name,
             'content': event.target[1].value,
             'category': category,
             'id': currentGame.id

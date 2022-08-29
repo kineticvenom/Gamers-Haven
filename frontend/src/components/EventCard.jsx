@@ -10,7 +10,7 @@ function EventCard(props) {
             'event_id': props.id
         })
         .then((response) => {
-        console.log(response)
+        window.location.reload()
 
     })
     }

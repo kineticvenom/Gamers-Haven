@@ -3,12 +3,13 @@ import axios from 'axios'
 import GamePostList from '../components/GamePostList'
 import GamePostForm from '../components/GamePostForm'
 import { Button } from 'react-bootstrap'
+import GamePost from '../components/GamePost'
 
 
 function GameDetailPages(props) {
     const category = 'game'
 
-    const {currentGame, setCurrentGame} = props
+    const {currentGame, setCurrentGame, user} = props
     
     const [posts, setPosts] = useState([])
     const [showForm,setShowForm] =useState(false)
@@ -77,7 +78,7 @@ function GameDetailPages(props) {
                         <h1 >Discussions</h1>
                         <Button onClick={() => { setShowForm(!showForm) }}>New Post</Button>
                         {showForm ? <GamePostForm currentGame={currentGame} />: ''}
-                        {currentGame ? <GamePostList posts={posts} grabPosts={grabPosts} /> : <h4>Loading posts..</h4>}
+                        {currentGame ? <GamePostList posts={posts} grabPosts={grabPosts} user={user}/> : <h4>Loading posts..</h4>}
                     </div>   
 
                 </div> : <h1>Loading..</h1>

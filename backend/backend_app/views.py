@@ -1,5 +1,6 @@
 import json
 import re
+from unittest import result
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from rest_framework.decorators import api_view
@@ -11,6 +12,12 @@ from .models import AppUser as User
 from .models import Posts, Comments,Favorites, Polls, Events
 import random
 from django.db.models import F
+from itertools import chain
+from operator import attrgetter
+from django.forms.models import model_to_dict
+
+
+
 
 
 
@@ -154,12 +161,13 @@ def post_create(request):
     
     user = request.user
     title = request.data['title']
+    game_title = request.data['game_title']
     content = request.data['content']
     category = request.data['category']
     id = request.data['id']
     user_image = user.profile_image
     try:
-        new_post=Posts(title=title, content=content, user=user, category=category,api_id=id, user_image = user_image)
+        new_post=Posts(title=title, game_title=game_title, content=content, user=user, category=category,api_id=id, user_image = user_image)
         new_post.save()
         return JsonResponse({'Success': True})
     except:
@@ -222,13 +230,31 @@ def favorite_create(request):
 def feed_get(request) :
     if request.user.is_authenticated:
         user = request.user
-        favorite = list(Favorites.objects.filter(user=user).values())
-        posts = list(Posts.objects.filter(user=user).order_by('-date_posted').values())
-        comments = list(Comments.objects.filter(user=user).order_by('-date_posted').values())
-        
-        return JsonResponse({'favorites':favorite,
-        'posts':posts,
-        'comments': comments })
+        favorites = Favorites.objects.filter(user=user)
+        posts = Posts.objects.filter(user=user)
+        events = Events.objects.filter(user=user)
+
+
+        result_list = sorted(
+            chain(favorites, posts, events),
+
+            key=attrgetter('date_posted'))
+
+        final_results = []
+        for objects in result_list:
+            final_results.append(model_to_dict(objects))
+
+        final_results = final_results[::-1]
+
+
+        print(final_results[0])
+
+
+        # print(favorite)
+        # print('this is one thing we need', favorite[0])
+        return JsonResponse({'results': final_results})
+
+
     return HttpResponse('User not found')
 
 @api_view(['DELETE'])

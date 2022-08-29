@@ -2,7 +2,7 @@ import GamePost from "./GamePost"
 import { useEffect } from "react"
 
 function GamePostList(props){
-    const{posts, grabPosts} = props
+    const{posts, grabPosts, user} = props
 
 
     useEffect(()=>{
@@ -14,7 +14,7 @@ function GamePostList(props){
 
     return (
         posts.map((post) => (
-            <GamePost {...post}   /> 
+            <GamePost {...post} user={user}   /> 
         ))
     )
 
