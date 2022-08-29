@@ -41,7 +41,7 @@ function HomePage(props) {
             object.hasOwnProperty('user_image') ? <GamePost {...object} user={user}/> : false || 
 
             object.hasOwnProperty('image') ? 
-            <div className='Container' style={{ width: '1000px', margin: 'auto' }}>
+            <div className='favorites' style={{ width: '1000px', margin: 'auto' }}>
             <Row>
               <Col sm='4' >
                 <h3>{user.username}</h3>

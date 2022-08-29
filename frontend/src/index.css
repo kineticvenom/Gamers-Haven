@@ -28,6 +28,7 @@ body{
 
 .anime-page {
   background-color: #011627;
+  padding-bottom: 100px;
   /* background-color: #192a51; */
   /* background-color: #0e1c36; */
   /* background-color: #293241; */
@@ -50,6 +51,13 @@ body{
   padding: 1rem;
   color: white;
   background-color: rgba(0,0,0,0.4);
+}
+
+.favorites {
+  color: #f0f8ff;
+  border: solid gold;
+  background-color: rgba(85, 70, 10, 0.4);
+  padding: 20px;
 }
 
 .post-border-game {
@@ -206,4 +214,18 @@ body{
 .teaser-anime a , .teaser-anime h4, .teaser-anime h6{
   color:aliceblue;
   text-decoration: none !important;
+}
+
+.event-page {
+  background-color: #331d00;
+}
+
+.post_box_event {
+  color: aliceblue;
+  border: solid black;
+  margin: auto;
+  max-width: 1000px;
+  text-align: left;
+  background-color: #4f4230;
+  padding: 20px;  
 }

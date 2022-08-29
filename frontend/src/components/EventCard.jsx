@@ -17,7 +17,7 @@ function EventCard(props) {
     
 
     return (
-        <div className="post_box">
+        <div className="post_box_event">
             <h3 style={{textAlign:'center'}}>{ props.title}</h3> <hr/>
             <Row className="EventCard">
                 <Col lg='3' style={{textAlign:'center'}}>

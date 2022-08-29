@@ -22,7 +22,7 @@ function EventPages(props) {
     useEffect(GrabEvents, [])
     
     return (
-        <div>
+        <div className='event-page'>
             
             <h1 style={{ padding: '50px' }}>Events</h1>
             <Button style={{ margin: '20px', padding: '22px',width: '250px' }} onClick={() => { setShowForm(!showForm) }}>Create New Event</Button>
