@@ -164,10 +164,10 @@ def post_create(request):
     except:
         return JsonResponse({'Success': False})
 
-@api_view(['POST'])
+@api_view(['GET'])
 def post_get(request):
-    current_id = request.data['id']
-    current_category = request.data['category']
+    current_id = request.GET['id']
+    current_category = request.GET['category']
     
     user_posts = list(Posts.objects.filter(category=current_category, api_id = current_id).order_by('-date').values())
    
@@ -191,11 +191,11 @@ def comment_create(request):
     except:
         return JsonResponse({'Success': False})
 
-@api_view(['POST'])
+@api_view(['GET'])
 def comment_get(request):
    
     
-    post=Posts.objects.get(id = request.data['post_id'])
+    post=Posts.objects.get(id = request.GET['post_id'])
     
     user_comments = list(Comments.objects.filter(post = post).order_by('-date').values())
    
@@ -230,7 +230,7 @@ def feed_get(request) :
         'comments': comments })
     return HttpResponse('User not found')
 
-@api_view(['POST'])
+@api_view(['DELETE'])
 def post_delete(request):
     if request.user.is_authenticated:
         post=Posts.objects.get(id = request.data['post_id'],  user_id= request.data['user'])
@@ -245,7 +245,7 @@ def post_delete(request):
 
     return HttpResponse('User not found')
 
-@api_view(['POST'])
+@api_view(['DELETE'])
 def comment_delete(request):
     if request.user.is_authenticated:
         comment = Comments.objects.get(id = request.data['comment_id'],  user_id= request.data['user'])
