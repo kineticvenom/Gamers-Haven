@@ -23,9 +23,10 @@ urlpatterns = [
     path('comment/delete', views.comment_delete),
     path('favorite/create', views.favorite_create),
     path('feed/get', views.feed_get),
-    path('poll/create', views.polls_create),
-    path('poll/get', views.polls_get),
-    path('poll/update', views.polls_update),
-
-
+    path('poll/create', views.poll_create),
+    path('poll/get', views.poll_get),
+    path('poll/update', views.poll_update),
+    path('event/create', views.event_create),
+    path('event/get', views.event_get),
+    path('event/update', views.event_update),
 ]

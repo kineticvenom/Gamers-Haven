@@ -29,6 +29,7 @@ function AppNav(props) {
             <Nav.Link href="/#/games">Games</Nav.Link>
             <Nav.Link href="/#/animes">Anime</Nav.Link>
             <Nav.Link href="/#/polls">Polls</Nav.Link>
+            <Nav.Link href="/#/events">Events</Nav.Link>
           </Nav>
           {user ? 
           <div className="user-image">

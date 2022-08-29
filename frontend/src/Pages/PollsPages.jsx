@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react'
 import axios from 'axios'
 import PollForm from '../components/PollForm'
 import PollCard from '../components/PollCard'
-import {Button, Row} from "react-bootstrap/";
+import {Button, Container, Row} from "react-bootstrap/";
 
 function PollsPages(props) {
     
@@ -22,9 +22,10 @@ function PollsPages(props) {
     useEffect(GrabPolls, [])
     
     return (
-        <div>
-            <h1 style={{ padding: '50px' }}>Polls!</h1>
-            <Button style={{ margin: '70px', padding: '22px',
+        <div className='poll_page'>
+            <Container>
+            <h1 style={{ padding: '50px' }}>Polls</h1>
+            <Button style={{ margin: '20px', padding: '22px',
     width: '250px' }} onClick={() => { setShowForm(!showForm) }}>Create New Poll</Button>
                         {showForm ? <PollForm />: ''}
             {polls ?
@@ -42,7 +43,7 @@ function PollsPages(props) {
                 : <h3>Loading Polls..</h3>
 
             }
-            
+            </Container>
          </div>
     )
 }

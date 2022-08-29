@@ -8,7 +8,7 @@ import pprint
 from django.core import serializers
 from django.contrib.auth import authenticate, login, logout
 from .models import AppUser as User
-from .models import Posts, Comments,Favorites, Polls
+from .models import Posts, Comments,Favorites, Polls, Events
 import random
 from django.db.models import F
 
@@ -165,7 +165,7 @@ def post_get(request):
     current_id = request.data['id']
     current_category = request.data['category']
     
-    user_posts = list(Posts.objects.filter(category=current_category, api_id = current_id).order_by('-date').values())
+    user_posts = list(Posts.objects.filter(category=current_category, api_id = current_id).order_by('-date_posted').values())
    
     return JsonResponse( {'posts': user_posts})
 
@@ -193,7 +193,7 @@ def comment_get(request):
     
     post=Posts.objects.get(id = request.data['post_id'])
     
-    user_comments = list(Comments.objects.filter(post = post).order_by('-date').values())
+    user_comments = list(Comments.objects.filter(post = post).order_by('-date_posted').values())
    
     return JsonResponse( {'comments': user_comments})
 
@@ -218,8 +218,8 @@ def feed_get(request) :
     if request.user.is_authenticated:
         user = request.user
         favorite = list(Favorites.objects.filter(user=user).values())
-        posts = list(Posts.objects.filter(user=user).order_by('-date').values())
-        comments = list(Comments.objects.filter(user=user).order_by('-date').values())
+        posts = list(Posts.objects.filter(user=user).order_by('-date_posted').values())
+        comments = list(Comments.objects.filter(user=user).order_by('-date_posted').values())
         
         return JsonResponse({'favorites':favorite,
         'posts':posts,
@@ -257,7 +257,7 @@ def comment_delete(request):
     return HttpResponse('User not found')
     
 @api_view(['POST'])
-def polls_create(request):
+def poll_create(request):
     user = request.user
     title = request.data['title']
     option1 = request.data['option1']
@@ -276,12 +276,12 @@ def polls_create(request):
         return JsonResponse({'Success': False})
 
 @api_view(['GET'])
-def polls_get(request):
-    all_polls = list(Polls.objects.all().order_by('-date').values())
+def poll_get(request):
+    all_polls = list(Polls.objects.all().order_by('-date_posted').values())
     return JsonResponse( {'polls': all_polls})
 
 @api_view(['PUT'])
-def polls_update(request):
+def poll_update(request):
     
     poll_id= request.data['poll_id']
     choice= request.data['option']
@@ -299,4 +299,64 @@ def polls_update(request):
         print('except')
         print(str(e))
         return JsonResponse({'Success': False})
+    
+@api_view(['POST'])
+def event_create(request):
+
+    user = request.user
+    activity = request.data['activity']
+    if activity == "Videogame Convention" :
+        activity_image = 'https://image.spreadshirtmedia.com/image-server/v1/mp/products/T1459A839PA3861PT28D1034296867W10000H5420/views/1,width=550,height=550,appearanceId=839,backgroundColor=F2F2F2/games-gaming-gamer-logo-sticker.jpg'
+    if activity == "Anime Convention" :
+        activity_image = 'https://scontent-sjc3-1.xx.fbcdn.net/v/t1.6435-9/50946210_2074510052638807_4331288520162279424_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=V1ss2NZEafwAX80aGnN&_nc_ht=scontent-sjc3-1.xx&oh=00_AT_7vJtnBt_B20ClTMllB1kIt-7CzKdRL1dXd1dRiGU5EQ&oe=63332E46'
+    if activity == "Gaming Session" :
+        activity_image = 'https://scontent-sjc3-1.xx.fbcdn.net/v/t39.30808-6/235144504_255163186424026_3350806948257466882_n.png?_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=r_6WSh3WA44AX8SAjJL&_nc_ht=scontent-sjc3-1.xx&oh=00_AT-kgrFaSw0U-p65Pw9unumS4XunCQZ2g0cmbD73XY7cEA&oe=6311ABAD'
+    if activity == "Anime Watching Party" :
+        activity_image = 'https://global-uploads.webflow.com/5e157548d6f7910beea4e2d6/62a733025c38c84eee06da66_Anime-logo-maker%20(2).png'
+    if activity == "Activity" :
+        activity_image = 'https://w7.pngwing.com/pngs/176/67/png-transparent-person-logo-people-travel-text-rectangle-logo-thumbnail.png'
+    title = request.data['title']
+    start = request.data['start']
+    end = request.data['end']
+    where = request.data['where']
+    interested_users = [[user.profile_image,user.username]]
+    related_links = request.data['related_links']
+    host_contact = request.data['host_contact']
+    try:
+        new_event=Events(user=user, interested_users= interested_users, activity=activity, activity_image = activity_image ,title= title, start=start, end =end, where =where, related_links=related_links, host_contact=host_contact )
+        new_event.save()
+        
+        return JsonResponse({'Success': True})
+    except Exception as e:
+        print('except')
+        print(str(e))
+        return JsonResponse({'Success': False})
+
+@api_view(['GET'])
+def event_get(request):
+    all_events = list(Events.objects.all().order_by('-date_posted').values())
+    return JsonResponse( {'events': all_events})
+
+@api_view(['PUT'])
+def event_update(request):
+    event_id = request.data['event_id']
+    user = request.user
+    user_image = user.profile_image
+    user_name = user.username
+    interested_users= 'interested_users'
+    try:
+        event =Events.objects.get(id=event_id)
+        value = getattr(event, interested_users)
+        value.append([user_image,user_name])
+        setattr(event, interested_users, value)
+        event.save()
+        data = list(Events.objects.filter(id=event_id).values())
+        
+        return JsonResponse({'Success': True,'data':data})
+    except Exception as e:
+        print('except')
+        print(str(e))
+        return JsonResponse({'Success': False})
+
+
     

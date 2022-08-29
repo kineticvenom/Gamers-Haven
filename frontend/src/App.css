@@ -87,7 +87,7 @@ padding: 20px;
   height: fit-content;
   border: solid #C4B07C 4px;
   border-radius: 50px;
-  background-color: #281828;
+  background-color: #4D2E4C;
   margin: 40px 40px 90px;
   padding: 70px;
   color: #C4B07C;
@@ -125,4 +125,8 @@ margin-bottom: 80px;
 
 .buttonResults{
   background-color: #3a506b !important;
+}
+.poll_page{
+  background-color: #281828;
+  padding-bottom: 100px;
 }
