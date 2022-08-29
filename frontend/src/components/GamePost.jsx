@@ -24,13 +24,10 @@ function GamePost(props){
 
     
     function deletePost() { 
-        axios.post('/post/delete', {
-
-            'post_id': props.id,
-            'user': props.user_id
-
-
-        }    
+        axios.delete('/post/delete', { data: { 
+            post_id: props.id,
+            user: props.user_id 
+        } }    
         ).then((response) => {
             console.log(response)
             window.location.reload()
@@ -39,11 +36,7 @@ function GamePost(props){
      
 
     function grabComments() {
-        axios.post('/comment/get', {
-
-            'post_id': props.id
-
-        }    
+        axios.get('/comment/get', { params: { post_id: props.id } }    
         ).then((response) => {
             setComments(response.data.comments)
         })

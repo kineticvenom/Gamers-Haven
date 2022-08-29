@@ -23,19 +23,18 @@ function GameDetailPages(props) {
       }, [currentGame]);
 
 
+      
 
-    
 
     function grabPosts() {
-        axios.post('/post/get', {
-            'id': currentGame.id,
-            'category': category,
-        }    
+        axios.get('/post/get', { params: 
+            { 
+                id: currentGame.id,
+                category: category 
+            }}    
         ).then((response) => {
             
             setPosts(response.data.posts)
-            console.log(response.data.posts)
-            
         })
     }
 
@@ -48,15 +47,12 @@ function GameDetailPages(props) {
             'image' : currentGame.background_image          
         }
         ).then((response)=>{
-            console.log('response:',response)
             if(response.data.Success){
                 window.alert('This game is now a Favorite!')
             }
         }) 
     }
     
-    
-    console.log('details: ', currentGame)
     
     return (
         <div >

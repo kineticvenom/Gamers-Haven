@@ -23,7 +23,7 @@ function GameSearch(props) {
         })
         .then((response) => {
             setResults(response.data.results)
-            console.log(response.data.results)
+            // console.log(response.data.results)
         })
     }
 

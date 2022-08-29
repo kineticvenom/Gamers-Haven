@@ -9,7 +9,7 @@ import axios from "axios"
 function AnimeTeaser(props){
     const {setCurrentAnime, anime} = props
 
-    console.log('AnimeTeaser:',props)
+    // console.log('AnimeTeaser:',props)
 
     function grabCurrentAnime(){
 

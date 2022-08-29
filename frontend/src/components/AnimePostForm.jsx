@@ -4,10 +4,8 @@ import axios from "axios"
 function AnimePostForm(props) {
     const category = 'anime'
     const {currentAnime} = props
-    console.log(currentAnime)
     function submitPost(event){
         event.preventDefault();
-        console.log('new anime post: ' + event.target[0].value, event.target[1].value);
         axios.post('/post/create', {
             'title': event.target[0].value,
             'content': event.target[1].value,
@@ -15,8 +13,6 @@ function AnimePostForm(props) {
             'id': currentAnime.id
         })
             .then((response) => {
-                
-                console.log('response from server: ', response)
                 
                 window.location.reload()
                

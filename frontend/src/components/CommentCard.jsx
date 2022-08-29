@@ -4,15 +4,13 @@ import axios from "axios"
 
 function CommentCard(props){
     const { user } = props
-    
+   
     function deleteComment() { 
-        axios.post('/comment/delete', {
-
-            'comment_id': props.id,
-            'user': props.user_id
-
-
-        }    
+        axios.delete('/comment/delete', { data: 
+            { 
+                comment_id: props.id,
+                user: props.user_id 
+            }}    
         ).then((response) => {
             console.log(response)
             window.location.reload()

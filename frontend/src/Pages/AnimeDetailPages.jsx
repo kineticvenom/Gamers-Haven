@@ -13,8 +13,6 @@ function AnimeDetailPages(props) {
     const [posts, setPosts] = useState([])
     const [showForm,setShowForm] =useState(false)
 
-    console.log(props)
-
     useEffect(() => {
         setCurrentAnime(JSON.parse(window.sessionStorage.getItem("currentAnime")));
       }, []);
@@ -25,15 +23,13 @@ function AnimeDetailPages(props) {
 
     
       function grabPosts() {
-        axios.post('/post/get', {
-            'id': currentAnime.id,
-            'category': category,
-        }    
+        axios.get('/post/get', { params: 
+            { 
+                id: currentAnime.id,
+                category: category 
+            }}    
         ).then((response) => {
-            
             setPosts(response.data.posts)
-            console.log(response.data.posts)
-            
         })
       }
     
@@ -46,7 +42,6 @@ function AnimeDetailPages(props) {
             'image' : currentAnime.image          
         }
         ).then((response)=>{
-            console.log('response:',response)
             if(response.data.Success){
                 window.alert('This anime is now a Favorite!')
             }

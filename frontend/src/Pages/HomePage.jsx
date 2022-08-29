@@ -18,7 +18,6 @@ function HomePage(props) {
 
 
 
-  console.log(saveData)
   return ( 
     <div>
       {user ? 
