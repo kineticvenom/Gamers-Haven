@@ -7,7 +7,6 @@ function GamePostForm(props) {
     
     function submitPost(event){
         event.preventDefault();
-        console.log('new game post: ' + event.target[0].value, event.target[1].value);
         axios.post('/post/create', {
             'title': event.target[0].value,
             'content': event.target[1].value,
@@ -15,8 +14,7 @@ function GamePostForm(props) {
             'id': currentGame.id
         })
             .then((response) => {
-                
-                console.log('response from server: ', response)
+            
                 
                 window.location.reload()
                
@@ -28,7 +26,7 @@ function GamePostForm(props) {
 
 
     return (
-        <Form onSubmit={submitPost} style={{width:'1000px', margin:'auto'}}>
+        <Form className='post-border-game' onSubmit={submitPost} style={{width:'1000px', margin:'auto'}}>
         <Form.Group className="mb-3" controlId="formTitle" >
         <Form.Label>Title</Form.Label>
         <Form.Control type="text" placeholder="Title" />

@@ -4,6 +4,11 @@ body{
   color: #fffcf2;
 }
 
+.navbar-expand-xxl .navbar-collapse {
+  display: flex!important;
+  flex-basis: auto;
+  justify-content: space-between;
+}
 
 .NavBarContainer {
   background-image: url('../src/assets/banner3.png');
@@ -47,11 +52,44 @@ body{
   background-color: rgba(0,0,0,0.4);
 }
 
+.post-border-game {
+  padding: 2rem;
+  color: #fff;
+  box-shadow: 0 0 0 2pt #000;
+  background-color: gray;
+}
+
+.post-border-anime {
+  padding: 2rem;
+  color: #fff;
+  box-shadow: 0 0 0 2pt #000;
+  background-color: #192a51;
+}
+
+.post_box_anime {
+  color: aliceblue;
+  border: solid black;
+  margin: auto;
+  max-width: 1000px;
+  text-align: left;
+  background-color: #192a51;
+  padding: 20px;  
+}
+
+.post_box_anime .btn-primary{
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #2f4e98;
+  --bs-btn-border-color: #264180;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #224189;
+  --bs-btn-hover-border-color: #1b387b;
+}
+
 .user-image {
   display: flex;
   flex-direction: column;
   position: relative;
-  left: 500px;
+  right: 50px;
 }
 
 .circle {
@@ -67,10 +105,10 @@ body{
 }
 
 .sign-in, .sign-in:hover {
-  position: relative;
-  left: 500px;
   font-size: 40px;
   color: rgba(0, 0, 0, .7);
+  position: relative;
+  right: 50px;
 }
 
 .btn-primary {
@@ -81,11 +119,21 @@ body{
   --bs-btn-hover-bg: #d92795;
   --bs-btn-hover-border-color: #d92795;
 }
+
+.post_box .btn-primary{
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #bebebe;
+  --bs-btn-border-color: #b6b6b6;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #afafaf;
+  --bs-btn-hover-border-color: #acacac;
+}
+
 .game-rating {
   padding-top: 10px;
 }
 
-.game-details {
+.details {
   display: flex;
   flex-direction: row;
 }
@@ -104,8 +152,22 @@ body{
   margin: 5px;
 }
 
+.details-card-anime {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: space-around;
+  width: 25%;
+  border-radius: 4px;
+  box-shadow: 0 0 0 2pt #000;
+  background-color: #293241;
+  padding: 15px;
+  margin: 5px;
+}
+
 .details-info {
-  width: 50%;
+  width: 75%;
   text-align: start;
   padding: 1rem;
 }

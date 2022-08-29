@@ -9,7 +9,7 @@ import axios from "axios"
 function AnimeTeaser(props){
     const {setCurrentAnime, anime} = props
 
-    console.log('AnimeTeaser:',props)
+    // console.log('AnimeTeaser:',props)
 
     function grabCurrentAnime(){
 
@@ -19,7 +19,7 @@ function AnimeTeaser(props){
         .then((response) => {
             setCurrentAnime(response.data)
         })
-
+        window.location.href = `#/animes/${props.attributes.canonicalTitle}`
     }
 
     useEffect(() => {
@@ -28,7 +28,9 @@ function AnimeTeaser(props){
     }, [])
 
     return (
-    <Col lg="4"  className="teaser-anime">
+
+    <Col xs lg="4" xl='3' type='button' onClick={grabCurrentAnime} className="teaser-anime">
+
         <img width='200px' height='200px' src={props.attributes.posterImage.original} alt="" />
         <Link to={`/animes/${props.attributes.canonicalTitle}`} onClick={grabCurrentAnime}><h4>{props.attributes.canonicalTitle}</h4></Link>
         <h6>Episodes: {props.attributes.episodeCount}</h6>

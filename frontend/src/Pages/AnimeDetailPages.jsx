@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react'
 import axios from 'axios'
 import AnimePostList from '../components/AnimePostList'
 import AnimePostForm from '../components/AnimePostForm'
+import { Button } from 'react-bootstrap'
 
 
 function AnimeDetailPages(props) {
@@ -11,7 +12,6 @@ function AnimeDetailPages(props) {
     
     const [posts, setPosts] = useState([])
     const [showForm,setShowForm] =useState(false)
-
 
     useEffect(() => {
         setCurrentAnime(JSON.parse(window.sessionStorage.getItem("currentAnime")));
@@ -23,15 +23,13 @@ function AnimeDetailPages(props) {
 
     
       function grabPosts() {
-        axios.post('/post/get', {
-            'id': currentAnime.id,
-            'category': category,
-        }    
+        axios.get('/post/get', { params: 
+            { 
+                id: currentAnime.id,
+                category: category 
+            }}    
         ).then((response) => {
-            
             setPosts(response.data.posts)
-            console.log(response.data.posts)
-            
         })
       }
     
@@ -44,7 +42,6 @@ function AnimeDetailPages(props) {
             'image' : currentAnime.image          
         }
         ).then((response)=>{
-            console.log('response:',response)
             if(response.data.Success){
                 window.alert('This anime is now a Favorite!')
             }
@@ -53,23 +50,24 @@ function AnimeDetailPages(props) {
     
     
     return (
-        <div>
+        <div className='anime-page'>
             {currentAnime ?
                 <div>
-                    <button onClick={addFavorite}>Add Favorite</button>
-                    <div className="py-3"></div>
-                    <h1>{currentAnime.title}</h1>
-                    <img width='300px' height='300px' src={currentAnime.image} alt='reload'></img>
-                    <h5>{currentAnime.description}</h5>
-                    <div className="py-3"></div>
+                    <div className='details'>
+                        <div className='details-card-anime'>
+                            <h1>{currentAnime.title}</h1>
+                            <img width='300px' height='300px' src={currentAnime.image} alt='reload'></img>
+                            <Button onClick={addFavorite}>Add Favorite</Button>
+                        </div>
+                        <p className='details-info'>{currentAnime.description} <br /><br /> <h5>Rated: {currentAnime.age}</h5> <h5>Episodes: {currentAnime.episodes}</h5> <h5>User Rating: {currentAnime.rating}</h5> <h5>Released: {currentAnime.release}</h5></p>
+                    </div>
                     <div>
-                            <h1 >Discussions:</h1>
-                            <button onClick={() => { setShowForm(!showForm) }}>New Post</button>
-                            {showForm ? <AnimePostForm currentAnime={currentAnime}/>: ''}
-                            {currentAnime ? <AnimePostList posts={posts} grabPosts={grabPosts} /> : <h4>Loading posts..</h4>
-                            }
-                        </div>   
-                    <div className="py-2"></div>
+                        <h1 >Discussions</h1>
+                        <Button onClick={() => { setShowForm(!showForm) }}>New Post</Button>
+                        {showForm ? <AnimePostForm currentAnime={currentAnime}/>: ''}
+                        {currentAnime ? <AnimePostList posts={posts} grabPosts={grabPosts} /> : <h4>Loading posts..</h4>}
+                    </div>   
+       
                 </div> : <h1>Loading..</h1>
             } 
          </div>

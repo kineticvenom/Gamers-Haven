@@ -5,10 +5,17 @@ import {Row,Col} from 'react-bootstrap/'
 
 function HomePage(props) {
   const { user, saveData, setSaveData } = props
-  const getFeedData = () => {
-    axios.get('feed/get').then((response) => {
-     
-      setSaveData(response.data)
+
+  
+  
+  const getFeedData = () =>{
+    axios.get('feed/get').then((response) =>{
+      for (let category in response.data){ // Only sets the Save Data if the user has some sort of activity
+        if (response.data[category].length > 0){
+          setSaveData(response.data)
+        }
+      }
+
     })
   }
 
@@ -17,16 +24,18 @@ function HomePage(props) {
   }, [])
 
 
-
   console.log(saveData)
-  return (
+
+
+  return ( 
     <div>
-      {user ?
-        <h1>Welcome back, {user.username}!</h1> :
-        <h1>Welcome to Gamers Haven!</h1>
-      }
-      <hr />
-      {user && saveData ?
+      {user ? 
+      <h1>Welcome back, {user.username}!</h1> :
+      <h1>Welcome to Gamers Haven!</h1>
+    }
+      <hr/>
+      {user ? 
+      saveData ? 
         <div>
           {saveData.posts.map((post) => (
             <GamePost {...post} />
@@ -51,7 +60,9 @@ function HomePage(props) {
               <br />
             </div>
           ))}
-        </div> :  user ? <h4> loading feed...</h4>: <h4>Log in to see your feed</h4>}
+        </div>: <h4>Loading feed...</h4> : <h1>Please login or create an account to see your activity</h1>}
+      
+
 
     
     </div>

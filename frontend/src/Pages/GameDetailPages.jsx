@@ -23,19 +23,18 @@ function GameDetailPages(props) {
       }, [currentGame]);
 
 
+      
 
-    
 
     function grabPosts() {
-        axios.post('/post/get', {
-            'id': currentGame.id,
-            'category': category,
-        }    
+        axios.get('/post/get', { params: 
+            { 
+                id: currentGame.id,
+                category: category 
+            }}    
         ).then((response) => {
             
             setPosts(response.data.posts)
-            console.log(response.data.posts)
-            
         })
     }
 
@@ -48,7 +47,6 @@ function GameDetailPages(props) {
             'image' : currentGame.background_image          
         }
         ).then((response)=>{
-            console.log('response:',response)
             if(response.data.Success){
                 window.alert('This game is now a Favorite!')
             }
@@ -56,15 +54,13 @@ function GameDetailPages(props) {
     }
     
     
-    console.log('details: ', currentGame)
-    
     return (
         <div >
                 {
                 currentGame ?
 
                 <div>
-                    <div className='game-details'>
+                    <div className='details'>
                         <div className='details-card-game'>
                             <h1>{currentGame.name}</h1>
                             <img width='300px' height='300px' src={currentGame.background_image} alt='reload'></img>
@@ -72,17 +68,16 @@ function GameDetailPages(props) {
                             <Button onClick={addFavorite}>Add Favorite</Button> 
                         </div>
                             { currentGame.esrb_rating != null ?
-                                <p className='details-info'>{currentGame.description_raw} <h5>Rated: {currentGame.esrb_rating.name}</h5> <h5>Developed By: {currentGame.developers[0].name}</h5> <h5>Released: {currentGame.released}</h5> <h5>Review Score: {currentGame.metacritic}</h5></p>
+                                <p className='details-info'>{currentGame.description_raw} <br /><br /> <h5>Rated: {currentGame.esrb_rating.name}</h5> <h5>Developed By: {currentGame.developers[0].name}</h5> <h5>Released: {currentGame.released}</h5> <h5>Review Score: {currentGame.metacritic}</h5></p>
                                 :
-                                <p className='details-info'>{currentGame.description_raw} <h5>Not Rated</h5> <h5>Developed By: {currentGame.developers[0].name}</h5> <h5>Released: {currentGame.released}</h5> <h5>Review Score: {currentGame.metacritic}</h5></p>
+                                <p className='details-info'>{currentGame.description_raw} <br /><br /> <h5>Not Rated</h5> <h5>Developed By: {currentGame.developers[0].name}</h5> <h5>Released: {currentGame.released}</h5> <h5>Review Score: {currentGame.metacritic}</h5></p>
                             }
                     </div>
                     <div>
-                        <h1 >Discussions:</h1>
+                        <h1 >Discussions</h1>
                         <Button onClick={() => { setShowForm(!showForm) }}>New Post</Button>
                         {showForm ? <GamePostForm currentGame={currentGame} />: ''}
-                        {currentGame ? <GamePostList posts={posts} grabPosts={grabPosts} /> : <h4>Loading posts..</h4>
-                        }
+                        {currentGame ? <GamePostList posts={posts} grabPosts={grabPosts} /> : <h4>Loading posts..</h4>}
                     </div>   
 
                 </div> : <h1>Loading..</h1>

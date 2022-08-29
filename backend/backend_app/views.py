@@ -128,13 +128,18 @@ def anime_detail(request):
     
     response = HTTP_Client.get(url)
     jsonResponse = response.json()
-    title = jsonResponse['data']['attributes']['canonicalTitle']
+    
     try:
         image = jsonResponse['data']['attributes']['coverImage']['original']
     except:
         image = f'https://wallpapers-clan.com/wp-content/uploads/2021/04/Anime-App-Icons-Settings.png'
+    title = jsonResponse['data']['attributes']['canonicalTitle']
     description = jsonResponse['data']['attributes']['description']
-    return JsonResponse({'id':id, 'image': image, 'title': title, 'description': description})
+    age = jsonResponse['data']['attributes']['ageRating']
+    rating = jsonResponse['data']['attributes']['averageRating']
+    episodes = jsonResponse['data']['attributes']['episodeCount']
+    release = jsonResponse['data']['attributes']['startDate']
+    return JsonResponse({'id':id, 'image': image, 'title': title, 'description': description, 'age': age, 'rating': rating, 'episodes': episodes, 'release': release})
 
 @api_view(['POST'])
 def anime_search(request):
@@ -160,10 +165,10 @@ def post_create(request):
     except:
         return JsonResponse({'Success': False})
 
-@api_view(['POST'])
+@api_view(['GET'])
 def post_get(request):
-    current_id = request.data['id']
-    current_category = request.data['category']
+    current_id = request.GET['id']
+    current_category = request.GET['category']
     
     user_posts = list(Posts.objects.filter(category=current_category, api_id = current_id).order_by('-date_posted').values())
    
@@ -187,11 +192,11 @@ def comment_create(request):
     except:
         return JsonResponse({'Success': False})
 
-@api_view(['POST'])
+@api_view(['GET'])
 def comment_get(request):
    
     
-    post=Posts.objects.get(id = request.data['post_id'])
+    post=Posts.objects.get(id = request.GET['post_id'])
     
     user_comments = list(Comments.objects.filter(post = post).order_by('-date_posted').values())
    
@@ -226,7 +231,7 @@ def feed_get(request) :
         'comments': comments })
     return HttpResponse('User not found')
 
-@api_view(['POST'])
+@api_view(['DELETE'])
 def post_delete(request):
     if request.user.is_authenticated:
         post=Posts.objects.get(id = request.data['post_id'],  user_id= request.data['user'])
@@ -241,7 +246,7 @@ def post_delete(request):
 
     return HttpResponse('User not found')
 
-@api_view(['POST'])
+@api_view(['DELETE'])
 def comment_delete(request):
     if request.user.is_authenticated:
         comment = Comments.objects.get(id = request.data['comment_id'],  user_id= request.data['user'])

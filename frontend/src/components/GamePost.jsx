@@ -1,4 +1,5 @@
 import { Row , Col } from "react-bootstrap/";
+import { Form, Button } from 'react-bootstrap'
 import axios from "axios"
 
 import { useEffect, useState } from "react"
@@ -23,13 +24,10 @@ function GamePost(props){
 
     
     function deletePost() { 
-        axios.post('/post/delete', {
-
-            'post_id': props.id,
-            'user': props.user_id
-
-
-        }    
+        axios.delete('/post/delete', { data: { 
+            post_id: props.id,
+            user: props.user_id 
+        } }    
         ).then((response) => {
             console.log(response)
             window.location.reload()
@@ -38,11 +36,7 @@ function GamePost(props){
      
 
     function grabComments() {
-        axios.post('/comment/get', {
-
-            'post_id': props.id
-
-        }    
+        axios.get('/comment/get', { params: { post_id: props.id } }    
         ).then((response) => {
             setComments(response.data.comments)
         })
@@ -71,9 +65,10 @@ function GamePost(props){
                         <p>Posted On : {props.date_posted}</p>
 
                     </Col>
-                    <button onClick={() => { setShowForm(!showForm) }}>Reply</button>
+                    <Button onClick={() => { setShowForm(!showForm) }}>Reply</Button>
+                    <hr />
                     {comments.length>0 &&
-                        <button onClick={() => { setShowComments(!showComments) }}>View Replies</button>
+                        <Button onClick={() => { setShowComments(!showComments) }}>View Replies</Button>
                     }
                     
                     
