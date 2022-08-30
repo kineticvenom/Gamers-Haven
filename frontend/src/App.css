@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'karmatic_arcaderegular';
+  src: url('fonts/karmatic-arcade.regular-webfont.woff2') format('woff2'),
+       url('fonts/karmatic-arcade.regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
 /* Centers everything in Index.html */
 .container-fluid{
   
@@ -24,6 +33,9 @@ a.nav-link{
   box-shadow: 4px 20px 50px 4px rgba(0,0,0,.2);
   background-color: #3a506b;
 }
+
+
+
 /* Font size of Nav Bar Links */
 .NavEle{
   font-size: 3.2rem;
@@ -117,7 +129,9 @@ padding: 20px;
   padding: 70px;
   color: #C4B07C;
 }
-
+.home h1{
+  padding: 70px;
+}
 .poll_button{
     border-radius: 7px;
     color: #fff;
@@ -154,4 +168,12 @@ margin-bottom: 80px;
 .poll_page{
   background-color: #281828;
   padding-bottom: 100px;
+}
+.Bar{    
+  background-color: #FFA629;
+  justify-content: center;
+  height: 70px;
+}
+.NavCol{
+  justify-content: center !important;
 }

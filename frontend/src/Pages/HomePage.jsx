@@ -23,12 +23,12 @@ function HomePage(props) {
 
 
   return ( 
-    <div>
+    <div className="home">
       {user ? 
-      <h1>Welcome back, {user.username}!</h1> :
+      <h1>Welcome Back, {user.username}!</h1> :
       <h1>Welcome to Gamers Haven!</h1>
     }
-      <hr/>
+      
       {user ? 
       saveData ? 
         <div>
