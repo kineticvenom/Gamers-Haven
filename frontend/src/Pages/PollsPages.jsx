@@ -12,7 +12,6 @@ function PollsPages(props) {
     function GrabPolls(){
         axios.get('/poll/get')
         .then((response) => {
-            console.log(response.data.polls)
             setPolls(response.data.polls)
             
          

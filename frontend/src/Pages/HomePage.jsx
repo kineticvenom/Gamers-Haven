@@ -6,7 +6,7 @@ import EventCard from '../components/EventCard'
 import AnimePost from "../components/AnimePost";
 
 function HomePage(props) {
-  const { user, saveData, setSaveData } = props
+  const { user, saveData, setSaveData, currentGame, setCurrentGame, currentAnime, setCurrentAnime } = props
 
   
   
@@ -17,12 +17,11 @@ function HomePage(props) {
   }
 
   useEffect(() => {
+    sessionStorage.clear()
     getFeedData()
   }, [])
 
 
-
-  console.log(user)
   return ( 
     <div>
       {user ? 
@@ -34,7 +33,7 @@ function HomePage(props) {
       saveData ? 
         <div>
           {saveData.map((object) => (
-            object.hasOwnProperty('user_image') ? Object.values(object).includes('anime')? <AnimePost  {...object} user={user}/> : <GamePost {...object} user={user}/> : false || 
+            object.hasOwnProperty('user_image') ? Object.values(object).includes('anime')? <AnimePost  {...object} user={user} currentAnime={currentAnime} setCurrentAnime={setCurrentAnime}/> : <GamePost {...object} user={user} currentGame={currentGame} setCurrentGame={setCurrentGame}/> : false || 
 
             object.hasOwnProperty('image') ? 
             <div className='favorites' style={{ width: '1000px', margin: 'auto' }}>

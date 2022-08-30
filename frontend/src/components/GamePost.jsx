@@ -6,19 +6,29 @@ import GameCommentForm from "./GameCommentForm";
 import GameCommentCard from "./GameCommentCard";
 
 function GamePost(props){
-    const {user} = props
+    const {user, setCurrentGame, currentGame} = props
     const [comments, setComments] = useState([])
     const [showForm,setShowForm] =useState(false)
     const [showComments, setShowComments] = useState(false)
     
-    
+    function grabCurrentGame(){
+
+        axios.post('/api/game/details', {
+            id: props.api_id
+        })
+        .then((response) => {
+            setCurrentGame(response.data)
+            window.sessionStorage.setItem("currentGame", JSON.stringify(currentGame))
+        })
+        window.location.href=`/#/games/${props.game_title}`
+    }
+
     function deletePost() { 
         axios.delete('/post/delete', { data: { 
             post_id: props.id,
             user: props.user.username 
         } }    
         ).then((response) => {
-            console.log(response)
             window.location.reload()
         })
     }
@@ -38,7 +48,7 @@ function GamePost(props){
     return (
         <div>
             <div className="post_box">   
-                <strong>{props.game_title}</strong><h2> <span style={{display: 'flex', justifyContent: 'center'}}>{props.title}</span></h2> 
+                <strong><a type='button' onClick={grabCurrentGame}>{props.game_title}</a></strong><h2> <span style={{display: 'flex', justifyContent: 'center'}}>{props.title}</span></h2> 
             
                 {user && user.username == props.user.username  && 
                 <button className="delete_button_post" onClick={() => { deletePost() }}>X</button> }

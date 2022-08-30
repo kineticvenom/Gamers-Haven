@@ -89,7 +89,7 @@ useEffect(GrabAnime, [])
     < AppNav user={user}/>
       <Router>
           <Routes>
-            <Route path='/' element={<HomePage user={user} saveData={saveData} setSaveData={setSaveData}/>} />
+            <Route path='/' element={<HomePage user={user} saveData={saveData} setSaveData={setSaveData} currentGame={currentGame} setCurrentGame={setCurrentGame} currentAnime={currentAnime} setCurrentAnime={setCurrentAnime} />} />
             <Route path='/animes' element={< AnimePages anime={anime} setCurrentAnime={setCurrentAnime}/> }></Route>
             <Route path='/animes/:title' element={<AnimeDetailPages currentAnime={currentAnime} setCurrentAnime={setCurrentAnime} user={user}/>} />
             <Route path='/games' element={< GamePages games={games} setCurrentGame={setCurrentGame}/>}></Route>

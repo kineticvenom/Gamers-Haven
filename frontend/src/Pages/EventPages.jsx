@@ -14,7 +14,6 @@ function EventPages(props) {
     function GrabEvents(){
         axios.get('/event/get')
         .then((response) => {
-            console.log(response.data.events)
             setEvents(response.data.events)
         })
     }

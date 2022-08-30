@@ -6,11 +6,23 @@ import AnimeCommentForm from "./AnimeCommentForm";
 import AnimeCommentCard from "./AnimeCommentCard";
 
 function AnimePost(props) {
-    const {user} = props
+    const {user, setCurrentAnime, currentAnime} = props
     const [comments, setComments] = useState([])
     const [showForm,setShowForm] =useState(false)
     const [showComments, setShowComments] = useState(false)
     
+
+    function grabCurrentAnime(){
+
+        axios.post('/api/anime/details', {
+            id: props.api_id
+        })
+        .then((response) => {
+            setCurrentAnime(response.data)
+            window.sessionStorage.setItem("currentAnime", JSON.stringify(currentAnime))
+        })
+        window.location.href=`/#/animes/${props.game_title}`
+    }
 
     function deletePost() { 
         axios.delete('/post/delete', { data: { 
@@ -18,7 +30,6 @@ function AnimePost(props) {
             user: props.user.username 
         } }    
         ).then((response) => {
-            console.log(response)
             window.location.reload()
         })
     }
@@ -34,11 +45,11 @@ function AnimePost(props) {
     useEffect(()=>{
         grabComments()
       }, [])
-    console.log(props)
+
     return (
         <div>
             <div className="post_box_anime">   
-            <strong>{props.game_title}</strong><h2> <span style={{display: 'flex', justifyContent: 'center'}}>{props.title}</span></h2>  
+            <strong><a type='button' onClick={grabCurrentAnime}>{props.game_title}</a></strong><h2> <span style={{display: 'flex', justifyContent: 'center'}}>{props.title}</span></h2>  
             
             {user && (props.user_id ? user.username == props.user_id : user.username == props.user.username) && 
             <button className="delete_button_post" onClick={() => { deletePost() }}>X</button> }

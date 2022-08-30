@@ -21,12 +21,12 @@ function EventCard(props) {
             'user': props.user.username
         } }    
         ).then((response) => {
-            console.log(response)
+    
             window.location.reload()
             
         })
     }
-    console.log('props:',props)
+
     return (
         <div>
         <div className="event_box">
