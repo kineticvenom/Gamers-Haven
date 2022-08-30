@@ -56,7 +56,7 @@ function EventCard(props) {
                 </Col>
                 <button style={{ maxWidth:'300px'}} onClick={submitJoin} >Join</button>
             </Row>
-        </div></div>
+        </div><div className="py-2"></div></div>
     )
 }
     export default EventCard

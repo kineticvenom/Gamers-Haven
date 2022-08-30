@@ -11,6 +11,7 @@ function GamePost(props){
     const [showForm,setShowForm] =useState(false)
     const [showComments, setShowComments] = useState(false)
     
+
     function grabCurrentGame(){
 
         axios.post('/api/game/details', {
@@ -50,8 +51,8 @@ function GamePost(props){
             <div className="post_box">   
                 <strong><a type='button' onClick={grabCurrentGame}>{props.game_title}</a></strong><h2> <span style={{display: 'flex', justifyContent: 'center'}}>{props.title}</span></h2> 
             
-                {user && user.username == props.user.username  && 
-                <button className="delete_button_post" onClick={() => { deletePost() }}>X</button> }
+                {user && (props.user_id ? user.username == props.user_id : user.username == props.user.username) && 
+            <button className="delete_button_post" onClick={() => { deletePost() }}>X</button> }
                 <hr />
                 <Row>
                     <Col sm='2'>
@@ -59,7 +60,7 @@ function GamePost(props){
                     </Col>
                     <Col>
                         <h5>{props.content}</h5>
-                        <p>Posted By :<span style={{ fontSize:'1.2rem'}}> {props.user.username}</span> </p>
+                        <p>Posted By :<span style={{ fontSize:'1.2rem'}}> {props.user_id||props.user.username }</span> </p>
                         <p>Posted On : {props.date_posted}</p>
 
                     </Col>

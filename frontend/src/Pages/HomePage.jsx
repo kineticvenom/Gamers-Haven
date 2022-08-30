@@ -33,10 +33,13 @@ function HomePage(props) {
       saveData ? 
         <div>
           {saveData.map((object) => (
-            object.hasOwnProperty('user_image') ? Object.values(object).includes('anime')? <AnimePost  {...object} user={user} currentAnime={currentAnime} setCurrentAnime={setCurrentAnime}/> : <GamePost {...object} user={user} currentGame={currentGame} setCurrentGame={setCurrentGame}/> : false || 
+            object.hasOwnProperty('user_image') ? Object.values(object).includes('anime') ?
+              <div> <div className="py2"></div> <AnimePost  {...object} user={user} currentAnime={currentAnime} setCurrentAnime={setCurrentAnime} /> <div className="py2"></div></div>
+                : <GamePost {...object} user={user} currentGame={currentGame} setCurrentGame={setCurrentGame} />
+                : false || 
 
             object.hasOwnProperty('image') ? 
-            <div className='favorites' style={{ width: '1000px', margin: 'auto' }}>
+                <div className='favorites' style={{ width: '1000px', margin: 'auto', marginBottom:'20px'}}>
             <Row>
               <Col sm='4' >
                 <h3>{user.username}</h3>
@@ -49,9 +52,8 @@ function HomePage(props) {
                 <h3>{object.title}</h3>
                 <img height='100px' width='100px' src={object.image}></img>
               </Col>
-            </Row>
-            <br />
-            <br />
+                  </Row>
+                  <div className="py-2"></div>
           </div> : false ||
           object.hasOwnProperty('activity') ? <EventCard {...object} user={user}/> : false 
           ))

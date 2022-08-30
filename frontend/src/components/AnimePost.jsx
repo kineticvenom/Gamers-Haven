@@ -48,7 +48,8 @@ function AnimePost(props) {
 
     return (
         <div>
-            <div className="post_box_anime">   
+            <div className="post_box_anime"> 
+                
             <strong><a type='button' onClick={grabCurrentAnime}>{props.game_title}</a></strong><h2> <span style={{display: 'flex', justifyContent: 'center'}}>{props.title}</span></h2>  
             
             {user && (props.user_id ? user.username == props.user_id : user.username == props.user.username) && 
