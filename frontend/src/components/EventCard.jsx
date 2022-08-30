@@ -1,24 +1,38 @@
 import axios from "axios"
 import { Col, Row } from "react-bootstrap"
-import { useEffect, useState } from "react"
+
 
 function EventCard(props) {
-
+    const { user } = props
+    
     function submitJoin(event) {
         event.preventDefault();
         axios.put('/event/update', {
             'event_id': props.id
         })
         .then((response) => {
-        console.log(response)
+        window.location.reload()
 
     })
     }
+    function deleteEvent() { 
+        axios.delete('/event/delete', { data: { 
+            'event_id': props.id,
+            'user': props.user.username
+        } }    
+        ).then((response) => {
     
+            window.location.reload()
+            
+        })
+    }
 
     return (
-        <div className="post_box">
-            <h3 style={{textAlign:'center'}}>{ props.title}</h3> <hr/>
+        <div>
+        <div className="event_box">
+            <h3 style={{ textAlign: 'center' }}>{props.title}</h3>
+                {user && (props.user_id ? user.username == props.user_id : user.username == props.user.username) && 
+            <button className="delete_button_event" onClick={() => { deleteEvent() }}>X</button> }<hr />
             <Row className="EventCard">
                 <Col lg='3' style={{textAlign:'center'}}>
                     <h3>{props.activity}</h3>
@@ -32,7 +46,7 @@ function EventCard(props) {
                     <br />
                     {props.related_links &&<span> <a target="_blank" href={props.related_links}>{props.related_links}</a><br/></span>}
                     
-                        <p>Posted By :<span style={{ fontSize:'1.2rem'}}> {props.user_id }      {props.host_contact} <p>Posted On : {props.date_posted}</p></span> </p>
+                        <p>Posted By :<span style={{ fontSize:'1.2rem'}}> {props.user_id||props.user.username }      {props.host_contact} <p>Posted On : {props.date_posted}</p></span> </p>
                 </div></Col>
                 <Col lg='3' style={{alignSelf:'start', }}>
                     <h4 style={{textAlign:'center'}}>Participants</h4><hr />
@@ -42,7 +56,7 @@ function EventCard(props) {
                 </Col>
                 <button style={{ maxWidth:'300px'}} onClick={submitJoin} >Join</button>
             </Row>
-        </div>
+        </div><div className="py-2"></div></div>
     )
 }
     export default EventCard

@@ -5,7 +5,7 @@ import EventForm from '../components/EventForm';
 import EventCard from '../components/EventCard';
 
 function EventPages(props) {
-    
+    const { user } = props
     
     const [showForm,setShowForm] =useState(false)
     const [events, setEvents] = useState(null)
@@ -14,7 +14,6 @@ function EventPages(props) {
     function GrabEvents(){
         axios.get('/event/get')
         .then((response) => {
-            console.log(response.data.events)
             setEvents(response.data.events)
         })
     }
@@ -22,14 +21,14 @@ function EventPages(props) {
     useEffect(GrabEvents, [])
     
     return (
-        <div>
+        <div className='event-page'>
             
             <h1 style={{ padding: '50px' }}>Events</h1>
             <Button style={{ margin: '20px', padding: '22px',width: '250px' }} onClick={() => { setShowForm(!showForm) }}>Create New Event</Button>
             {showForm ? <EventForm /> : ''}    
             {events ?
                 <div>
-                    {events.map((event) => (<EventCard {...event} />
+                    {events.map((event) => (<EventCard {...event} user={user} />
                     ))}
                 </div>
                 : <h3>Loading Events..</h3>

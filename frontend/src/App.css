@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'karmatic_arcaderegular';
+  src: url('fonts/karmatic-arcade.regular-webfont.woff2') format('woff2'),
+       url('fonts/karmatic-arcade.regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
 /* Centers everything in Index.html */
 .container-fluid{
   
@@ -24,6 +33,9 @@ a.nav-link{
   box-shadow: 4px 20px 50px 4px rgba(0,0,0,.2);
   background-color: #3a506b;
 }
+
+
+
 /* Font size of Nav Bar Links */
 .NavEle{
   font-size: 3.2rem;
@@ -56,14 +68,39 @@ padding: 20px;
 background-color: rgb(184, 181, 181);
 padding: 20px;
 }
+.comment_box_anime{
+  color: aliceblue;
+  border: solid black;
+  margin: auto;
+  max-width: 700px;
+  text-align: left;
+background-color: #223154;
+padding: 20px;
+}
 
 .delete_button_post{
   background-color: #8b0000;
   color: #fff;
   float: right;
   position: relative;
-  top: -60px;
+  top: -75px;
   right: -10px;
+}
+.delete_button_event{
+  background-color: #8b0000;
+  color: #fff;
+  float: right;
+  position: relative;
+  top: -52px;
+  right: -10px;
+}
+.delete_button_poll{
+  background-color: #8b0000;
+  color: #fff;
+  float: right;
+  position: relative;
+  top: -104px;
+  right: -3px;
 }
 .delete_button_post, .delete_button_comment  {
   transition-duration: 0.4s;
@@ -92,8 +129,10 @@ padding: 20px;
   padding: 70px;
   color: #C4B07C;
 }
-
-.pollcard button{
+.home h1{
+  padding: 70px;
+}
+.poll_button{
     border-radius: 7px;
     color: #fff;
     background-color: #4F4B48;
@@ -104,7 +143,7 @@ padding: 20px;
     transition-duration: .4s;
 
 }
-.pollcard button:hover{
+.poll_button:hover{
   background-color: #45423a;
 }
 .pollButtonBox{
@@ -129,4 +168,12 @@ margin-bottom: 80px;
 .poll_page{
   background-color: #281828;
   padding-bottom: 100px;
+}
+.Bar{    
+  background-color: #FFA629;
+  justify-content: center;
+  height: 70px;
+}
+.NavCol{
+  justify-content: center !important;
 }

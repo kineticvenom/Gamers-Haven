@@ -5,14 +5,13 @@ import PollCard from '../components/PollCard'
 import {Button, Container, Row} from "react-bootstrap/";
 
 function PollsPages(props) {
-    
+    const {user} = props
     const [polls, setPolls] = useState(null)
     const [showForm,setShowForm] =useState(false)
     
     function GrabPolls(){
         axios.get('/poll/get')
         .then((response) => {
-            console.log(response.data.polls)
             setPolls(response.data.polls)
             
          
@@ -33,7 +32,7 @@ function PollsPages(props) {
                     <div className="PollRow">
                         <Row >
                         {polls.map((poll) => (
-                            <PollCard {...poll} />
+                            <PollCard {...poll} user={user}/>
                         ))}
                     
                         </Row>

@@ -7,6 +7,7 @@ function AnimePostForm(props) {
     function submitPost(event){
         event.preventDefault();
         axios.post('/post/create', {
+            'game_title': currentAnime.title,
             'title': event.target[0].value,
             'content': event.target[1].value,
             'category': category,

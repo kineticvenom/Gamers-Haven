@@ -1,0 +1,961 @@
+[
+{
+    "model": "backend_app.appuser",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$390000$sSg6ALMSpGIklIVwpIYXpP$2LlveaMYVsbZ9cxEaR0FV/dYPmYeVZsBpBrl6/Ob1iM=",
+        "last_login": "2022-08-30T19:03:30.204Z",
+        "is_superuser": false,
+        "username": "B0bSlay3r__",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2022-08-30T19:03:19.880Z",
+        "email": "bobslayer@yahoo.com",
+        "profile_image": "https://avatars.dicebear.com/api/bottts/B0bSlay3r__.svg",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "backend_app.appuser",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$390000$34CHnlq1L1nF5djpGLuWOv$o8y+7AN8N7UTCghEzh6DzYa98c3PHHWbPFFzjzcOUwc=",
+        "last_login": "2022-08-30T19:26:29.695Z",
+        "is_superuser": false,
+        "username": "DRDoLittle",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2022-08-30T19:26:21.343Z",
+        "email": "dolittle@.com",
+        "profile_image": "https://avatars.dicebear.com/api/bottts/DRDoLittle.svg",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "backend_app.appuser",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$390000$gMlwJnD9S3xTIesOK1uZ4y$TGB02i2cbTIa5YAkUnkQewWwcsFOh3ziBXV089eBt7I=",
+        "last_login": "2022-08-30T19:31:55.241Z",
+        "is_superuser": false,
+        "username": "magioto231",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2022-08-30T19:31:47.870Z",
+        "email": "mage@yahoo.com",
+        "profile_image": "https://avatars.dicebear.com/api/bottts/magioto231.svg",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "backend_app.appuser",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$390000$dh931rZEgMWm7nEKudQMnn$Tf2/SrTdCRfQXOntn/dodmtIUms5w3eZdunbRLV/qyc=",
+        "last_login": "2022-08-30T20:22:30.937Z",
+        "is_superuser": false,
+        "username": "KrispyNugget",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2022-08-30T19:37:29.342Z",
+        "email": "1@1.com",
+        "profile_image": "https://avatars.dicebear.com/api/bottts/KrispyNugget.svg",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "backend_app.appuser",
+    "pk": 5,
+    "fields": {
+        "password": "pbkdf2_sha256$390000$SUcfQsBgWOMYWGLkOBU7yp$WG+djxWUwRGAfgvkeknNLvRSShANHMZz+B3R2z7eljA=",
+        "last_login": "2022-08-30T20:23:40.002Z",
+        "is_superuser": false,
+        "username": "CardboardTaco",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2022-08-30T19:43:17.942Z",
+        "email": "2@2.com",
+        "profile_image": "https://avatars.dicebear.com/api/bottts/CardboardTaco.svg",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "backend_app.appuser",
+    "pk": 6,
+    "fields": {
+        "password": "pbkdf2_sha256$390000$gUQKV3xHavuDQxjXasm5w9$vUkUe+8FKGaUmCIUtdphaBTcHU6AXyYx+6Ej2H2riTE=",
+        "last_login": "2022-08-30T20:24:40.799Z",
+        "is_superuser": false,
+        "username": "Admin",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2022-08-30T19:58:55.381Z",
+        "email": "Admin@email.com",
+        "profile_image": "https://avatars.dicebear.com/api/bottts/Admin.svg",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "backend_app.appuser",
+    "pk": 7,
+    "fields": {
+        "password": "pbkdf2_sha256$390000$OXYfKarJjJIjVS0gjzksfk$u5TLKoLtNr+3kBjmcXBtyI28X2JmkvwuFgv3qaCrBH8=",
+        "last_login": "2022-08-30T20:16:20.799Z",
+        "is_superuser": false,
+        "username": "RobotoJr",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2022-08-30T20:12:07.476Z",
+        "email": "3@3.com",
+        "profile_image": "https://avatars.dicebear.com/api/bottts/RobotoJr.svg",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "backend_app.appuser",
+    "pk": 8,
+    "fields": {
+        "password": "pbkdf2_sha256$390000$Gl0KlqMFVWPIjaJTiwWkna$rPdBqzcy2xG7aAm1IV99664bwgbH2dqmhU8JF+fdqds=",
+        "last_login": "2022-08-30T20:20:04.708Z",
+        "is_superuser": false,
+        "username": "321jman123",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2022-08-30T20:19:54.957Z",
+        "email": "4@4.com",
+        "profile_image": "https://avatars.dicebear.com/api/bottts/321jman123.svg",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "backend_app.posts",
+    "pk": 1,
+    "fields": {
+        "title": "Amazing Game",
+        "game_title": "The Witcher 3: Wild Hunt",
+        "content": "Best Game of the Century Hands Down Dont @ me",
+        "api_id": "3328",
+        "category": "game",
+        "user": "B0bSlay3r__",
+        "user_image": "https://avatars.dicebear.com/api/bottts/B0bSlay3r__.svg",
+        "date_posted": "2022-08-30T19:06:22.292Z"
+    }
+},
+{
+    "model": "backend_app.posts",
+    "pk": 2,
+    "fields": {
+        "title": "The first one was better",
+        "game_title": "Call of Duty: Black Ops III",
+        "content": "They ruined it",
+        "api_id": "906",
+        "category": "game",
+        "user": "B0bSlay3r__",
+        "user_image": "https://avatars.dicebear.com/api/bottts/B0bSlay3r__.svg",
+        "date_posted": "2022-08-30T19:10:40.331Z"
+    }
+},
+{
+    "model": "backend_app.posts",
+    "pk": 3,
+    "fields": {
+        "title": "Super Fun",
+        "game_title": "Mass Effect 2",
+        "content": "Love shootin me some aliens!",
+        "api_id": "4806",
+        "category": "game",
+        "user": "B0bSlay3r__",
+        "user_image": "https://avatars.dicebear.com/api/bottts/B0bSlay3r__.svg",
+        "date_posted": "2022-08-30T19:11:18.907Z"
+    }
+},
+{
+    "model": "backend_app.posts",
+    "pk": 4,
+    "fields": {
+        "title": "All Time Favorite Show",
+        "game_title": "Naruto",
+        "content": "Kickass Ninja Show ",
+        "api_id": "11",
+        "category": "anime",
+        "user": "B0bSlay3r__",
+        "user_image": "https://avatars.dicebear.com/api/bottts/B0bSlay3r__.svg",
+        "date_posted": "2022-08-30T19:12:25.915Z"
+    }
+},
+{
+    "model": "backend_app.posts",
+    "pk": 5,
+    "fields": {
+        "title": "The manga was better ",
+        "game_title": "Mobile Suit Gundam SEED Destiny",
+        "content": "They totally ruined the manga material with the plot ",
+        "api_id": "73",
+        "category": "anime",
+        "user": "DRDoLittle",
+        "user_image": "https://avatars.dicebear.com/api/bottts/DRDoLittle.svg",
+        "date_posted": "2022-08-30T19:27:10.709Z"
+    }
+},
+{
+    "model": "backend_app.posts",
+    "pk": 6,
+    "fields": {
+        "title": "I thoroughly enjoyed this show",
+        "game_title": "Neon Genesis Evangelion: The End of Evangelion",
+        "content": "Great characters and storyline",
+        "api_id": "23",
+        "category": "anime",
+        "user": "DRDoLittle",
+        "user_image": "https://avatars.dicebear.com/api/bottts/DRDoLittle.svg",
+        "date_posted": "2022-08-30T19:30:23.032Z"
+    }
+},
+{
+    "model": "backend_app.posts",
+    "pk": 7,
+    "fields": {
+        "title": "I suck at it",
+        "game_title": "Dragon Ball Xenoverse",
+        "content": "Fun game but im bad",
+        "api_id": "3419",
+        "category": "game",
+        "user": "DRDoLittle",
+        "user_image": "https://avatars.dicebear.com/api/bottts/DRDoLittle.svg",
+        "date_posted": "2022-08-30T19:31:08.268Z"
+    }
+},
+{
+    "model": "backend_app.posts",
+    "pk": 8,
+    "fields": {
+        "title": "This game makes me cry",
+        "game_title": "Dark Souls III",
+        "content": "help",
+        "api_id": "2551",
+        "category": "game",
+        "user": "magioto231",
+        "user_image": "https://avatars.dicebear.com/api/bottts/magioto231.svg",
+        "date_posted": "2022-08-30T19:33:51.797Z"
+    }
+},
+{
+    "model": "backend_app.posts",
+    "pk": 9,
+    "fields": {
+        "title": "Must read manga",
+        "game_title": "Kenpuu Denki Berserk",
+        "content": "the show is cool too",
+        "api_id": "24",
+        "category": "anime",
+        "user": "magioto231",
+        "user_image": "https://avatars.dicebear.com/api/bottts/magioto231.svg",
+        "date_posted": "2022-08-30T19:34:20.170Z"
+    }
+},
+{
+    "model": "backend_app.posts",
+    "pk": 10,
+    "fields": {
+        "title": "Too Spoooky for me",
+        "game_title": "Resident Evil 5",
+        "content": "Fun game but spooky beware",
+        "api_id": "13461",
+        "category": "game",
+        "user": "magioto231",
+        "user_image": "https://avatars.dicebear.com/api/bottts/magioto231.svg",
+        "date_posted": "2022-08-30T19:36:45.771Z"
+    }
+},
+{
+    "model": "backend_app.posts",
+    "pk": 11,
+    "fields": {
+        "title": "Narutoooooo!",
+        "game_title": "Naruto",
+        "content": "Ninja Boy got moves",
+        "api_id": "11",
+        "category": "anime",
+        "user": "KrispyNugget",
+        "user_image": "https://avatars.dicebear.com/api/bottts/KrispyNugget.svg",
+        "date_posted": "2022-08-30T19:39:16.517Z"
+    }
+},
+{
+    "model": "backend_app.posts",
+    "pk": 12,
+    "fields": {
+        "title": "How do I get past level 5????",
+        "game_title": "Resident Evil 5",
+        "content": "Pig Zombie is too strong",
+        "api_id": "13461",
+        "category": "game",
+        "user": "KrispyNugget",
+        "user_image": "https://avatars.dicebear.com/api/bottts/KrispyNugget.svg",
+        "date_posted": "2022-08-30T19:40:00.907Z"
+    }
+},
+{
+    "model": "backend_app.posts",
+    "pk": 13,
+    "fields": {
+        "title": "Best of the Series",
+        "game_title": "Saints Row 2",
+        "content": "Hands Down best dont waste time on the rest",
+        "api_id": "4599",
+        "category": "game",
+        "user": "KrispyNugget",
+        "user_image": "https://avatars.dicebear.com/api/bottts/KrispyNugget.svg",
+        "date_posted": "2022-08-30T19:40:26.802Z"
+    }
+},
+{
+    "model": "backend_app.posts",
+    "pk": 14,
+    "fields": {
+        "title": "I still got cheats!",
+        "game_title": "Saints Row 2",
+        "content": "$5 a code\n",
+        "api_id": "4599",
+        "category": "game",
+        "user": "CardboardTaco",
+        "user_image": "https://avatars.dicebear.com/api/bottts/CardboardTaco.svg",
+        "date_posted": "2022-08-30T19:45:11.716Z"
+    }
+},
+{
+    "model": "backend_app.posts",
+    "pk": 15,
+    "fields": {
+        "title": "Anyone watch in dub?",
+        "game_title": "Naruto",
+        "content": "English voices are aight",
+        "api_id": "11",
+        "category": "anime",
+        "user": "CardboardTaco",
+        "user_image": "https://avatars.dicebear.com/api/bottts/CardboardTaco.svg",
+        "date_posted": "2022-08-30T19:45:50.131Z"
+    }
+},
+{
+    "model": "backend_app.posts",
+    "pk": 16,
+    "fields": {
+        "title": "Zonbie Town",
+        "game_title": "Resident Evil 5",
+        "content": "Whole lotta Zonbies!",
+        "api_id": "13461",
+        "category": "game",
+        "user": "CardboardTaco",
+        "user_image": "https://avatars.dicebear.com/api/bottts/CardboardTaco.svg",
+        "date_posted": "2022-08-30T19:49:14.122Z"
+    }
+},
+{
+    "model": "backend_app.posts",
+    "pk": 17,
+    "fields": {
+        "title": "Saints Row 2 Changed my life",
+        "game_title": "Saints Row 2",
+        "content": "Before this game I was nothing after I was something ",
+        "api_id": "4599",
+        "category": "game",
+        "user": "Admin",
+        "user_image": "https://avatars.dicebear.com/api/bottts/Admin.svg",
+        "date_posted": "2022-08-30T20:00:17.618Z"
+    }
+},
+{
+    "model": "backend_app.posts",
+    "pk": 18,
+    "fields": {
+        "title": "Episode 23 Discussion Thread",
+        "game_title": "Naruto",
+        "content": "What were your thoughts on the season finale??",
+        "api_id": "11",
+        "category": "anime",
+        "user": "Admin",
+        "user_image": "https://avatars.dicebear.com/api/bottts/Admin.svg",
+        "date_posted": "2022-08-30T20:03:12.601Z"
+    }
+},
+{
+    "model": "backend_app.posts",
+    "pk": 20,
+    "fields": {
+        "title": "Best game of the series!",
+        "game_title": "Resident Evil 5",
+        "content": "Resident Evil IV is a close second thought?",
+        "api_id": "13461",
+        "category": "game",
+        "user": "Admin",
+        "user_image": "https://avatars.dicebear.com/api/bottts/Admin.svg",
+        "date_posted": "2022-08-30T20:07:24.157Z"
+    }
+},
+{
+    "model": "backend_app.posts",
+    "pk": 21,
+    "fields": {
+        "title": "Whats your favorite gun in the game?",
+        "game_title": "Resident Evil 5",
+        "content": "Mine is the chainsaw makin Zombie jerky",
+        "api_id": "13461",
+        "category": "game",
+        "user": "RobotoJr",
+        "user_image": "https://avatars.dicebear.com/api/bottts/RobotoJr.svg",
+        "date_posted": "2022-08-30T20:14:54.316Z"
+    }
+},
+{
+    "model": "backend_app.comments",
+    "pk": 1,
+    "fields": {
+        "user": "magioto231",
+        "post": 6,
+        "content": "I agree!",
+        "date_posted": "2022-08-30T19:33:30.755Z",
+        "api_id": "23",
+        "user_image": "https://avatars.dicebear.com/api/bottts/magioto231.svg"
+    }
+},
+{
+    "model": "backend_app.comments",
+    "pk": 2,
+    "fields": {
+        "user": "magioto231",
+        "post": 2,
+        "content": "It was okay but needs more updates for bugs\n",
+        "date_posted": "2022-08-30T19:36:02.986Z",
+        "api_id": "906",
+        "user_image": "https://avatars.dicebear.com/api/bottts/magioto231.svg"
+    }
+},
+{
+    "model": "backend_app.comments",
+    "pk": 3,
+    "fields": {
+        "user": "KrispyNugget",
+        "post": 4,
+        "content": "KAKASHI KICKS ***",
+        "date_posted": "2022-08-30T19:38:33.587Z",
+        "api_id": "11",
+        "user_image": "https://avatars.dicebear.com/api/bottts/KrispyNugget.svg"
+    }
+},
+{
+    "model": "backend_app.comments",
+    "pk": 4,
+    "fields": {
+        "user": "CardboardTaco",
+        "post": 13,
+        "content": "yes Sirrrrrr\n",
+        "date_posted": "2022-08-30T19:44:37.837Z",
+        "api_id": "4599",
+        "user_image": "https://avatars.dicebear.com/api/bottts/CardboardTaco.svg"
+    }
+},
+{
+    "model": "backend_app.comments",
+    "pk": 5,
+    "fields": {
+        "user": "Admin",
+        "post": 11,
+        "content": "Yup\n",
+        "date_posted": "2022-08-30T20:03:22.451Z",
+        "api_id": "11",
+        "user_image": "https://avatars.dicebear.com/api/bottts/Admin.svg"
+    }
+},
+{
+    "model": "backend_app.comments",
+    "pk": 6,
+    "fields": {
+        "user": "Admin",
+        "post": 16,
+        "content": "It was crazy how many Zonbies there are!!",
+        "date_posted": "2022-08-30T20:05:40.868Z",
+        "api_id": "13461",
+        "user_image": "https://avatars.dicebear.com/api/bottts/Admin.svg"
+    }
+},
+{
+    "model": "backend_app.comments",
+    "pk": 7,
+    "fields": {
+        "user": "Admin",
+        "post": 10,
+        "content": "Hecka Spooky",
+        "date_posted": "2022-08-30T20:05:48.922Z",
+        "api_id": "13461",
+        "user_image": "https://avatars.dicebear.com/api/bottts/Admin.svg"
+    }
+},
+{
+    "model": "backend_app.comments",
+    "pk": 8,
+    "fields": {
+        "user": "RobotoJr",
+        "post": 18,
+        "content": "Wrapped up the season very nicely",
+        "date_posted": "2022-08-30T20:13:17.450Z",
+        "api_id": "11",
+        "user_image": "https://avatars.dicebear.com/api/bottts/RobotoJr.svg"
+    }
+},
+{
+    "model": "backend_app.comments",
+    "pk": 9,
+    "fields": {
+        "user": "RobotoJr",
+        "post": 20,
+        "content": "Not even Close 1 and 2 are the Goats!",
+        "date_posted": "2022-08-30T20:14:22.280Z",
+        "api_id": "13461",
+        "user_image": "https://avatars.dicebear.com/api/bottts/RobotoJr.svg"
+    }
+},
+{
+    "model": "backend_app.comments",
+    "pk": 10,
+    "fields": {
+        "user": "KrispyNugget",
+        "post": 18,
+        "content": "Cliff hanger central man WHATS GONNA HAPPEN??\n",
+        "date_posted": "2022-08-30T20:23:10.482Z",
+        "api_id": "11",
+        "user_image": "https://avatars.dicebear.com/api/bottts/KrispyNugget.svg"
+    }
+},
+{
+    "model": "backend_app.comments",
+    "pk": 11,
+    "fields": {
+        "user": "CardboardTaco",
+        "post": 20,
+        "content": "Hell Yeah Brother",
+        "date_posted": "2022-08-30T20:24:04.947Z",
+        "api_id": "13461",
+        "user_image": "https://avatars.dicebear.com/api/bottts/CardboardTaco.svg"
+    }
+},
+{
+    "model": "backend_app.favorites",
+    "pk": 1,
+    "fields": {
+        "user": 1,
+        "api_id": "2572",
+        "category": "game",
+        "title": "DiRT Rally",
+        "image": "https://media.rawg.io/media/games/78d/78dfae12fb8c5b16cd78648553071e0a.jpg",
+        "date_posted": "2022-08-30T19:10:04.531Z"
+    }
+},
+{
+    "model": "backend_app.favorites",
+    "pk": 2,
+    "fields": {
+        "user": 1,
+        "api_id": "11",
+        "category": "anime",
+        "title": "Naruto",
+        "image": "https://media.kitsu.io/anime/cover_images/11/original.jpg",
+        "date_posted": "2022-08-30T19:12:52.436Z"
+    }
+},
+{
+    "model": "backend_app.favorites",
+    "pk": 3,
+    "fields": {
+        "user": 2,
+        "api_id": "73",
+        "category": "anime",
+        "title": "Mobile Suit Gundam SEED Destiny",
+        "image": "https://media.kitsu.io/anime/cover_images/73/original.jpg",
+        "date_posted": "2022-08-30T19:26:40.226Z"
+    }
+},
+{
+    "model": "backend_app.favorites",
+    "pk": 4,
+    "fields": {
+        "user": 2,
+        "api_id": "23",
+        "category": "anime",
+        "title": "Neon Genesis Evangelion: The End of Evangelion",
+        "image": "https://media.kitsu.io/anime/cover_images/23/original.jpg",
+        "date_posted": "2022-08-30T19:30:01.297Z"
+    }
+},
+{
+    "model": "backend_app.favorites",
+    "pk": 5,
+    "fields": {
+        "user": 2,
+        "api_id": "3419",
+        "category": "game",
+        "title": "Dragon Ball Xenoverse",
+        "image": "https://media.rawg.io/media/games/729/729822a7ac978607241a310677c7775d.jpg",
+        "date_posted": "2022-08-30T19:30:54.241Z"
+    }
+},
+{
+    "model": "backend_app.favorites",
+    "pk": 6,
+    "fields": {
+        "user": 3,
+        "api_id": "23",
+        "category": "anime",
+        "title": "Neon Genesis Evangelion: The End of Evangelion",
+        "image": "https://media.kitsu.io/anime/cover_images/23/original.jpg",
+        "date_posted": "2022-08-30T19:33:34.108Z"
+    }
+},
+{
+    "model": "backend_app.favorites",
+    "pk": 7,
+    "fields": {
+        "user": 3,
+        "api_id": "2551",
+        "category": "game",
+        "title": "Dark Souls III",
+        "image": "https://media.rawg.io/media/games/da1/da1b267764d77221f07a4386b6548e5a.jpg",
+        "date_posted": "2022-08-30T19:33:41.987Z"
+    }
+},
+{
+    "model": "backend_app.favorites",
+    "pk": 8,
+    "fields": {
+        "user": 3,
+        "api_id": "24",
+        "category": "anime",
+        "title": "Kenpuu Denki Berserk",
+        "image": "https://media.kitsu.io/anime/24/cover_image/7e8f13e950295d64746899ca93c39eb3.jpg",
+        "date_posted": "2022-08-30T19:34:08.945Z"
+    }
+},
+{
+    "model": "backend_app.favorites",
+    "pk": 9,
+    "fields": {
+        "user": 3,
+        "api_id": "13461",
+        "category": "game",
+        "title": "Resident Evil 5",
+        "image": "https://media.rawg.io/media/games/974/974342a3959981a17bdbbff2fd7f97b0.jpg",
+        "date_posted": "2022-08-30T19:36:27.690Z"
+    }
+},
+{
+    "model": "backend_app.favorites",
+    "pk": 10,
+    "fields": {
+        "user": 4,
+        "api_id": "4599",
+        "category": "game",
+        "title": "Saints Row 2",
+        "image": "https://media.rawg.io/media/games/10d/10d19e52e5e8415d16a4d344fe711874.jpg",
+        "date_posted": "2022-08-30T19:40:28.577Z"
+    }
+},
+{
+    "model": "backend_app.favorites",
+    "pk": 11,
+    "fields": {
+        "user": 6,
+        "api_id": "4459",
+        "category": "game",
+        "title": "Grand Theft Auto IV",
+        "image": "https://media.rawg.io/media/games/4a0/4a0a1316102366260e6f38fd2a9cfdce.jpg",
+        "date_posted": "2022-08-30T20:00:27.496Z"
+    }
+},
+{
+    "model": "backend_app.favorites",
+    "pk": 12,
+    "fields": {
+        "user": 6,
+        "api_id": "11",
+        "category": "anime",
+        "title": "Naruto",
+        "image": "https://media.kitsu.io/anime/cover_images/11/original.jpg",
+        "date_posted": "2022-08-30T20:03:38.344Z"
+    }
+},
+{
+    "model": "backend_app.favorites",
+    "pk": 13,
+    "fields": {
+        "user": 6,
+        "api_id": "13461",
+        "category": "game",
+        "title": "Resident Evil 5",
+        "image": "https://media.rawg.io/media/games/974/974342a3959981a17bdbbff2fd7f97b0.jpg",
+        "date_posted": "2022-08-30T20:05:09.448Z"
+    }
+},
+{
+    "model": "backend_app.polls",
+    "pk": 1,
+    "fields": {
+        "user": "B0bSlay3r__",
+        "title": "Who Would Win?",
+        "votes1": 3,
+        "votes2": 2,
+        "votes3": 2,
+        "votes4": 1,
+        "votes5": 0,
+        "option1": "Mario",
+        "option2": "Luigi",
+        "option3": "Wario",
+        "option4": "Waluigi",
+        "option5": "",
+        "favorites": 0,
+        "date_posted": "2022-08-30T19:08:00.140Z"
+    }
+},
+{
+    "model": "backend_app.polls",
+    "pk": 2,
+    "fields": {
+        "user": "DRDoLittle",
+        "title": "What new anime should I watch?",
+        "votes1": 2,
+        "votes2": 1,
+        "votes3": 2,
+        "votes4": 0,
+        "votes5": 0,
+        "option1": "Bleach",
+        "option2": "Clannad",
+        "option3": "Dragonball Z",
+        "option4": "",
+        "option5": "",
+        "favorites": 0,
+        "date_posted": "2022-08-30T19:27:52.524Z"
+    }
+},
+{
+    "model": "backend_app.polls",
+    "pk": 3,
+    "fields": {
+        "user": "magioto231",
+        "title": "Sleep or watch Anime?",
+        "votes1": 0,
+        "votes2": 4,
+        "votes3": 0,
+        "votes4": 0,
+        "votes5": 0,
+        "option1": "sleep",
+        "option2": "anime",
+        "option3": "",
+        "option4": "",
+        "option5": "",
+        "favorites": 0,
+        "date_posted": "2022-08-30T19:35:18.315Z"
+    }
+},
+{
+    "model": "backend_app.polls",
+    "pk": 4,
+    "fields": {
+        "user": "KrispyNugget",
+        "title": "Xbox or PlayStation",
+        "votes1": 4,
+        "votes2": 4,
+        "votes3": 0,
+        "votes4": 0,
+        "votes5": 0,
+        "option1": "Xbox",
+        "option2": "Playstation",
+        "option3": "",
+        "option4": "",
+        "option5": "",
+        "favorites": 0,
+        "date_posted": "2022-08-30T19:41:03.379Z"
+    }
+},
+{
+    "model": "backend_app.polls",
+    "pk": 5,
+    "fields": {
+        "user": "CardboardTaco",
+        "title": "Cats or Dogs?",
+        "votes1": 2,
+        "votes2": 1,
+        "votes3": 0,
+        "votes4": 0,
+        "votes5": 0,
+        "option1": "Cat",
+        "option2": "Dog",
+        "option3": "",
+        "option4": "",
+        "option5": "",
+        "favorites": 0,
+        "date_posted": "2022-08-30T19:44:06.251Z"
+    }
+},
+{
+    "model": "backend_app.polls",
+    "pk": 6,
+    "fields": {
+        "user": "Admin",
+        "title": "Who Would Win?",
+        "votes1": 0,
+        "votes2": 0,
+        "votes3": 0,
+        "votes4": 0,
+        "votes5": 0,
+        "option1": "Superman",
+        "option2": "Spiderman",
+        "option3": "Goku",
+        "option4": "Thor",
+        "option5": "",
+        "favorites": 0,
+        "date_posted": "2022-08-30T20:04:21.689Z"
+    }
+},
+{
+    "model": "backend_app.events",
+    "pk": 1,
+    "fields": {
+        "user": "B0bSlay3r__",
+        "activity": "Gaming Session",
+        "activity_image": "https://scontent-sjc3-1.xx.fbcdn.net/v/t39.30808-6/235144504_255163186424026_3350806948257466882_n.png?_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=r_6WSh3WA44AX8SAjJL&_nc_ht=scontent-sjc3-1.xx&oh=00_AT-kgrFaSw0U-p65Pw9unumS4XunCQZ2g0cmbD73XY7cEA&oe=6311ABAD",
+        "title": "Whos down to play some Halo??",
+        "start": "2022-09-02T15:00",
+        "end": "2022-09-02T16:00",
+        "where": "Xbox",
+        "interested_users": "[\"[\\\"https://avatars.dicebear.com/api/bottts/B0bSlay3r__.svg\\\", \\\"B0bSlay3r__\\\"]\", \"[\\\"https://avatars.dicebear.com/api/bottts/DRDoLittle.svg\\\", \\\"DRDoLittle\\\"]\", \"[\\\"https://avatars.dicebear.com/api/bottts/KrispyNugget.svg\\\", \\\"KrispyNugget\\\"]\", \"[\\\"https://avatars.dicebear.com/api/bottts/Admin.svg\\\", \\\"Admin\\\"]\"]",
+        "related_links": "",
+        "host_contact": "GamerTag: B0bSlay3r__",
+        "date_posted": "2022-08-30T19:09:48.052Z"
+    }
+},
+{
+    "model": "backend_app.events",
+    "pk": 2,
+    "fields": {
+        "user": "DRDoLittle",
+        "activity": "Anime Convention",
+        "activity_image": "https://scontent-sjc3-1.xx.fbcdn.net/v/t1.6435-9/50946210_2074510052638807_4331288520162279424_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=V1ss2NZEafwAX80aGnN&_nc_ht=scontent-sjc3-1.xx&oh=00_AT_7vJtnBt_B20ClTMllB1kIt-7CzKdRL1dXd1dRiGU5EQ&oe=63332E46",
+        "title": "Anime Expo Is Gonna Be Lit",
+        "start": "2022-10-21T12:28",
+        "end": "2022-10-23T12:28",
+        "where": "Anime Expo Convention Center Los Angeles",
+        "interested_users": "[\"[\\\"https://avatars.dicebear.com/api/bottts/DRDoLittle.svg\\\", \\\"DRDoLittle\\\"]\", \"[\\\"https://avatars.dicebear.com/api/bottts/RobotoJr.svg\\\", \\\"RobotoJr\\\"]\"]",
+        "related_links": "https://www.anime-expo.org/",
+        "host_contact": "dolittle@yahoo.com",
+        "date_posted": "2022-08-30T19:29:24.997Z"
+    }
+},
+{
+    "model": "backend_app.events",
+    "pk": 4,
+    "fields": {
+        "user": "magioto231",
+        "activity": "Activity",
+        "activity_image": "https://i.pinimg.com/originals/9b/ca/20/9bca20ee55e3edd0922b1bcf67733dd8.jpg",
+        "title": "Anyone want to grab a bite?",
+        "start": "2022-09-03T20:00",
+        "end": "",
+        "where": "Downtown Chicago",
+        "interested_users": "[\"[\\\"https://avatars.dicebear.com/api/bottts/magioto231.svg\\\", \\\"magioto231\\\"]\", \"[\\\"https://avatars.dicebear.com/api/bottts/KrispyNugget.svg\\\", \\\"KrispyNugget\\\"]\", \"[\\\"https://avatars.dicebear.com/api/bottts/321jman123.svg\\\", \\\"321jman123\\\"]\"]",
+        "related_links": "",
+        "host_contact": "(321)313-2222",
+        "date_posted": "2022-08-30T19:33:01.836Z"
+    }
+},
+{
+    "model": "backend_app.events",
+    "pk": 5,
+    "fields": {
+        "user": "KrispyNugget",
+        "activity": "Gaming Session",
+        "activity_image": "https://scontent-sjc3-1.xx.fbcdn.net/v/t39.30808-6/235144504_255163186424026_3350806948257466882_n.png?_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=r_6WSh3WA44AX8SAjJL&_nc_ht=scontent-sjc3-1.xx&oh=00_AT-kgrFaSw0U-p65Pw9unumS4XunCQZ2g0cmbD73XY7cEA&oe=6311ABAD",
+        "title": "Minecraft?",
+        "start": "2022-09-02T20:15",
+        "end": "2022-09-02T22:00",
+        "where": "PC",
+        "interested_users": "[\"[\\\"https://avatars.dicebear.com/api/bottts/KrispyNugget.svg\\\", \\\"KrispyNugget\\\"]\", \"[\\\"https://avatars.dicebear.com/api/bottts/CardboardTaco.svg\\\", \\\"CardboardTaco\\\"]\", \"[\\\"https://avatars.dicebear.com/api/bottts/Admin.svg\\\", \\\"Admin\\\"]\"]",
+        "related_links": "https://www.minecraft.net/en-us",
+        "host_contact": "Add me on Steam! KrispyNugget",
+        "date_posted": "2022-08-30T19:42:40.443Z"
+    }
+},
+{
+    "model": "backend_app.events",
+    "pk": 6,
+    "fields": {
+        "user": "Admin",
+        "activity": "Videogame Convention",
+        "activity_image": "https://image.spreadshirtmedia.com/image-server/v1/mp/products/T1459A839PA3861PT28D1034296867W10000H5420/views/1,width=550,height=550,appearanceId=839,backgroundColor=F2F2F2/games-gaming-gamer-logo-sticker.jpg",
+        "title": "Gaming Expo Is Coming Up!",
+        "start": "2022-09-27T13:00",
+        "end": "2022-09-28T17:00",
+        "where": "Downtown Washington Area",
+        "interested_users": "[\"[\\\"https://avatars.dicebear.com/api/bottts/Admin.svg\\\", \\\"Admin\\\"]\", \"[\\\"https://avatars.dicebear.com/api/bottts/RobotoJr.svg\\\", \\\"RobotoJr\\\"]\"]",
+        "related_links": "https://www.globalgamingexpo.com/",
+        "host_contact": "(472)894-4219",
+        "date_posted": "2022-08-30T20:02:00.019Z"
+    }
+},
+{
+    "model": "backend_app.events",
+    "pk": 7,
+    "fields": {
+        "user": "RobotoJr",
+        "activity": "Anime Convention",
+        "activity_image": "https://scontent-sjc3-1.xx.fbcdn.net/v/t1.6435-9/50946210_2074510052638807_4331288520162279424_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=V1ss2NZEafwAX80aGnN&_nc_ht=scontent-sjc3-1.xx&oh=00_AT_7vJtnBt_B20ClTMllB1kIt-7CzKdRL1dXd1dRiGU5EQ&oe=63332E46",
+        "title": "Whos Gonna Cosplay?",
+        "start": "2022-09-28T13:00",
+        "end": "2022-09-30T13:00",
+        "where": "Lil Ninja Anime Convention South Toronto",
+        "interested_users": "[\"[\\\"https://avatars.dicebear.com/api/bottts/RobotoJr.svg\\\", \\\"RobotoJr\\\"]\"]",
+        "related_links": "",
+        "host_contact": "tbpop@gmail.com",
+        "date_posted": "2022-08-30T20:18:01.770Z"
+    }
+},
+{
+    "model": "backend_app.events",
+    "pk": 8,
+    "fields": {
+        "user": "321jman123",
+        "activity": "Anime Watching Party",
+        "activity_image": "https://global-uploads.webflow.com/5e157548d6f7910beea4e2d6/62a733025c38c84eee06da66_Anime-logo-maker%20(2).png",
+        "title": "CowBoy Bebop Binge?",
+        "start": "2022-09-14T13:20",
+        "end": "",
+        "where": "Discord",
+        "interested_users": "[\"[\\\"https://avatars.dicebear.com/api/bottts/321jman123.svg\\\", \\\"321jman123\\\"]\", \"[\\\"https://avatars.dicebear.com/api/bottts/CardboardTaco.svg\\\", \\\"CardboardTaco\\\"]\"]",
+        "related_links": "",
+        "host_contact": "",
+        "date_posted": "2022-08-30T20:20:56.090Z"
+    }
+}
+]

@@ -20,19 +20,20 @@ function GamePages(props) {
         <div className='game-page'>
 
             <Container>
-                <br/>
+                <br/><br/><h1><a type='button' onClick={refresh}>Hot Games</a></h1><br/><br/><br/>
                 <GameSearch setCurrentGame={setCurrentGame} setResults={setResults} results={results} searchTitle={searchTitle } setSearchTitle={setSearchTitle} />
                 
                 
                     
-                
+                <br /><br />
                 {results.length > 0 ?
                     <div>
-                        <br />
+                        <br /><br/>
                     </div> :
                     
                         games.length > 0 ? <div>
-                            <hr /> <h1><a type='button' onClick={refresh}>Hot Games</a></h1> <br></br>
+                         <br></br>
+                        
                             <GameList games={games} setCurrentGame={setCurrentGame} /> </div> : <h1>Loading..</h1>
                     }
             </Container>

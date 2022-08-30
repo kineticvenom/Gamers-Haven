@@ -1,35 +1,35 @@
 import { Row , Col } from "react-bootstrap/";
-import { Form, Button } from 'react-bootstrap'
+import {  Button } from 'react-bootstrap'
 import axios from "axios"
-
 import { useEffect, useState } from "react"
 import GameCommentForm from "./GameCommentForm";
-import CommentCard from "./CommentCard";
+import GameCommentCard from "./GameCommentCard";
 
 function GamePost(props){
+    const {user, setCurrentGame, currentGame} = props
     const [comments, setComments] = useState([])
     const [showForm,setShowForm] =useState(false)
     const [showComments, setShowComments] = useState(false)
-    const [user, setUser] = useState(null)
+    
 
-    const whoAmI = async () => {
-    const response = await axios.get('/whoami')
-    const user = response.data && response.data[0] && response.data[0].fields
-    setUser(user)
+    function grabCurrentGame(){
+
+        axios.post('/api/game/details', {
+            id: props.api_id
+        })
+        .then((response) => {
+            setCurrentGame(response.data)
+            window.sessionStorage.setItem("currentGame", JSON.stringify(currentGame))
+        })
+        window.location.href=`/#/games/${props.game_title}`
     }
 
-    useEffect(()=>{
-    whoAmI()
-    }, [])
-
-    
     function deletePost() { 
         axios.delete('/post/delete', { data: { 
             post_id: props.id,
-            user: props.user_id 
+            user: props.user.username 
         } }    
         ).then((response) => {
-            console.log(response)
             window.location.reload()
         })
     }
@@ -49,11 +49,10 @@ function GamePost(props){
     return (
         <div>
             <div className="post_box">   
-                <h2>{props.title}</h2> 
+                <strong><a type='button' onClick={grabCurrentGame}>{props.game_title}</a></strong><h2> <span style={{display: 'flex', justifyContent: 'center'}}>{props.title}</span></h2> 
             
-                        {user && user.username == props.user_id  && 
-                        <button className="delete_button_post" onClick={() => { deletePost() }}>X</button>  
-                    }
+                {user && (props.user_id ? user.username == props.user_id : user.username == props.user.username) && 
+            <button className="delete_button_post" onClick={() => { deletePost() }}>X</button> }
                 <hr />
                 <Row>
                     <Col sm='2'>
@@ -61,7 +60,7 @@ function GamePost(props){
                     </Col>
                     <Col>
                         <h5>{props.content}</h5>
-                        <p>Posted By :<span style={{ fontSize:'1.2rem'}}> {props.user_id}</span> </p>
+                        <p>Posted By :<span style={{ fontSize:'1.2rem'}}> {props.user_id||props.user.username }</span> </p>
                         <p>Posted On : {props.date_posted}</p>
 
                     </Col>
@@ -77,7 +76,7 @@ function GamePost(props){
             {showForm ? <GameCommentForm id={props.id} api_id={props.api_id}  />: ''}
             {showComments ?
             comments.map((comment) => (
-            <CommentCard {...comment} user={user}/> 
+            <GameCommentCard {...comment} user={user}/> 
         )):<></>}<div className="py-2"></div>
        </div>
     )

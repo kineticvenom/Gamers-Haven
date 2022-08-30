@@ -22,6 +22,7 @@ class AppUser(AbstractUser):
 class Posts(models.Model):
     
     title = models.CharField(max_length=80)
+    game_title = models.CharField(max_length=100)
     content = models.TextField()
     api_id = models.CharField(max_length=80)
     category = models.TextField()
@@ -45,6 +46,7 @@ class Favorites(models.Model):
     category = models.TextField()
     title = models.CharField(max_length=100)
     image = models.TextField(null=True)
+    date_posted = models.DateTimeField(default=timezone.now)
 
     class Meta:
         unique_together = (("user", "api_id"))

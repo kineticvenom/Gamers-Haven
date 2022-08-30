@@ -19,19 +19,19 @@ function AnimePages(props) {
         <div className='anime-page'>
 
             <Container>
-                <br/>
+                <br/><br/><h1><a type='button' onClick={refresh}>Hot Anime</a></h1><br/><br/><br/>
                 <AnimeSearch setCurrentAnime={setCurrentAnime} setResults={setResults} results={results} searchAnime={searchAnime} setSearchAnime={setSearchAnime} />
                 
                 
                     
-                
+                <br /><br />
                 {results.length > 0 ?
                     <div>
-                        <br />
+                        <br /><br />
                     </div> :
                     
                         anime.length > 0 ? <div>
-                            <hr /> <h1><a type='button' onClick={refresh}>Hot Anime</a></h1> <br></br>
+                            <br></br>
                             <AnimeList anime={anime} setCurrentAnime={setCurrentAnime} /> </div> : <h1>Loading..</h1>
                     }
             </Container>

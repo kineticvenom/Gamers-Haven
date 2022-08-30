@@ -1,5 +1,6 @@
 import json
 import re
+from unittest import result
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from rest_framework.decorators import api_view
@@ -11,6 +12,12 @@ from .models import AppUser as User
 from .models import Posts, Comments,Favorites, Polls, Events
 import random
 from django.db.models import F
+from itertools import chain
+from operator import attrgetter
+from django.forms.models import model_to_dict
+
+
+
 
 
 
@@ -154,12 +161,13 @@ def post_create(request):
     
     user = request.user
     title = request.data['title']
+    game_title = request.data['game_title']
     content = request.data['content']
     category = request.data['category']
     id = request.data['id']
     user_image = user.profile_image
     try:
-        new_post=Posts(title=title, content=content, user=user, category=category,api_id=id, user_image = user_image)
+        new_post=Posts(title=title, game_title=game_title, content=content, user=user, category=category,api_id=id, user_image = user_image)
         new_post.save()
         return JsonResponse({'Success': True})
     except:
@@ -222,13 +230,31 @@ def favorite_create(request):
 def feed_get(request) :
     if request.user.is_authenticated:
         user = request.user
-        favorite = list(Favorites.objects.filter(user=user).values())
-        posts = list(Posts.objects.filter(user=user).order_by('-date_posted').values())
-        comments = list(Comments.objects.filter(user=user).order_by('-date_posted').values())
-        
-        return JsonResponse({'favorites':favorite,
-        'posts':posts,
-        'comments': comments })
+        favorites = Favorites.objects.filter(user=user)
+        posts = Posts.objects.filter(user=user)
+        events = Events.objects.filter(user=user)
+
+
+        result_list = sorted(
+            chain(favorites, posts, events),
+
+            key=attrgetter('date_posted'))
+
+        final_results = []
+        for objects in result_list:
+            final_results.append(model_to_dict(objects))
+
+        final_results = final_results[::-1]
+
+
+        print(final_results[0])
+
+
+        # print(favorite)
+        # print('this is one thing we need', favorite[0])
+        return JsonResponse({'results': final_results})
+
+
     return HttpResponse('User not found')
 
 @api_view(['DELETE'])
@@ -245,6 +271,38 @@ def post_delete(request):
         return HttpResponse('No Permission')
 
     return HttpResponse('User not found')
+
+@api_view(['DELETE'])
+def event_delete(request):
+    if request.user.is_authenticated:
+        event=Events.objects.get(id = request.data['event_id'],  user_id= request.data['user'])
+       
+        if request.user.username == request.data['user']:
+
+            try:
+                event.delete()
+                return HttpResponse('post deleted')
+            except:
+                return JsonResponse({'Success': False})
+        return HttpResponse('No Permission')
+
+    return HttpResponse('User not found')
+
+@api_view(['DELETE'])
+def poll_delete(request):
+    if request.user.is_authenticated:
+        poll=Polls.objects.get(id = request.data['poll_id'],  user_id= request.data['user'])
+        if request.user.username == request.data['user']:
+
+            try:
+                poll.delete()
+                return HttpResponse('post deleted')
+            except:
+                return JsonResponse({'Success': False})
+        return HttpResponse('No Permission')
+
+    return HttpResponse('User not found')
+
 
 @api_view(['DELETE'])
 def comment_delete(request):
@@ -319,7 +377,7 @@ def event_create(request):
     if activity == "Anime Watching Party" :
         activity_image = 'https://global-uploads.webflow.com/5e157548d6f7910beea4e2d6/62a733025c38c84eee06da66_Anime-logo-maker%20(2).png'
     if activity == "Activity" :
-        activity_image = 'https://w7.pngwing.com/pngs/176/67/png-transparent-person-logo-people-travel-text-rectangle-logo-thumbnail.png'
+        activity_image = 'https://i.pinimg.com/originals/9b/ca/20/9bca20ee55e3edd0922b1bcf67733dd8.jpg'
     title = request.data['title']
     start = request.data['start']
     end = request.data['end']

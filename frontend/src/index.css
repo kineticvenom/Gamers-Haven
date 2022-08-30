@@ -1,3 +1,14 @@
+@font-face {
+  font-family: 'karmatic_arcaderegular';
+  src: url('fonts/karmatic-arcade.regular-webfont.woff2') format('woff2'),
+       url('fonts/karmatic-arcade.regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+/* C
+
 /* Background of index.html */
 body{
   background-color: #252422;
@@ -10,14 +21,18 @@ body{
   justify-content: space-between;
 }
 
-.NavBarContainer {
+.BarContainer {
   background-image: url('../src/assets/banner3.png');
   background-color: #c65224;
+  padding-bottom: 40px;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.navbar-nav {
-  position: relative;
-  right: 225px;
+.BarContainer h1{
+  font-family: 'karmatic_arcaderegular';
+  font-size: 50px;
+  margin-top: -20px;
 }
 
 .navbar-brand {
@@ -28,12 +43,15 @@ body{
 
 .anime-page {
   background-color: #011627;
+  padding-bottom: 250px;
   /* background-color: #192a51; */
   /* background-color: #0e1c36; */
   /* background-color: #293241; */
   
 }
-
+.NavEle{
+  font-size: 40px !important;
+}
 .signup {
   display: flex;
   justify-content: center;
@@ -50,6 +68,13 @@ body{
   padding: 1rem;
   color: white;
   background-color: rgba(0,0,0,0.4);
+}
+
+.favorites {
+  color: #f0f8ff;
+  border: solid gold;
+  background-color: rgba(85, 70, 10, 0.4);
+  padding: 20px;
 }
 
 .post-border-game {
@@ -74,6 +99,7 @@ body{
   text-align: left;
   background-color: #192a51;
   padding: 20px;  
+  
 }
 
 .post_box_anime .btn-primary{
@@ -88,8 +114,8 @@ body{
 .user-image {
   display: flex;
   flex-direction: column;
-  position: relative;
-  right: 50px;
+  margin-right: 20px;
+  align-items: center;
 }
 
 .circle {
@@ -99,16 +125,25 @@ body{
   background-color: #bc3908;
 }
 
-.logout, .logout:hover{
+.logout{
+  color: white;
   font-size: 25px;
+  transition-duration: 0.4s;
+  
+}
+.logout:hover{
   color: rgba(0, 0, 0, .7);
 }
 
-.sign-in, .sign-in:hover {
+.sign-in{
   font-size: 40px;
-  color: rgba(0, 0, 0, .7);
+  color: white;
   position: relative;
   right: 50px;
+  transition-duration: 0.4s;
+}
+.sign-in:hover {
+  color: #000;
 }
 
 .btn-primary {
@@ -118,6 +153,7 @@ body{
   --bs-btn-hover-color: #fff;
   --bs-btn-hover-bg: #d92795;
   --bs-btn-hover-border-color: #d92795;
+  margin: 5px;
 }
 
 .post_box .btn-primary{
@@ -206,4 +242,25 @@ body{
 .teaser-anime a , .teaser-anime h4, .teaser-anime h6{
   color:aliceblue;
   text-decoration: none !important;
+}
+
+.event-page {
+  background-color: #331d00;
+ 
+  padding-bottom: 300px;
+}
+
+.event_box {
+  color: aliceblue;
+  border: solid black;
+  margin: auto;
+  max-width: 1000px;
+  text-align: left;
+  background-color: #4f4230;
+  padding: 20px;  
+}
+.home{
+  
+  background-color: #39191E;
+  padding-bottom: 300px;
 }
