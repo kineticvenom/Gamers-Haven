@@ -5,7 +5,7 @@ import EventForm from '../components/EventForm';
 import EventCard from '../components/EventCard';
 
 function EventPages(props) {
-    
+    const { user } = props
     
     const [showForm,setShowForm] =useState(false)
     const [events, setEvents] = useState(null)
@@ -29,7 +29,7 @@ function EventPages(props) {
             {showForm ? <EventForm /> : ''}    
             {events ?
                 <div>
-                    {events.map((event) => (<EventCard {...event} />
+                    {events.map((event) => (<EventCard {...event} user={user} />
                     ))}
                 </div>
                 : <h3>Loading Events..</h3>

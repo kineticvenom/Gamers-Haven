@@ -273,6 +273,38 @@ def post_delete(request):
     return HttpResponse('User not found')
 
 @api_view(['DELETE'])
+def event_delete(request):
+    if request.user.is_authenticated:
+        event=Events.objects.get(id = request.data['event_id'],  user_id= request.data['user'])
+       
+        if request.user.username == request.data['user']:
+
+            try:
+                event.delete()
+                return HttpResponse('post deleted')
+            except:
+                return JsonResponse({'Success': False})
+        return HttpResponse('No Permission')
+
+    return HttpResponse('User not found')
+
+@api_view(['DELETE'])
+def poll_delete(request):
+    if request.user.is_authenticated:
+        poll=Polls.objects.get(id = request.data['poll_id'],  user_id= request.data['user'])
+        if request.user.username == request.data['user']:
+
+            try:
+                poll.delete()
+                return HttpResponse('post deleted')
+            except:
+                return JsonResponse({'Success': False})
+        return HttpResponse('No Permission')
+
+    return HttpResponse('User not found')
+
+
+@api_view(['DELETE'])
 def comment_delete(request):
     if request.user.is_authenticated:
         comment = Comments.objects.get(id = request.data['comment_id'],  user_id= request.data['user'])
@@ -345,7 +377,7 @@ def event_create(request):
     if activity == "Anime Watching Party" :
         activity_image = 'https://global-uploads.webflow.com/5e157548d6f7910beea4e2d6/62a733025c38c84eee06da66_Anime-logo-maker%20(2).png'
     if activity == "Activity" :
-        activity_image = 'https://w7.pngwing.com/pngs/176/67/png-transparent-person-logo-people-travel-text-rectangle-logo-thumbnail.png'
+        activity_image = 'https://i.pinimg.com/originals/9b/ca/20/9bca20ee55e3edd0922b1bcf67733dd8.jpg'
     title = request.data['title']
     start = request.data['start']
     end = request.data['end']

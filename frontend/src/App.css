@@ -56,14 +56,39 @@ padding: 20px;
 background-color: rgb(184, 181, 181);
 padding: 20px;
 }
+.comment_box_anime{
+  color: aliceblue;
+  border: solid black;
+  margin: auto;
+  max-width: 700px;
+  text-align: left;
+background-color: #223154;
+padding: 20px;
+}
 
 .delete_button_post{
   background-color: #8b0000;
   color: #fff;
   float: right;
   position: relative;
-  top: -95px;
+  top: -75px;
   right: -10px;
+}
+.delete_button_event{
+  background-color: #8b0000;
+  color: #fff;
+  float: right;
+  position: relative;
+  top: -52px;
+  right: -10px;
+}
+.delete_button_poll{
+  background-color: #8b0000;
+  color: #fff;
+  float: right;
+  position: relative;
+  top: -104px;
+  right: -3px;
 }
 .delete_button_post, .delete_button_comment  {
   transition-duration: 0.4s;
@@ -93,7 +118,7 @@ padding: 20px;
   color: #C4B07C;
 }
 
-.pollcard button{
+.poll_button{
     border-radius: 7px;
     color: #fff;
     background-color: #4F4B48;
@@ -104,7 +129,7 @@ padding: 20px;
     transition-duration: .4s;
 
 }
-.pollcard button:hover{
+.poll_button:hover{
   background-color: #45423a;
 }
 .pollButtonBox{

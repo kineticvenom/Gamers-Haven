@@ -1,32 +1,21 @@
 import { Row , Col } from "react-bootstrap/";
 import axios from "axios"
-import { Form, Button } from 'react-bootstrap'
-
+import {  Button } from 'react-bootstrap'
 import { useEffect, useState } from "react"
 import AnimeCommentForm from "./AnimeCommentForm";
-import CommentCard from "./CommentCard";
+import AnimeCommentCard from "./AnimeCommentCard";
 
-function AnimePost(props){
+function AnimePost(props) {
+    const {user} = props
     const [comments, setComments] = useState([])
     const [showForm,setShowForm] =useState(false)
     const [showComments, setShowComments] = useState(false)
-    const [user, setUser] = useState(null)
-
-    const whoAmI = async () => {
-    const response = await axios.get('/whoami')
-    const user = response.data && response.data[0] && response.data[0].fields
-    setUser(user)
-    }
-
-    useEffect(()=>{
-    whoAmI()
-    }, [])
-
     
+
     function deletePost() { 
         axios.delete('/post/delete', { data: { 
             post_id: props.id,
-            user: props.user_id 
+            user: props.user.username 
         } }    
         ).then((response) => {
             console.log(response)
@@ -45,15 +34,14 @@ function AnimePost(props){
     useEffect(()=>{
         grabComments()
       }, [])
-
+    console.log(props)
     return (
         <div>
             <div className="post_box_anime">   
-                <h2>{props.title}</h2> 
+            <strong>{props.game_title}</strong><h2> <span style={{display: 'flex', justifyContent: 'center'}}>{props.title}</span></h2>  
             
-                        {user && user.username == props.user_id  && 
-                        <button className="delete_button_post" onClick={() => { deletePost() }}>X</button>  
-                    }
+            {user && (props.user_id ? user.username == props.user_id : user.username == props.user.username) && 
+            <button className="delete_button_post" onClick={() => { deletePost() }}>X</button> }
                 <hr />
                 <Row>
                     <Col sm='2'>
@@ -61,7 +49,7 @@ function AnimePost(props){
                     </Col>
                     <Col>
                         <h5>{props.content}</h5>
-                        <p>Posted By :<span style={{ fontSize:'1.5rem'}}>{props.user_id}</span> </p>
+                        <p>Posted By :<span style={{ fontSize:'1.5rem'}}>{props.user_id||props.user.username }</span> </p>
                         <p>Posted On : {props.date_posted}</p>
 
                     </Col>
@@ -77,7 +65,7 @@ function AnimePost(props){
             {showForm ? <AnimeCommentForm id={props.id} api_id={props.api_id}  />: ''}
             {showComments ?
             comments.map((comment) => (
-            <CommentCard {...comment} user={user}/> 
+            <AnimeCommentCard {...comment} user={user}/> 
         )):<></>}<div className="py-2"></div>
        </div>
     )

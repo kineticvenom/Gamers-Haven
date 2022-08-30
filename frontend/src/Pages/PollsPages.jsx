@@ -5,7 +5,7 @@ import PollCard from '../components/PollCard'
 import {Button, Container, Row} from "react-bootstrap/";
 
 function PollsPages(props) {
-    
+    const {user} = props
     const [polls, setPolls] = useState(null)
     const [showForm,setShowForm] =useState(false)
     
@@ -33,7 +33,7 @@ function PollsPages(props) {
                     <div className="PollRow">
                         <Row >
                         {polls.map((poll) => (
-                            <PollCard {...poll} />
+                            <PollCard {...poll} user={user}/>
                         ))}
                     
                         </Row>

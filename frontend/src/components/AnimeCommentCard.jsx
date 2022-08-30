@@ -2,7 +2,7 @@ import {  Row, Col } from "react-bootstrap/";
 import axios from "axios"
 
 
-function CommentCard(props){
+function AnimeCommentCard(props){
     const { user } = props
    
     function deleteComment() { 
@@ -17,7 +17,7 @@ function CommentCard(props){
         })
     }
     return (
-            <div className="comment_box"> 
+            <div className="comment_box_anime"> 
                 
                     
                {user && user.username == props.user_id  && 
@@ -41,4 +41,4 @@ function CommentCard(props){
 
 }
 
-export default CommentCard;
+export default AnimeCommentCard;

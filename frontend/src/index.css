@@ -218,9 +218,10 @@ body{
 
 .event-page {
   background-color: #331d00;
+  padding-bottom: 300px;
 }
 
-.post_box_event {
+.event_box {
   color: aliceblue;
   border: solid black;
   margin: auto;

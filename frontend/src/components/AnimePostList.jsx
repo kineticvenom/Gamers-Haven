@@ -2,7 +2,7 @@ import AnimePost from "./AnimePost"
 import { useEffect } from "react"
 
 function AnimePostList(props){
-    const{posts, grabPosts} = props
+    const{posts, grabPosts,user} = props
 
 
     useEffect(()=>{
@@ -14,7 +14,7 @@ function AnimePostList(props){
 
     return (
         posts.map((post) => (
-            <AnimePost {...post}   /> 
+            <AnimePost {...post} user={user}  /> 
         ))
     )
 

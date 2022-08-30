@@ -1,10 +1,9 @@
 import { Row , Col } from "react-bootstrap/";
-import { Form, Button } from 'react-bootstrap'
+import {  Button } from 'react-bootstrap'
 import axios from "axios"
-
 import { useEffect, useState } from "react"
 import GameCommentForm from "./GameCommentForm";
-import CommentCard from "./CommentCard";
+import GameCommentCard from "./GameCommentCard";
 
 function GamePost(props){
     const {user} = props
@@ -12,17 +11,6 @@ function GamePost(props){
     const [showForm,setShowForm] =useState(false)
     const [showComments, setShowComments] = useState(false)
     
-
-    // const whoAmI = async () => {
-    // const response = await axios.get('/whoami')
-    // const user = response.data && response.data[0] && response.data[0].fields
-    // setUser(user)
-    // }
-
-    // useEffect(()=>{
-    // whoAmI()
-    // }, [])
-
     
     function deletePost() { 
         axios.delete('/post/delete', { data: { 
@@ -50,11 +38,10 @@ function GamePost(props){
     return (
         <div>
             <div className="post_box">   
-                <h2><strong>{props.game_title}</strong> <span style={{display: 'flex', justifyContent: 'center'}}>{props.title}</span></h2> 
+                <strong>{props.game_title}</strong><h2> <span style={{display: 'flex', justifyContent: 'center'}}>{props.title}</span></h2> 
             
-                        {user && user.username == props.user.username  && 
-                        <button className="delete_button_post" onClick={() => { deletePost() }}>X</button>  
-                    }
+                {user && user.username == props.user.username  && 
+                <button className="delete_button_post" onClick={() => { deletePost() }}>X</button> }
                 <hr />
                 <Row>
                     <Col sm='2'>
@@ -78,7 +65,7 @@ function GamePost(props){
             {showForm ? <GameCommentForm id={props.id} api_id={props.api_id}  />: ''}
             {showComments ?
             comments.map((comment) => (
-            <CommentCard {...comment} user={user}/> 
+            <GameCommentCard {...comment} user={user}/> 
         )):<></>}<div className="py-2"></div>
        </div>
     )

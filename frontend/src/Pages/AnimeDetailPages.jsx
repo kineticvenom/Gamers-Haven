@@ -6,9 +6,10 @@ import { Button } from 'react-bootstrap'
 
 
 function AnimeDetailPages(props) {
-    const category ='anime'
+    const category = 'anime'
+    
 
-    const {currentAnime, setCurrentAnime} = props
+    const {currentAnime, setCurrentAnime, user} = props
     
     const [posts, setPosts] = useState([])
     const [showForm,setShowForm] =useState(false)
@@ -65,7 +66,7 @@ function AnimeDetailPages(props) {
                         <h1 >Discussions</h1>
                         <Button onClick={() => { setShowForm(!showForm) }}>New Post</Button>
                         {showForm ? <AnimePostForm currentAnime={currentAnime}/>: ''}
-                        {currentAnime ? <AnimePostList posts={posts} grabPosts={grabPosts} /> : <h4>Loading posts..</h4>}
+                        {currentAnime ? <AnimePostList posts={posts} grabPosts={grabPosts} user={user} /> : <h4>Loading posts..</h4>}
                     </div>   
        
                 </div> : <h1>Loading..</h1>
