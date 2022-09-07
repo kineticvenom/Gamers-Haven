@@ -1,6 +1,6 @@
 .venv/
 venv/
-backend/static
+
 backend/backend/__pycache__/
 backend/backend_app/__pycache__/
 .DS_Store
